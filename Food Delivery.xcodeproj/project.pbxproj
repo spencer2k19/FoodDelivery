@@ -11,6 +11,10 @@
 		B6E912862AAF266C002B4B1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912852AAF266C002B4B1C /* ContentView.swift */; };
 		B6E912882AAF266E002B4B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E912872AAF266E002B4B1C /* Assets.xcassets */; };
 		B6E9128B2AAF266E002B4B1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E9128A2AAF266E002B4B1C /* Preview Assets.xcassets */; };
+		B6E912972AAF2DBC002B4B1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E912962AAF2DBC002B4B1C /* LaunchScreen.storyboard */; };
+		B6E9129C2AAF3228002B4B1C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9129B2AAF3228002B4B1C /* LoginView.swift */; };
+		B6E912A12AAF4532002B4B1C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912A02AAF4532002B4B1C /* Color.swift */; };
+		B6E912A42AAFBD63002B4B1C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912A32AAFBD63002B4B1C /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,11 @@
 		B6E912852AAF266C002B4B1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B6E912872AAF266E002B4B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6E9128A2AAF266E002B4B1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B6E912962AAF2DBC002B4B1C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B6E912982AAF313C002B4B1C /* Food-Delivery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Food-Delivery-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B6E9129B2AAF3228002B4B1C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B6E912A02AAF4532002B4B1C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		B6E912A32AAFBD63002B4B1C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +60,11 @@
 		B6E912822AAF266C002B4B1C /* Food Delivery */ = {
 			isa = PBXGroup;
 			children = (
+				B6E912982AAF313C002B4B1C /* Food-Delivery-Info.plist */,
+				B6E912912AAF2D7C002B4B1C /* Core */,
+				B6E912942AAF2D8E002B4B1C /* Data */,
+				B6E912932AAF2D89002B4B1C /* Domain */,
+				B6E912922AAF2D81002B4B1C /* Presentation */,
 				B6E912832AAF266C002B4B1C /* Food_DeliveryApp.swift */,
 				B6E912852AAF266C002B4B1C /* ContentView.swift */,
 				B6E912872AAF266E002B4B1C /* Assets.xcassets */,
@@ -65,6 +79,78 @@
 				B6E9128A2AAF266E002B4B1C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B6E912912AAF2D7C002B4B1C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B6E9129D2AAF44E5002B4B1C /* extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B6E912922AAF2D81002B4B1C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B6E912992AAF3213002B4B1C /* Auth */,
+				B6E912952AAF2DA6002B4B1C /* Launch */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B6E912932AAF2D89002B4B1C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B6E912942AAF2D8E002B4B1C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B6E912952AAF2DA6002B4B1C /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B6E912962AAF2DBC002B4B1C /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		B6E912992AAF3213002B4B1C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B6E912A22AAFBD53002B4B1C /* Register */,
+				B6E9129A2AAF3218002B4B1C /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B6E9129A2AAF3218002B4B1C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B6E9129B2AAF3228002B4B1C /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B6E9129D2AAF44E5002B4B1C /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B6E912A02AAF4532002B4B1C /* Color.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		B6E912A22AAFBD53002B4B1C /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B6E912A32AAFBD63002B4B1C /* RegisterView.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E912972AAF2DBC002B4B1C /* LaunchScreen.storyboard in Resources */,
 				B6E9128B2AAF266E002B4B1C /* Preview Assets.xcassets in Resources */,
 				B6E912882AAF266E002B4B1C /* Assets.xcassets in Resources */,
 			);
@@ -137,6 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E9129C2AAF3228002B4B1C /* LoginView.swift in Sources */,
+				B6E912A42AAFBD63002B4B1C /* RegisterView.swift in Sources */,
+				B6E912A12AAF4532002B4B1C /* Color.swift in Sources */,
 				B6E912862AAF266C002B4B1C /* ContentView.swift in Sources */,
 				B6E912842AAF266C002B4B1C /* Food_DeliveryApp.swift in Sources */,
 			);
@@ -270,9 +360,11 @@
 				DEVELOPMENT_TEAM = 4S5N4DZ3T3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Food-Delivery-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -299,9 +391,11 @@
 				DEVELOPMENT_TEAM = 4S5N4DZ3T3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Food-Delivery-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

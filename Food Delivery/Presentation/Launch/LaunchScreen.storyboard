@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_background" translatesAutoresizingMaskIntoConstraints="NO" id="vYv-6k-ANA">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Wen-Nj-9E7">
+                                <rect key="frame" x="136.66666666666666" y="366" width="119.99999999999997" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="9FD-hE-7S0"/>
+                                    <constraint firstAttribute="width" constant="120" id="dml-Ob-MlY"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vYv-6k-ANA" secondAttribute="bottom" id="4PO-w5-h4r"/>
+                            <constraint firstItem="vYv-6k-ANA" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="SGl-S6-q0Y"/>
+                            <constraint firstItem="Wen-Nj-9E7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UVB-eM-L0l"/>
+                            <constraint firstAttribute="trailing" secondItem="vYv-6k-ANA" secondAttribute="trailing" id="YsB-H6-Zho"/>
+                            <constraint firstItem="vYv-6k-ANA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fRP-GU-Iub"/>
+                            <constraint firstItem="Wen-Nj-9E7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ij1-VP-p56"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-105" y="388"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="food_logo" width="480" height="480"/>
+        <image name="splash_background" width="1500" height="3248"/>
+    </resources>
+</document>
