@@ -11,16 +11,20 @@ struct LoginView: View {
     @State private var emailField: String = ""
     @State private var passwordField: String = ""
     @State private var isChecked: Bool = false
-    
+        
     var body: some View {
         ScrollView {
             
             Image("food_logo")
                 .resizable()
                 .frame(width: 120,height: 120)
+            
+            
             Text("Sign in your account")
-                .font(.title3)
-                .fontWeight(.bold)
+                .font(.custom("Satoshi-Bold", size: 18))
+            
+            
+            
             
             
             contentFields
@@ -34,9 +38,14 @@ struct LoginView: View {
                 signInBtn
                 
                 
-                Button("Forgot password") {
+                Button {
                     
+                } label: {
+                    Text("Forgot password ?")
+                        .font(.custom("Satoshi", size: 17))
+                        .foregroundColor(Color.theme.accent)
                 }
+                
                 Spacer().frame(height: 30)
                 
                 HStack {
@@ -47,6 +56,7 @@ struct LoginView: View {
                     
                     
                     Text(" or continue with ")
+                        .font(.custom("Satoshi", size: 17))
                     
                     Rectangle()
                         .foregroundColor(.clear)
@@ -66,7 +76,7 @@ struct LoginView: View {
                 
                 Spacer().frame(height: 30)
                 footerContent
-                
+
                 
             }
             
@@ -78,6 +88,7 @@ struct LoginView: View {
         
         
     }
+    
 }
 
 struct LoginView_Previews: PreviewProvider {
@@ -91,17 +102,14 @@ extension LoginView {
         VStack(alignment: .leading) {
             
             Text("Email")
-                .font(.system(size: 17))
-                .fontWeight(.semibold)
-            
+                .font(.custom("Satoshi-Bold", size: 17))
             
             emailFieldView
             
             Spacer().frame(height:20)
             
             Text("Password")
-                .font(.system(size: 18))
-                .fontWeight(.semibold)
+                .font(.custom("Satoshi-Bold", size: 17))
             
             passwordFieldVew
             
@@ -114,19 +122,18 @@ extension LoginView {
     private var emailFieldView: some View {
         TextField("Enter email", text: $emailField)
             .padding()
-            .background(Color(cgColor: CGColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)))
+            .background(Color.theme.fieldBackground)
             .cornerRadius(12)
-            .overlay {
-                RoundedRectangle(cornerRadius: 12)
-                    .inset(by: 0.5)
-                    .stroke(Color(cgColor: CGColor(red: 0.09, green: 0.12, blue: 0.13, alpha: 1)).opacity(0.1),lineWidth: 1)
-            }
+            .overlay( RoundedRectangle(cornerRadius: 12)
+                .inset(by: 0.5)
+                .stroke(Color(red: 0.09, green: 0.12, blue: 0.13),lineWidth: 1).opacity(0.1))
+            
     }
     
     private var passwordFieldVew: some View {
         SecureField("Enter password", text: $passwordField)
             .padding()
-            .background(Color(cgColor: CGColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)))
+            .background(Color.theme.fieldBackground)
             .cornerRadius(12)
             .overlay {
                 RoundedRectangle(cornerRadius: 12)
@@ -141,9 +148,10 @@ extension LoginView {
         } label: {
             Text("SIGN IN")
                 .foregroundColor(.white)
+                .font(.custom("Satoshi-Bold", size: 17))
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(Color.accentColor)
+                .background(Color.theme.accent)
                 .cornerRadius(12)
                 .padding()
         }
@@ -159,18 +167,22 @@ extension LoginView {
                     .frame(width: 18, height: 18)
                 
                 Text("Facebook")
-                    .foregroundColor(Color(red: 0.09, green: 0.12, blue: 0.13))
-                    .fontWeight(.semibold)
+                    
+                    .font(.custom("Satoshi-Medium", size: 17))
                 
                 
             }
             .padding(.horizontal,20)
             .padding()
+            .background(Color.theme.background)
             .cornerRadius(16)
             .overlay {
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color(cgColor: CGColor(red: 0.09, green: 0.12, blue: 0.13, alpha: 1)).opacity(0.1),lineWidth: 1)
+                    .inset(by: 1)
+                    .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
             }
+            .foregroundColor(Color.theme.label)
+            
             
             
         }
@@ -187,7 +199,7 @@ extension LoginView {
                     .frame(width: 18, height: 18)
                 
                 Text("Google")
-                    .foregroundColor(Color(red: 0.09, green: 0.12, blue: 0.13))
+                    .font(.custom("Satoshi-Medium", size: 17))
                     .fontWeight(.semibold)
                 
                 
@@ -195,9 +207,10 @@ extension LoginView {
             .padding(.horizontal,20)
             .padding()
             .cornerRadius(16)
+            .foregroundColor(Color.theme.label)
             .overlay {
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color(cgColor: CGColor(red: 0.09, green: 0.12, blue: 0.13, alpha: 1)).opacity(0.1),lineWidth: 1)
+                    .stroke(Color.theme.strokeBtnColor,lineWidth: 1)
             }
             
             
@@ -207,11 +220,23 @@ extension LoginView {
     private var footerContent: some View {
         HStack {
             Text("Don't have an account ?")
-                .font(.body)
+                .font(.custom("Satoshi-Regular", size: 16))
+            
+            
+//            Button {
+//                showRegisterView = true
+//            } label: {
+//                Text("Sign up")
+//                    .font(.custom("Satoshi-Regular", size: 17))
+//                    .foregroundColor(Color.theme.accent)
+//            }
+
             
             NavigationLink(destination: RegisterView()) {
                 Text("Sign up")
+                    .font(.custom("Satoshi-Regular", size: 17))
             }
+            .foregroundColor(Color.theme.accent)
             
         }
     }

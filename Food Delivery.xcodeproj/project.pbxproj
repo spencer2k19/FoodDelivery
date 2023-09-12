@@ -15,6 +15,18 @@
 		B6E9129C2AAF3228002B4B1C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9129B2AAF3228002B4B1C /* LoginView.swift */; };
 		B6E912A12AAF4532002B4B1C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912A02AAF4532002B4B1C /* Color.swift */; };
 		B6E912A42AAFBD63002B4B1C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912A32AAFBD63002B4B1C /* RegisterView.swift */; };
+		B6E912B12AB080F9002B4B1C /* SatoshiBlack.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912B02AB080F9002B4B1C /* SatoshiBlack.otf */; };
+		B6E912B32AB08116002B4B1C /* SatoshiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912B22AB08116002B4B1C /* SatoshiBold.otf */; };
+		B6E912B52AB08133002B4B1C /* SatoshiBlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912B42AB08133002B4B1C /* SatoshiBlackItalic.otf */; };
+		B6E912BD2AB08152002B4B1C /* SatoshiLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912B62AB08151002B4B1C /* SatoshiLight.otf */; };
+		B6E912BE2AB08152002B4B1C /* SatoshiMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912B72AB08151002B4B1C /* SatoshiMedium.otf */; };
+		B6E912BF2AB08152002B4B1C /* SatoshiMediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912B82AB08151002B4B1C /* SatoshiMediumItalic.otf */; };
+		B6E912C02AB08152002B4B1C /* SatoshiRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912B92AB08151002B4B1C /* SatoshiRegular.otf */; };
+		B6E912C12AB08152002B4B1C /* SatoshiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912BA2AB08152002B4B1C /* SatoshiBoldItalic.otf */; };
+		B6E912C22AB08152002B4B1C /* SatoshiLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912BB2AB08152002B4B1C /* SatoshiLightItalic.otf */; };
+		B6E912C32AB08152002B4B1C /* SatoshiItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912BC2AB08152002B4B1C /* SatoshiItalic.otf */; };
+		B6E912C52AB0FCB6002B4B1C /* BioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912C42AB0FCB6002B4B1C /* BioView.swift */; };
+		B6E912C72AB121B5002B4B1C /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +40,18 @@
 		B6E9129B2AAF3228002B4B1C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B6E912A02AAF4532002B4B1C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B6E912A32AAFBD63002B4B1C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		B6E912B02AB080F9002B4B1C /* SatoshiBlack.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiBlack.otf; sourceTree = "<group>"; };
+		B6E912B22AB08116002B4B1C /* SatoshiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiBold.otf; sourceTree = "<group>"; };
+		B6E912B42AB08133002B4B1C /* SatoshiBlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiBlackItalic.otf; sourceTree = "<group>"; };
+		B6E912B62AB08151002B4B1C /* SatoshiLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiLight.otf; sourceTree = "<group>"; };
+		B6E912B72AB08151002B4B1C /* SatoshiMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiMedium.otf; sourceTree = "<group>"; };
+		B6E912B82AB08151002B4B1C /* SatoshiMediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiMediumItalic.otf; sourceTree = "<group>"; };
+		B6E912B92AB08151002B4B1C /* SatoshiRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiRegular.otf; sourceTree = "<group>"; };
+		B6E912BA2AB08152002B4B1C /* SatoshiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiBoldItalic.otf; sourceTree = "<group>"; };
+		B6E912BB2AB08152002B4B1C /* SatoshiLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiLightItalic.otf; sourceTree = "<group>"; };
+		B6E912BC2AB08152002B4B1C /* SatoshiItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiItalic.otf; sourceTree = "<group>"; };
+		B6E912C42AB0FCB6002B4B1C /* BioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioView.swift; sourceTree = "<group>"; };
+		B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +108,7 @@
 		B6E912912AAF2D7C002B4B1C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B6E912A52AB06CD6002B4B1C /* Fonts */,
 				B6E9129D2AAF44E5002B4B1C /* extensions */,
 			);
 			path = Core;
@@ -149,8 +174,27 @@
 			isa = PBXGroup;
 			children = (
 				B6E912A32AAFBD63002B4B1C /* RegisterView.swift */,
+				B6E912C42AB0FCB6002B4B1C /* BioView.swift */,
+				B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		B6E912A52AB06CD6002B4B1C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B6E912BA2AB08152002B4B1C /* SatoshiBoldItalic.otf */,
+				B6E912BC2AB08152002B4B1C /* SatoshiItalic.otf */,
+				B6E912B62AB08151002B4B1C /* SatoshiLight.otf */,
+				B6E912BB2AB08152002B4B1C /* SatoshiLightItalic.otf */,
+				B6E912B72AB08151002B4B1C /* SatoshiMedium.otf */,
+				B6E912B82AB08151002B4B1C /* SatoshiMediumItalic.otf */,
+				B6E912B92AB08151002B4B1C /* SatoshiRegular.otf */,
+				B6E912B02AB080F9002B4B1C /* SatoshiBlack.otf */,
+				B6E912B22AB08116002B4B1C /* SatoshiBold.otf */,
+				B6E912B42AB08133002B4B1C /* SatoshiBlackItalic.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,9 +255,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E912BD2AB08152002B4B1C /* SatoshiLight.otf in Resources */,
+				B6E912B32AB08116002B4B1C /* SatoshiBold.otf in Resources */,
+				B6E912B52AB08133002B4B1C /* SatoshiBlackItalic.otf in Resources */,
+				B6E912C12AB08152002B4B1C /* SatoshiBoldItalic.otf in Resources */,
 				B6E912972AAF2DBC002B4B1C /* LaunchScreen.storyboard in Resources */,
+				B6E912C02AB08152002B4B1C /* SatoshiRegular.otf in Resources */,
+				B6E912BE2AB08152002B4B1C /* SatoshiMedium.otf in Resources */,
 				B6E9128B2AAF266E002B4B1C /* Preview Assets.xcassets in Resources */,
 				B6E912882AAF266E002B4B1C /* Assets.xcassets in Resources */,
+				B6E912B12AB080F9002B4B1C /* SatoshiBlack.otf in Resources */,
+				B6E912C32AB08152002B4B1C /* SatoshiItalic.otf in Resources */,
+				B6E912C22AB08152002B4B1C /* SatoshiLightItalic.otf in Resources */,
+				B6E912BF2AB08152002B4B1C /* SatoshiMediumItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +281,9 @@
 				B6E9129C2AAF3228002B4B1C /* LoginView.swift in Sources */,
 				B6E912A42AAFBD63002B4B1C /* RegisterView.swift in Sources */,
 				B6E912A12AAF4532002B4B1C /* Color.swift in Sources */,
+				B6E912C52AB0FCB6002B4B1C /* BioView.swift in Sources */,
 				B6E912862AAF266C002B4B1C /* ContentView.swift in Sources */,
+				B6E912C72AB121B5002B4B1C /* PaymentMethodView.swift in Sources */,
 				B6E912842AAF266C002B4B1C /* Food_DeliveryApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +423,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +455,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

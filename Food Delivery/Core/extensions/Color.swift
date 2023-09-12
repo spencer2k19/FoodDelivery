@@ -10,6 +10,8 @@ import SwiftUI
 
 
 extension Color {
+    static let theme = ColorTheme()
+    
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
@@ -34,4 +36,17 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
+    
+}
+
+struct ColorTheme {
+    let accent = Color("AccentColor")
+    let background = Color("BackgroundColor")
+    let gray = Color("GrayColor")
+    let green = Color("GreenColor")
+    let legerBlue = Color("LegerBlueColor")
+    let red = Color("RedColor")
+    let fieldBackground = Color("FieldColor")
+    let label = Color("LabelColor")
+    let strokeBtnColor = Color("StrokeColor")
 }

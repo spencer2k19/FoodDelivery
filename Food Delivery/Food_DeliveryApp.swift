@@ -13,6 +13,7 @@ struct Food_DeliveryApp: App {
         WindowGroup {
             NavigationView {
                 LoginView()
+//                    .navigationBarHidden(true)
             }
            
         }
