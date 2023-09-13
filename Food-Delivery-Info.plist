@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SatoshiBlack.otf</string>
+		<string>SatoshiBlackItalic.otf</string>
+		<string>SatoshiBold.otf</string>
+		<string>SatoshiBoldItalic.otf</string>
+		<string>SatoshiItalic.otf</string>
+		<string>SatoshiLight.otf</string>
+		<string>SatoshiLightItalic.otf</string>
+		<string>SatoshiMedium.otf</string>
+		<string>SatoshiMediumItalic.otf</string>
+		<string>SatoshiRegular.otf</string>
+	</array>
+</dict>
+</plist>
