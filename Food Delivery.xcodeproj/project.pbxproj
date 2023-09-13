@@ -27,6 +27,8 @@
 		B6E912C32AB08152002B4B1C /* SatoshiItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E912BC2AB08152002B4B1C /* SatoshiItalic.otf */; };
 		B6E912C52AB0FCB6002B4B1C /* BioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912C42AB0FCB6002B4B1C /* BioView.swift */; };
 		B6E912C72AB121B5002B4B1C /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */; };
+		B6E912CA2AB1B0BB002B4B1C /* MethodRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912C92AB1B0BB002B4B1C /* MethodRowView.swift */; };
+		B6E912CD2AB1CB80002B4B1C /* AddCreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912CC2AB1CB80002B4B1C /* AddCreditCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		B6E912BC2AB08152002B4B1C /* SatoshiItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SatoshiItalic.otf; sourceTree = "<group>"; };
 		B6E912C42AB0FCB6002B4B1C /* BioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioView.swift; sourceTree = "<group>"; };
 		B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
+		B6E912C92AB1B0BB002B4B1C /* MethodRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodRowView.swift; sourceTree = "<group>"; };
+		B6E912CC2AB1CB80002B4B1C /* AddCreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,9 +177,12 @@
 		B6E912A22AAFBD53002B4B1C /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				B6E912CB2AB1C6B8002B4B1C /* ViewModels */,
+				B6E912C82AB1ACFC002B4B1C /* components */,
 				B6E912A32AAFBD63002B4B1C /* RegisterView.swift */,
 				B6E912C42AB0FCB6002B4B1C /* BioView.swift */,
 				B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */,
+				B6E912CC2AB1CB80002B4B1C /* AddCreditCardView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -195,6 +202,21 @@
 				B6E912B42AB08133002B4B1C /* SatoshiBlackItalic.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B6E912C82AB1ACFC002B4B1C /* components */ = {
+			isa = PBXGroup;
+			children = (
+				B6E912C92AB1B0BB002B4B1C /* MethodRowView.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		B6E912CB2AB1C6B8002B4B1C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,8 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E912CD2AB1CB80002B4B1C /* AddCreditCardView.swift in Sources */,
 				B6E9129C2AAF3228002B4B1C /* LoginView.swift in Sources */,
 				B6E912A42AAFBD63002B4B1C /* RegisterView.swift in Sources */,
+				B6E912CA2AB1B0BB002B4B1C /* MethodRowView.swift in Sources */,
 				B6E912A12AAF4532002B4B1C /* Color.swift in Sources */,
 				B6E912C52AB0FCB6002B4B1C /* BioView.swift in Sources */,
 				B6E912862AAF266C002B4B1C /* ContentView.swift in Sources */,
@@ -431,9 +455,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spencer..Food-Delivery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -463,9 +490,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spencer..Food-Delivery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

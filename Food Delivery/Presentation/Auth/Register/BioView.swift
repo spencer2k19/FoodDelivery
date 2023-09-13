@@ -14,6 +14,23 @@ struct BioView: View {
     @State private var gender: String = "Male"
     @State private var birthdate: String = "23/Octomber/1990"
     @State private var showPaymentView: Bool = false
+    @State private var showGender: Bool = false
+    var genders: [String] = ["Male", "Female"]
+    
+    
+    private func toggleGenderList() {
+        withAnimation(.easeInOut) {
+            showGender.toggle()
+        }
+    }
+    
+    private func selectGender(_ genderSelected: String) {
+        withAnimation(.easeInOut) {
+            gender = genderSelected
+            showGender = false
+        }
+       
+    }
     
     
     
@@ -66,21 +83,47 @@ struct BioView: View {
                 Text("Gender")
                     .font(.custom("Satoshi-Bold", size: 18))
                 Button {
-                    
+                    toggleGenderList()
                 } label: {
-                    Text(gender)
-                        .foregroundColor(Color.theme.label)
-                        .font(.custom("Satoshi-Regular", size: 18))
-                        .padding(.all,20)
-                        .frame(maxWidth: .infinity,alignment: .leading)
+                    
+                    VStack {
+                        Text(gender)
+                            .foregroundColor(Color.theme.label)
+                            .font(.custom("Satoshi-Regular", size: 18))
+                            .padding(.all,20)
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .overlay(alignment: .trailing, content: {
+                                Image(systemName: "chevron.down")
+                                    .foregroundColor(Color.theme.label)
+                                    .padding()
+                                
+                            })
+                        
+                        if showGender {
+                           ForEach(genders, id: \.self) { value in
+                                    Button {
+                                       selectGender(value)
+                                    } label: {
+                                        HStack {
+                                            Text(value)
+                                                .foregroundColor(Color.theme.label)
+                                                .font(.custom("Satoshi-Regular", size: 17))
+                                        }
+                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                        .padding(.horizontal,20)
+                                    }
+                                    .padding(.vertical,20)
+                                    
+                                   
+                                }
+                            
+                        }
+                    }
+                    
+                   
                         .background(Color.theme.fieldBackground)
                         .cornerRadius(12)
-                        .overlay(alignment: .trailing, content: {
-                            Image(systemName: "chevron.down")
-                                .foregroundColor(Color.theme.label)
-                                .padding()
-                            
-                        })
+                        
                         .overlay {
                             RoundedRectangle(cornerRadius: 12)
                                 .inset(by: 0.5)
@@ -90,6 +133,7 @@ struct BioView: View {
                     
                     
                 }
+                
                 
                 Spacer().frame(height: 10)
                 Group {
