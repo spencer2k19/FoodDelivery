@@ -29,6 +29,8 @@
 		B6E912C72AB121B5002B4B1C /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */; };
 		B6E912CA2AB1B0BB002B4B1C /* MethodRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912C92AB1B0BB002B4B1C /* MethodRowView.swift */; };
 		B6E912CD2AB1CB80002B4B1C /* AddCreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912CC2AB1CB80002B4B1C /* AddCreditCardView.swift */; };
+		B6E912CF2AB1F7B5002B4B1C /* UploadPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912CE2AB1F7B5002B4B1C /* UploadPhotoView.swift */; };
+		B6E912D12AB1FF79002B4B1C /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E912D02AB1FF79002B4B1C /* LocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
 		B6E912C92AB1B0BB002B4B1C /* MethodRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodRowView.swift; sourceTree = "<group>"; };
 		B6E912CC2AB1CB80002B4B1C /* AddCreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardView.swift; sourceTree = "<group>"; };
+		B6E912CE2AB1F7B5002B4B1C /* UploadPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoView.swift; sourceTree = "<group>"; };
+		B6E912D02AB1FF79002B4B1C /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,8 @@
 				B6E912C42AB0FCB6002B4B1C /* BioView.swift */,
 				B6E912C62AB121B5002B4B1C /* PaymentMethodView.swift */,
 				B6E912CC2AB1CB80002B4B1C /* AddCreditCardView.swift */,
+				B6E912CE2AB1F7B5002B4B1C /* UploadPhotoView.swift */,
+				B6E912D02AB1FF79002B4B1C /* LocationView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -306,6 +312,8 @@
 				B6E912CA2AB1B0BB002B4B1C /* MethodRowView.swift in Sources */,
 				B6E912A12AAF4532002B4B1C /* Color.swift in Sources */,
 				B6E912C52AB0FCB6002B4B1C /* BioView.swift in Sources */,
+				B6E912D12AB1FF79002B4B1C /* LocationView.swift in Sources */,
+				B6E912CF2AB1F7B5002B4B1C /* UploadPhotoView.swift in Sources */,
 				B6E912862AAF266C002B4B1C /* ContentView.swift in Sources */,
 				B6E912C72AB121B5002B4B1C /* PaymentMethodView.swift in Sources */,
 				B6E912842AAF266C002B4B1C /* Food_DeliveryApp.swift in Sources */,

@@ -41,7 +41,7 @@ struct BioView: View {
                     .foregroundColor(.clear)
                     .frame(width: 52, height: 52)
                     
-                    .background(Color.theme.background)
+                    .background(Color.theme.cardBackgroundColor)
                     .cornerRadius(16)
                     .shadow(color: Color(red: 0.05, green: 0.37, blue: 0.98).opacity(0.2), radius: 10, x: 0, y: 7)
                     .overlay(

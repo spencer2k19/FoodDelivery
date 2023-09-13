@@ -30,7 +30,7 @@ struct MethodRowView<Content: View>: View {
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(height: 90)
-                    .background(Color.theme.background)
+                    .background(Color.theme.cardBackgroundColor)
                     .cornerRadius(16)
                     .padding()
                     .shadow(color: Color(red: 0.05, green: 0.37, blue: 0.98).opacity(0.2), radius: 10, x: 0, y: 7)
