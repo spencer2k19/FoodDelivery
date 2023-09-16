@@ -9,12 +9,17 @@ import SwiftUI
 
 @main
 struct Food_DeliveryApp: App {
+    @State private var isActive : Bool = false
+    @StateObject private var navRoute = NavRouteModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                LoginView()
-//                    .navigationBarHidden(true)
+                LoginView(isActive: $isActive)
             }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .environment(\.rootPresentationMode, $isActive)
+            .environmentObject(navRoute)
            
         }
     }

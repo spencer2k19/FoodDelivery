@@ -17,6 +17,7 @@ struct BioView: View {
     @State private var showGender: Bool = false
     var genders: [String] = ["Male", "Female"]
     
+    static let identifier = "bio"
     
     private func toggleGenderList() {
         withAnimation(.easeInOut) {

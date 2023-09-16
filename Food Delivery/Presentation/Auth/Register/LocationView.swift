@@ -9,6 +9,9 @@ import SwiftUI
 
 struct LocationView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.rootPresentationMode) var rootPresentationMode
+    
+    
     var body: some View {
         VStack {
             header
@@ -74,9 +77,6 @@ extension LocationView {
             Text("Set Your Location")
                 .font(.custom("Satoshi-Bold", size: 20))
             
-            
-            
-            
         }.frame(maxWidth: .infinity,alignment: .leading)
             .padding()
     }
@@ -84,9 +84,9 @@ extension LocationView {
     
     var nextBtn: some View {
         Button {
-            
+            rootPresentationMode.wrappedValue.dismiss()
         } label: {
-            Text("NEXT")
+            Text("VALIDATE")
                 .font(.custom("Satoshi-Bold", size: 17))
                 .foregroundColor(.white)
                 .padding(.vertical,20)

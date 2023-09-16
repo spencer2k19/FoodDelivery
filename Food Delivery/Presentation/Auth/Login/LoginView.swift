@@ -11,7 +11,10 @@ struct LoginView: View {
     @State private var emailField: String = ""
     @State private var passwordField: String = ""
     @State private var isChecked: Bool = false
-        
+    @Binding var isActive:Bool
+    @EnvironmentObject private var navRoute:NavRouteModel
+    
+    
     var body: some View {
         ScrollView {
             
@@ -19,25 +22,15 @@ struct LoginView: View {
                 .resizable()
                 .frame(width: 120,height: 120)
             
-            
             Text("Sign in your account")
                 .font(.custom("Satoshi-Bold", size: 18))
-            
-            
-            
-            
-            
             contentFields
-            
             Toggle("Remember me", isOn: $isChecked)
                 .padding()
                 .font(.headline)
             
             Group {
-                
                 signInBtn
-                
-                
                 Button {
                     
                 } label: {
@@ -45,9 +38,7 @@ struct LoginView: View {
                         .font(.custom("Satoshi", size: 17))
                         .foregroundColor(Color.theme.accent)
                 }
-                
                 Spacer().frame(height: 30)
-                
                 HStack {
                     Rectangle()
                         .foregroundColor(.clear)
@@ -65,35 +56,27 @@ struct LoginView: View {
                 }
                 
                 Spacer().frame(height: 20)
-                
                 HStack(spacing: 10) {
                     facebookBtn
                     googleBtn
-                    
-                    
-                    
                 }
                 
                 Spacer().frame(height: 30)
                 footerContent
-
                 
+                NavigationLink(destination: MainView(), tag: MainView.identifier, selection: $navRoute.currentTag) {
+                    EmptyView()
+                }
             }
-            
-            
-            
-            
         }
-        
-        
-        
     }
     
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(isActive: .constant(false))
+            .environmentObject(NavRouteModel())
     }
 }
 
@@ -127,7 +110,7 @@ extension LoginView {
             .overlay( RoundedRectangle(cornerRadius: 12)
                 .inset(by: 0.5)
                 .stroke(Color(red: 0.09, green: 0.12, blue: 0.13),lineWidth: 1).opacity(0.1))
-            
+        
     }
     
     private var passwordFieldVew: some View {
@@ -144,7 +127,7 @@ extension LoginView {
     
     private var signInBtn: some View {
         Button {
-            
+            navRoute.currentTag = MainView.identifier
         } label: {
             Text("SIGN IN")
                 .foregroundColor(.white)
@@ -167,7 +150,7 @@ extension LoginView {
                     .frame(width: 18, height: 18)
                 
                 Text("Facebook")
-                    
+                
                     .font(.custom("Satoshi-Medium", size: 17))
                 
                 
@@ -212,8 +195,6 @@ extension LoginView {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(Color.theme.strokeBtnColor,lineWidth: 1)
             }
-            
-            
         }
     }
     
@@ -222,17 +203,7 @@ extension LoginView {
             Text("Don't have an account ?")
                 .font(.custom("Satoshi-Regular", size: 16))
             
-            
-//            Button {
-//                showRegisterView = true
-//            } label: {
-//                Text("Sign up")
-//                    .font(.custom("Satoshi-Regular", size: 17))
-//                    .foregroundColor(Color.theme.accent)
-//            }
-
-            
-            NavigationLink(destination: RegisterView()) {
+            NavigationLink(destination: RegisterView(),isActive: $isActive) {
                 Text("Sign up")
                     .font(.custom("Satoshi-Regular", size: 17))
             }

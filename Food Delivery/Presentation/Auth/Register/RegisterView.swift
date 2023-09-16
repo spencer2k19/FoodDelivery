@@ -14,6 +14,7 @@ struct RegisterView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var goToBioView: Bool = false
     
+    static let identifier = "register"
     
     
     var body: some View {

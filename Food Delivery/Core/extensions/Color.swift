@@ -50,4 +50,5 @@ struct ColorTheme {
     let fieldBackground = Color("FieldColor")
     let label = Color("LabelColor")
     let strokeBtnColor = Color("StrokeColor")
+    let selectedTabColor = Color("SelectedTabColor")
 }
