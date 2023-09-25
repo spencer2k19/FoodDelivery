@@ -13,6 +13,9 @@ struct PaymentMethodView: View {
     @State private var showCreditCardView: Bool = false
     
     
+    let fromLogin: Bool
+    
+    
     
     var body: some View {
         ScrollView {
@@ -46,12 +49,13 @@ struct PaymentMethodView: View {
         }
         
         .navigationBarBackButtonHidden()
+        
     }
 }
 
 struct PaymentMethodView_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentMethodView()
+        PaymentMethodView(fromLogin: true)
     }
 }
 
@@ -147,7 +151,9 @@ extension PaymentMethodView {
     
     var nextBtn: some View {
         Button {
-            showCreditCardView = true
+            if fromLogin {
+                showCreditCardView = true
+            }
         } label: {
             Text("NEXT")
                 .font(.custom("Satoshi-Bold", size: 17))

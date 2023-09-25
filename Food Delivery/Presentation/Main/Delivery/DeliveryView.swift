@@ -1,59 +1,44 @@
 //
-//  OrderDetailsView.swift
+//  DeliveryView.swift
 //  Food Delivery
 //
-//  Created by Loic HACHEME on 16/09/2023.
+//  Created by Loic HACHEME on 17/09/2023.
 //
 
 import SwiftUI
 
-struct OrderDetailsView: View {
+struct DeliveryView: View {
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.colorScheme) private var colorScheme
-    @State private var searchField: String = ""
-    @State private var showDeliveryView: Bool = false
+    @State private var deliveryPlaceIndex:Int = -1
+    @State private var showPaymentView: Bool = false
+    
     
     var orderColor: Color {
         return colorScheme == .dark ? Color.white.opacity(0.6) : Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.6)
     }
-    
-    
-    
+   
     
     var body: some View {
-        ScrollView {
+        VStack {
             header
-            TextField("Search...", text: $searchField)
-                .frame(maxWidth: .infinity)
-                .padding(.leading,50)
-                .padding(.vertical)
-                .background(Color.theme.fieldBackground)
-                .cornerRadius(50)
-                .overlay(
-                    Image("search")
-                        .resizable()
-                        .renderingMode(.template)
-                        .foregroundColor(.theme.label)
-                        .frame(width: 22, height: 22).padding(),
-                    
-                    alignment: .leading
-                    
-                )
-                .overlay(
-                    Image("filter")
-                        .resizable()
-                        .renderingMode(.template)
-                        .foregroundColor(.theme.label)
-                        .frame(width: 22, height: 22).padding(),
-                    alignment: .trailing)
             
-            Spacer().frame(height: 30)
+            ScrollView(showsIndicators: false) {
+                DeliveryItemView(conditionForSelected: deliveryPlaceIndex == 0) {
+                    deliveryPlaceIndex = 0
+                }
+                
+                DeliveryItemView(conditionForSelected: deliveryPlaceIndex == 1) {
+                    deliveryPlaceIndex = 1
+                }
+               
+               
+            }
             
-            OrderDetailItemView()
-            OrderDetailItemView()
-            OrderDetailItemView()
+          
             
-            Spacer().frame(height: 30)
+            Spacer()
+            
             
             VStack {
                 HStack {
@@ -103,40 +88,39 @@ struct OrderDetailsView: View {
             
             .cornerRadius(12)
             
-            Group {
-                Spacer().frame(height: 30)
-                
-                Button {
-                    showDeliveryView = true
-                } label: {
-                    Text("Place my order")
-                        .font(.custom("Satoshi-Bold", size: 16))
-                        .foregroundColor(.white)
-                        .padding(.horizontal,50)
-                        .padding(.vertical,20)
-                        .background(Color.theme.accent)
-                        .cornerRadius(16)
-                }
-                
-                NavigationLink(destination: DeliveryView(), isActive: $showDeliveryView) {
-                    EmptyView()
-                }
+            
+            Spacer().frame(height: 30)
+            
+            Button {
+                showPaymentView = true
+            } label: {
+                Text("NEXT")
+                    .font(.custom("Satoshi-Bold", size: 16))
+                    .foregroundColor(.white)
+                    .padding(.horizontal,50)
+                    .padding(.vertical,20)
+                    .background(Color.theme.accent)
+                    .cornerRadius(16)
             }
-       
+            
+            NavigationLink(destination: PaymentMethodView(fromLogin: false), isActive: $showPaymentView) {
+                EmptyView()
+            }
+            
+            
         }
         .padding(.horizontal)
         .navigationBarBackButtonHidden()
     }
 }
 
-struct OrderDetailsView_Previews: PreviewProvider {
+struct DeliveryView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderDetailsView()
+        DeliveryView()
     }
 }
 
-extension OrderDetailsView {
-    
+extension DeliveryView {
     var header: some View {
         HStack {
             Rectangle()
@@ -156,7 +140,7 @@ extension OrderDetailsView {
             Spacer().frame(width: 40)
             
             
-            Text("Order Details")
+            Text("Deliver to")
                 .font(.custom("Satoshi-Bold", size: 20))
             
             

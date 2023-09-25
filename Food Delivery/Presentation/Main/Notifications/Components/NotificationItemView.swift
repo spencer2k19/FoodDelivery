@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct NotificationItemView: View {
+    let callable: () -> Void
+    
+    
     var body: some View {
        Rectangle()
             .foregroundColor(.clear)
@@ -41,11 +44,16 @@ struct NotificationItemView: View {
             )
             .padding(.vertical)
             .padding(.horizontal,10)
+            .onTapGesture {
+                callable()
+            }
     }
 }
 
 struct NotificationItemView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationItemView()
+        NotificationItemView {
+            
+        }
     }
 }

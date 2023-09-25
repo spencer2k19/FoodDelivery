@@ -11,9 +11,15 @@ struct NotificationsView: View {
     @Environment(\.presentationMode) private var presentationMode
     @State private var searchField: String = ""
     @State private var showOrderDetails:Bool = false
+    var callableOnClick: () ->Void {
+        return {
+            self.showOrderDetails = true
+        }
+    }
     
     
     var body: some View {
+    
         ScrollView {
             header
             
@@ -26,6 +32,8 @@ struct NotificationsView: View {
                 .overlay(
                     Image("search")
                         .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.theme.label)
                         .frame(width: 22, height: 22).padding(),
                     
                     alignment: .leading
@@ -33,12 +41,9 @@ struct NotificationsView: View {
                 )
             
             Spacer().frame(height: 30)
-            NotificationItemView()
-                .onTapGesture {
-                    showOrderDetails = true
-                }
-            NotificationItemView()
-            NotificationItemView()
+            NotificationItemView(callable: callableOnClick)
+            NotificationItemView(callable: callableOnClick)
+            NotificationItemView(callable: callableOnClick)
             
             
             NavigationLink(destination: OrderDetailsView(), isActive: $showOrderDetails) {

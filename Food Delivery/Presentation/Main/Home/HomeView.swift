@@ -11,6 +11,7 @@ struct HomeView: View {
     @State private var search: String = ""
     @State private var selectedPage = 0
     @State private var showNotification: Bool = false
+    @State private var showRectaurantDetail: Bool = false
     
     
     var body: some View {
@@ -62,6 +63,11 @@ struct HomeView: View {
                 EmptyView()
             }
             
+            //Navigation Link on rectaurant Detail
+            NavigationLink(destination: RestaurantDetailsView(), isActive: $showRectaurantDetail) {
+                EmptyView()
+            }
+            
             ScrollView(showsIndicators: false) {
                 
                 VStack(alignment: .leading,spacing: 20) {
@@ -86,6 +92,9 @@ struct HomeView: View {
                     ScrollView(.horizontal,showsIndicators: false) {
                         HStack(spacing: 20) {
                             FoodView()
+                                .onTapGesture {
+                                    showRectaurantDetail = true
+                                }
                             FoodView()
                             FoodView()
                             FoodView()

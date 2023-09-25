@@ -14,6 +14,7 @@ struct BioView: View {
     @State private var gender: String = "Male"
     @State private var birthdate: String = "23/Octomber/1990"
     @State private var showPaymentView: Bool = false
+    @State private var showAddCreditView: Bool = false
     @State private var showGender: Bool = false
     var genders: [String] = ["Male", "Female"]
     
@@ -216,10 +217,9 @@ struct BioView: View {
                 
             }
             
-            NavigationLink(destination: PaymentMethodView(), isActive: $showPaymentView) {
+            NavigationLink(destination: PaymentMethodView(fromLogin: true), isActive: $showPaymentView) {
                 EmptyView()
             }
-            
             
         }
         .navigationTitle("")
