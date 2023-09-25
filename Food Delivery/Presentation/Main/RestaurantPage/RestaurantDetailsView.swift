@@ -9,6 +9,21 @@ import SwiftUI
 
 struct RestaurantDetailsView: View {
     @Environment(\.colorScheme) private var colorScheme
+    @State private var showTestimonials: Bool = false
+    @State private var showFullDescription: Bool = false
+    let description: String = """
+A cheeseburger is a burger with a slice of melted cheese on top of the meat patty, added near the end of the cooking time. Cheeseburgers can include variations in structure, ingredients and composition. As with other hamburgers, a cheeseburger may include various condiments and other toppings such as:
+    - Lettuce
+    - Tomato
+    - Onion
+    - Pickles
+    - Bacon
+    - Avocado
+    - Mushrooms
+    - Mayonnaise
+    - Ketchup
+    - Mustard
+"""
     
     var circleContentColor: Color {
         return colorScheme == .light ? Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1)
@@ -19,143 +34,86 @@ struct RestaurantDetailsView: View {
         ZStack(alignment: .top) {
             
             GeometryReader { geometry in
-                Image("restaurant_page")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: geometry.size.width,maxHeight: geometry.size.height)
-                    .clipped()
-                    .ignoresSafeArea()
+                imageBackground(geometry: geometry)
                 
-                    ScrollView(showsIndicators: false) {
-                        VStack(alignment: .leading) {
-                            HStack {
-                              Text("Popular")
-                                    .font(.custom("Satoshi-Regular", size: 14))
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal,10)
-                                    .padding(.vertical,5)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 32)
-                                            .fill(Color.theme.accent) )
-                                    .padding()
-                                Spacer()
-                                
-                                Circle()
-                                    .frame(width: 34, height: 34)
-                                    .foregroundColor(.theme.legerBlue)
-                                    .overlay(
-                                        Image("location")
-                                            .resizable()
-                                            .frame(width: 18, height: 18)
-                                    )
-                                
-                                Spacer().frame(width: 10)
-                                
-                                Circle()
-                                    .frame(width: 34, height: 34)
-                                    .foregroundColor(.theme.legerBlue)
-                                    .overlay(
-                                        Image("heart")
-                                            .resizable()
-                                            .renderingMode(.template)
-                                            .foregroundColor(.theme.accent)
-                                            .frame(width: 18, height: 18)
-                                            
-                                            
-                                    )
-                            }
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading) {
+                        category
+                        
+                        Text("Mcdonald's ")
+                            .font(.custom("Satoshi-Bold", size: 17))
+                        
+                        HStack {
+                            Circle()
+                                .frame(width: 34, height: 34)
+                                .foregroundColor(circleContentColor)
+                                .overlay(
+                                    Image("location")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .foregroundColor(.theme.label)
+                                        .frame(width: 18, height: 18)
+                                )
                             
-                            Text("Mcdonald's ")
+                            Text("3 km")
+                                .font(.custom("Satoshi-Regular", size: 15))
+                            Spacer().frame(width: 20)
+                            
+                            
+                            Circle()
+                                .frame(width: 34, height: 34)
+                                .foregroundColor(circleContentColor)
+                                .overlay(
+                                    Image("star")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .foregroundColor(.theme.label)
+                                        .frame(width: 18, height: 18)
+                                )
+                            
+                            Text("4.8 rating")
+                                .font(.custom("Satoshi-Regular", size: 15))
+                        }
+                        
+                        textDescription
+                        Spacer().frame(height: 20)
+                        
+                        HStack {
+                            Text("Popular this week")
                                 .font(.custom("Satoshi-Bold", size: 17))
                             
-                            HStack {
-                                Circle()
-                                    .frame(width: 34, height: 34)
-                                    .foregroundColor(circleContentColor)
-                                    .overlay(
-                                        Image("location")
-                                            .resizable()
-                                            .renderingMode(.template)
-                                            .foregroundColor(.theme.label)
-                                            .frame(width: 18, height: 18)
-                                    )
+                            Spacer()
+                            Button("See all") {
                                 
-                                Text("3 km")
-                                    .font(.custom("Satoshi-Regular", size: 15))
-                                Spacer().frame(width: 20)
-                                
-                                
-                                Circle()
-                                    .frame(width: 34, height: 34)
-                                    .foregroundColor(circleContentColor)
-                                    .overlay(
-                                        Image("star")
-                                            .resizable()
-                                            .renderingMode(.template)
-                                            .foregroundColor(.theme.label)
-                                            .frame(width: 18, height: 18)
-                                    )
-                                
-                                Text("4.8 rating")
-                                    .font(.custom("Satoshi-Regular", size: 15))
                             }
+                        }
+                        foods
+                        HStack {
+                            Text("Testimonials")
+                                .font(.custom("Satoshi-Bold", size: 17))
                             
-                            Text("McDonald's is the world's largest fast food restaurant chain, serving over 69 million customers daily in over 100 countries in more than 40,000 outlets as of ...")
-                                .font(.custom("Satoshi-Regular", size: 16))
-                                .multilineTextAlignment(.leading)
-                            
-                            Spacer().frame(height: 20)
-                            
-                            HStack {
-                                Text("Popular this week")
-                                    .font(.custom("Satoshi-Bold", size: 17))
-                                
-                                Spacer()
-                                Button("See all") {
-                                    
-                                }
+                            Spacer()
+                            Button("See all") {
+                                showTestimonials = true
                             }
-                            
-                            ScrollView(.horizontal,showsIndicators: false) {
-                                LazyHStack(spacing: 30) {
-                                    FoodView()
-                                    FoodView()
-                                    FoodView()
-                                    FoodView()
-                                    FoodView()
-                                    FoodView()
-                                    FoodView()
-                                }.padding(.vertical,10)
-                                  
+                        }
+                        
+                        TestimonialItemView()
+                        Group {
+                            NavigationLink(destination: TestimonialsView(), isActive: $showTestimonials) {
+                                EmptyView()
                             }
-                            
-                           
-                            
-                            HStack {
-                                Text("Testimonials")
-                                    .font(.custom("Satoshi-Bold", size: 17))
-                                
-                                Spacer()
-                                Button("See all") {
-                                    
-                                }
-                            }
-                            
-                            TestimonialItemView()
-                         
-                            
-                            
                             Spacer(minLength: 400)
                         }
-                        .padding(.horizontal,20)
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        .background(.white)
-                        .cornerRadius(30,corners: [.topLeft, .topRight])
-                        .offset(CGSize(width: 0, height: 300))
-                        
                         
                         
                     }
+                    .padding(.horizontal,20)
+                    .frame(maxWidth: .infinity,alignment: .leading)
+                    .background(Color.theme.background)
+                    .cornerRadius(30,corners: [.topLeft, .topRight])
+                    .offset(CGSize(width: 0, height: 300))
+                }
             }
         }
     }
@@ -166,4 +124,88 @@ struct RestaurantDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         RestaurantDetailsView()
     }
+}
+
+extension RestaurantDetailsView {
+    func imageBackground(geometry: GeometryProxy) -> some View {
+        return  Image("restaurant_page")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(maxWidth: geometry.size.width,maxHeight: geometry.size.height)
+            .clipped()
+            .ignoresSafeArea()
+    }
+    
+    var category: some View {
+        HStack {
+            Text("Popular")
+                .font(.custom("Satoshi-Regular", size: 14))
+                .foregroundColor(.white)
+                .padding(.horizontal,10)
+                .padding(.vertical,5)
+                .background(
+                    RoundedRectangle(cornerRadius: 32)
+                        .fill(Color.theme.accent) )
+                .padding()
+                .offset(x: -20)
+            Spacer()
+            
+            Circle()
+                .frame(width: 34, height: 34)
+                .foregroundColor(.theme.legerBlue)
+                .overlay(
+                    Image("location")
+                        .resizable()
+                        .frame(width: 18, height: 18)
+                )
+            
+            Spacer().frame(width: 10)
+            
+            Circle()
+                .frame(width: 34, height: 34)
+                .foregroundColor(.theme.legerBlue)
+                .overlay(
+                    Image("heart")
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.theme.accent)
+                        .frame(width: 18, height: 18)
+                    
+                    
+                )
+        }
+    }
+    var textDescription: some View {
+        
+        Button {
+            withAnimation(.easeOut) {
+                showFullDescription.toggle()
+            }
+        } label: {
+            Text(description)
+                .foregroundColor(.theme.label)
+                .lineLimit(showFullDescription ? nil : 3)
+                .font(.custom("Satoshi-Regular", size: 16))
+                .multilineTextAlignment(.leading)
+        }
+        
+        
+        
+        
+    }
+    var foods: some View {
+        ScrollView(.horizontal,showsIndicators: false) {
+            LazyHStack(spacing: 30) {
+                FoodView()
+                FoodView()
+                FoodView()
+                FoodView()
+                FoodView()
+                FoodView()
+                FoodView()
+            }.padding(.vertical,10)
+            
+        }
+    }
+    
 }

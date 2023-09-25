@@ -29,7 +29,7 @@ struct MainView: View {
                     Image(systemName: "bell")
                 }
             
-             Text("Profile")
+             UserProfileView()
                 .tabItem {
                     Image(systemName: "person")
                 }

@@ -49,7 +49,7 @@ struct TestimonialItemView: View {
             .foregroundColor(.clear)
             .frame(maxWidth: .infinity,alignment: .leading)
            
-            .background(Color.theme.background)
+            .background(Color.theme.cardBackgroundColor)
             .cornerRadius(16)
             .shadow(color: Color(red: 0.05, green: 0.37, blue: 0.98).opacity(0.2), radius: 10, x: 0, y: 7)
            
