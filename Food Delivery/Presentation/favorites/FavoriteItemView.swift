@@ -45,7 +45,7 @@ struct FavoriteItemView: View {
                      }
                      Spacer()
                      
-                     Image("heart")
+                     Image("blue_heart")
                          .renderingMode(.template)
                          .resizable()
                          .foregroundColor(.theme.accent)

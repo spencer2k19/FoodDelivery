@@ -36,7 +36,7 @@ struct UserProfileView: View {
                             Spacer()
                             Circle()
                                 .frame(width: 40, height: 40)
-                                .foregroundColor(.theme.legerBlue)
+                                .foregroundColor(Color(red: 0.05, green: 0.37, blue: 0.98).opacity(0.25))
                                 .overlay(
                                     Image(systemName: "pencil.line")
                                         .foregroundColor(.theme.accent)

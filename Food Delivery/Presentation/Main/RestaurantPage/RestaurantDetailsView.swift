@@ -11,6 +11,9 @@ struct RestaurantDetailsView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var showTestimonials: Bool = false
     @State private var showFullDescription: Bool = false
+    @State private var showPopularMenu: Bool = false
+    
+    
     let description: String = """
 A cheeseburger is a burger with a slice of melted cheese on top of the meat patty, added near the end of the cooking time. Cheeseburgers can include variations in structure, ingredients and composition. As with other hamburgers, a cheeseburger may include various condiments and other toppings such as:
     - Lettuce
@@ -29,6 +32,12 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
         return colorScheme == .light ? Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1)
         : .white.opacity(0.05)
     }
+    
+    var circleBlueContentColor: Color {
+        return Color(red: 0.05, green: 0.37, blue: 0.98).opacity(0.25)
+    }
+    
+    
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -84,7 +93,7 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
                             
                             Spacer()
                             Button("See all") {
-                                
+                                showPopularMenu = true
                             }
                         }
                         foods
@@ -103,6 +112,10 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
                             NavigationLink(destination: TestimonialsView(), isActive: $showTestimonials) {
                                 EmptyView()
                             }
+                            NavigationLink(destination: PopularMenuView(), isActive: $showPopularMenu) {
+                                EmptyView()
+                            }
+                            
                             Spacer(minLength: 400)
                         }
                         
@@ -152,7 +165,7 @@ extension RestaurantDetailsView {
             
             Circle()
                 .frame(width: 34, height: 34)
-                .foregroundColor(.theme.legerBlue)
+                .foregroundColor(circleBlueContentColor)
                 .overlay(
                     Image("location")
                         .resizable()
@@ -163,9 +176,9 @@ extension RestaurantDetailsView {
             
             Circle()
                 .frame(width: 34, height: 34)
-                .foregroundColor(.theme.legerBlue)
+                .foregroundColor(circleBlueContentColor)
                 .overlay(
-                    Image("heart")
+                    Image("blue_heart")
                         .resizable()
                         .renderingMode(.template)
                         .foregroundColor(.theme.accent)

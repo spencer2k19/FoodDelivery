@@ -20,23 +20,24 @@ struct MainView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    Image(systemName: "house")
+                    Image(uiImage: UIImage(named: "house")!)
+                       
                 }
             
             Text("Notifs")
             
                 .tabItem {
-                    Image(systemName: "bell")
+                    Image(uiImage: UIImage(named: "commerce")!)
                 }
             
              UserProfileView()
                 .tabItem {
-                    Image(systemName: "person")
+                    Image(uiImage: UIImage(named: "user")!)
                 }
             
             Text("More")
                 .tabItem {
-                    Image(systemName: "ellipsis.bubble")
+                    Image(uiImage: UIImage(named: "chat")!)
                 }
             
             
