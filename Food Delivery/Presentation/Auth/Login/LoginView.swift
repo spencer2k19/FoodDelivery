@@ -11,13 +11,11 @@ struct LoginView: View {
     @State private var emailField: String = ""
     @State private var passwordField: String = ""
     @State private var isChecked: Bool = false
-    @Binding var isActive:Bool
     @EnvironmentObject private var navRoute:NavRouteModel
-    
+    static var identifier = "login"
     
     var body: some View {
         ScrollView {
-            
             Image("food_logo")
                 .resizable()
                 .frame(width: 120,height: 120)
@@ -69,13 +67,14 @@ struct LoginView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden()
     }
     
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(isActive: .constant(false))
+        LoginView()
             .environmentObject(NavRouteModel())
     }
 }
@@ -118,11 +117,11 @@ extension LoginView {
             .padding()
             .background(Color.theme.fieldBackground)
             .cornerRadius(12)
-            .overlay {
+            .overlay (
                 RoundedRectangle(cornerRadius: 12)
                     .inset(by: 0.5)
-                    .stroke(Color(cgColor: CGColor(red: 0.09, green: 0.12, blue: 0.13, alpha: 1)).opacity(0.1),lineWidth: 1)
-            }
+                    .stroke(Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1),lineWidth: 1)
+            )
     }
     
     private var signInBtn: some View {
@@ -159,11 +158,11 @@ extension LoginView {
             .padding()
             .background(Color.theme.background)
             .cornerRadius(16)
-            .overlay {
+            .overlay (
                 RoundedRectangle(cornerRadius: 16)
                     .inset(by: 1)
                     .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
-            }
+            )
             .foregroundColor(Color.theme.label)
             
             
@@ -191,10 +190,10 @@ extension LoginView {
             .padding()
             .cornerRadius(16)
             .foregroundColor(Color.theme.label)
-            .overlay {
+            .overlay (
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(Color.theme.strokeBtnColor,lineWidth: 1)
-            }
+            )
         }
     }
     
@@ -203,11 +202,14 @@ extension LoginView {
             Text("Don't have an account ?")
                 .font(.custom("Satoshi-Regular", size: 16))
             
-            NavigationLink(destination: RegisterView(),isActive: $isActive) {
+            NavigationLink(destination: RegisterView(), tag: RegisterView.identifier, selection: $navRoute.currentTag) {
                 Text("Sign up")
                     .font(.custom("Satoshi-Regular", size: 17))
             }
             .foregroundColor(Color.theme.accent)
+            
+           
+            
             
         }
     }

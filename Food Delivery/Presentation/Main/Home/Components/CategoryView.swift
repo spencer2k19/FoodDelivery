@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CategoryView: View {
+    let category: Category
+    
+    
     var body: some View {
         Rectangle()
         .foregroundColor(.clear)
@@ -18,12 +21,12 @@ struct CategoryView: View {
        
         .overlay(VStack(spacing: 10,content: {
             
-            Image("dessert")
+            Image(category.imageName)
                 .resizable()
                 .frame(width: 100, height: 90)
                 .clipShape(Circle())
             
-            Text("Vegetarian")
+            Text(category.name)
                 .font(.custom("Satoshi-Medium", size: 14))
             Spacer().frame(height: 10)
             
@@ -37,7 +40,7 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        CategoryView(category: Category(imageName: "dessert", name: "Deserts"))
             .previewLayout(.sizeThatFits)
     }
 }

@@ -156,12 +156,12 @@ extension AddCreditCardView {
             .keyboardType(.default)
             .background(Color.theme.fieldBackground)
             .cornerRadius(12)
-            .overlay {
+            .overlay (
                 RoundedRectangle(cornerRadius: 12)
                     .inset(by: 0.5)
                     .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
                 
-            }
+            )
     }
     
     var cardNumberField: some View {
@@ -171,12 +171,12 @@ extension AddCreditCardView {
             .keyboardType(.numberPad)
             .background(Color.theme.fieldBackground)
             .cornerRadius(12)
-            .overlay {
+            .overlay (
                 RoundedRectangle(cornerRadius: 12)
                     .inset(by: 0.5)
                     .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
                 
-            }
+            )
     }
     
     var scanBtn: some View {
@@ -212,12 +212,12 @@ extension AddCreditCardView {
             .keyboardType(.default)
             .background(Color.theme.fieldBackground)
             .cornerRadius(12)
-            .overlay {
+            .overlay (
                 RoundedRectangle(cornerRadius: 12)
                     .inset(by: 0.5)
                     .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
                 
-            }
+            )
     }
     
     var cvvField: some View {
@@ -227,11 +227,11 @@ extension AddCreditCardView {
             .keyboardType(.numberPad)
             .background(Color.theme.fieldBackground)
             .cornerRadius(12)
-            .overlay {
+            .overlay (
                 RoundedRectangle(cornerRadius: 12)
                     .inset(by: 0.5)
                     .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
                 
-            }
+        )
     }
 }

@@ -55,13 +55,13 @@ struct DeliveryItemView: View {
              )
              .padding(.vertical,5)
              .padding(.horizontal,10)
-             .overlay(content: {
+             .overlay(
                  RoundedRectangle(cornerRadius: 16)
                      .inset(by: 0.5)
                      .stroke( conditionForSelected ?  Color.theme.accent : Color.clear, lineWidth: 1)
                      .padding(.vertical,5)
                      .padding(.horizontal,10)
-             })
+             )
              .onTapGesture {
                  callable()
                  

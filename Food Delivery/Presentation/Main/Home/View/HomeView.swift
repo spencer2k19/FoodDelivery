@@ -12,6 +12,9 @@ struct HomeView: View {
     @State private var selectedPage = 0
     @State private var showNotification: Bool = false
     @State private var showRectaurantDetail: Bool = false
+    @StateObject private var vm =  HomeViewModel()
+    @State private var loadingData = false
+    
     
     
     var body: some View {
@@ -22,22 +25,22 @@ struct HomeView: View {
                     .padding(.leading,60)
                     .background(Color.theme.fieldBackground)
                     .cornerRadius(50)
-                    .overlay(alignment: .leading) {
+                    .overlay (
                         Image("search")
                             .resizable()
                             .renderingMode(.template)
                             .foregroundColor(.theme.label)
                             .frame(width: 20, height: 20)
                             .padding(.leading,20)
-                    }
-                    .overlay(alignment: .trailing) {
+                        , alignment: .leading)
+                    .overlay (
                         Image("filter")
                             .resizable()
                             .renderingMode(.template)
                             .foregroundColor(.theme.label)
                             .frame(width: 20, height: 20)
                             .padding(.trailing,20)
-                    }
+                        , alignment: .trailing)
                 
                 Circle()
                     .foregroundColor(Color.theme.fieldBackground)
@@ -63,10 +66,8 @@ struct HomeView: View {
                 EmptyView()
             }
             
-            //Navigation Link on rectaurant Detail
-            NavigationLink(destination: RestaurantDetailsView(), isActive: $showRectaurantDetail) {
-                EmptyView()
-            }
+            
+            
             
             ScrollView(showsIndicators: false) {
                 
@@ -75,33 +76,40 @@ struct HomeView: View {
                         .font(.custom("Satoshi-Bold", size: 18))
                     
                     
-                    ScrollView(.horizontal,showsIndicators: false) {
-                        LazyHStack(spacing: 20) {
-                            CategoryView()
-                            CategoryView()
-                            CategoryView()
-                            
+                    if vm.isBusyForObject(for: vm.keyForCategory) {
+                        loadingView
+                    } else {
+                        ScrollView(.horizontal,showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                ForEach(vm.categories) { category in
+                                    CategoryView(category: category)
+                                }
+                                
+                            }
+                            .padding(.vertical,10)
                         }
-                        .padding(.vertical,10)
                     }
+                    
+                    
                     
                     Text("Populate this week")
                         .font(.custom("Satoshi-Bold", size: 18))
                     
                     
-                    ScrollView(.horizontal,showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            FoodView()
-                                .onTapGesture {
-                                    showRectaurantDetail = true
+                    if (vm.isBusyForObject(for: vm.keyForFoods)) {
+                        
+                        loadingView
+                    } else {
+                        ScrollView(.horizontal,showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                ForEach(vm.foods) { food in
+                                    FoodView(food: food)
                                 }
-                            FoodView()
-                            FoodView()
-                            FoodView()
-                            
+                            }
+                            .padding(.vertical,10)
                         }
-                        .padding(.vertical,10)
                     }
+                    
                     
                     TabView(selection: $selectedPage) {
                         ForEach(0..<10) { i in
@@ -140,7 +148,7 @@ struct HomeView: View {
                                             .foregroundColor(.white)
                                             .font(.custom("Satoshi-Black", size: 18))
                                     }
-                                   
+                                    
                                     
                                     Text("PIZZA HUT")
                                         .foregroundColor(.white)
@@ -148,7 +156,7 @@ struct HomeView: View {
                                 }
                                 .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .bottomLeading)
                                 .padding()
-                                   
+                                
                             }
                         }
                         .padding(.all, 10)
@@ -159,15 +167,15 @@ struct HomeView: View {
                     
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     
-                        HStack(spacing: 10) {
-                            ForEach(0..<10) { i in
-                                Circle()
-                                    .frame(width: 7, height: 7)
-                                    .foregroundColor(i == selectedPage ? .black : Color(red: 0.24, green: 0.30, blue: 0.34, opacity: 0.1))
-                                
-                            }
+                    HStack(spacing: 10) {
+                        ForEach(0..<10) { i in
+                            Circle()
+                                .frame(width: 7, height: 7)
+                                .foregroundColor(i == selectedPage ? .black : Color(red: 0.24, green: 0.30, blue: 0.34, opacity: 0.1))
+                            
                         }
-                        .frame(maxWidth: .infinity,alignment:.center)
+                    }
+                    .frame(maxWidth: .infinity,alignment:.center)
                     
                     
                     
@@ -175,16 +183,31 @@ struct HomeView: View {
                     Text("Popular restaurants")
                         .font(.custom("Satoshi-Bold", size: 18))
                     
-                    ScrollView(.horizontal,showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            RestaurantView()
-                            RestaurantView()
-                            RestaurantView()
-                            RestaurantView()
-                            
+                    if vm.isBusyForObject(for: vm.keyForRestaurants) {
+                        loadingView
+                    } else {
+                        ScrollView(.horizontal,showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                ForEach(vm.restaurants) { restaurant in
+                                    
+                                    
+                                    NavigationLink {
+                                        RestaurantDetailsView(restaurant: restaurant)
+                                    } label: {
+                                        RestaurantView(restaurant: restaurant)
+                                    }
+                                    
+                                    
+                                    
+                                    
+                                }
+                                
+                            }
+                            .padding(.bottom,20)
                         }
-                        .padding(.bottom,20)
                     }
+                    
+                    
                     
                     
                 }
@@ -193,9 +216,13 @@ struct HomeView: View {
                 
             }
             .padding(.top,80)
+            
+            
+            
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()
+        
     }
 }
 
@@ -203,5 +230,14 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .previewLayout(.sizeThatFits)
+    }
+    
+}
+
+extension HomeView {
+    var loadingView: some View {
+        ProgressView()
+            .frame(height: 50)
+            .frame(maxWidth: .infinity,alignment: .center)
     }
 }

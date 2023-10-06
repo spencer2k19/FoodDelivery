@@ -34,12 +34,12 @@ struct MethodRowView<Content: View>: View {
                     .cornerRadius(16)
                     .padding()
                     .shadow(color: Color(red: 0.05, green: 0.37, blue: 0.98).opacity(0.2), radius: 10, x: 0, y: 7)
-                    .overlay(content: {
+                    .overlay(
                         RoundedRectangle(cornerRadius: 16)
                             .inset(by: 0.5)
                             .stroke( conditionForSelected ?  Color.theme.accent : Color.clear, lineWidth: 1)
                             .padding()
-                    })
+                    )
                 
                 
             )

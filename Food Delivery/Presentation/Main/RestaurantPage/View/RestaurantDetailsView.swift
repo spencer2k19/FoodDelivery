@@ -12,22 +12,9 @@ struct RestaurantDetailsView: View {
     @State private var showTestimonials: Bool = false
     @State private var showFullDescription: Bool = false
     @State private var showPopularMenu: Bool = false
-    
-    
-    let description: String = """
-A cheeseburger is a burger with a slice of melted cheese on top of the meat patty, added near the end of the cooking time. Cheeseburgers can include variations in structure, ingredients and composition. As with other hamburgers, a cheeseburger may include various condiments and other toppings such as:
-    - Lettuce
-    - Tomato
-    - Onion
-    - Pickles
-    - Bacon
-    - Avocado
-    - Mushrooms
-    - Mayonnaise
-    - Ketchup
-    - Mustard
-"""
-    
+    @StateObject private var vm = RestaurantPageViewModel()
+    let restaurant: Restaurant
+
     var circleContentColor: Color {
         return colorScheme == .light ? Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1)
         : .white.opacity(0.05)
@@ -49,7 +36,7 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
                     VStack(alignment: .leading) {
                         category
                         
-                        Text("Mcdonald's ")
+                        Text(restaurant.name)
                             .font(.custom("Satoshi-Bold", size: 17))
                         
                         HStack {
@@ -64,7 +51,7 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
                                         .frame(width: 18, height: 18)
                                 )
                             
-                            Text("3 km")
+                            Text(restaurant.distance)
                                 .font(.custom("Satoshi-Regular", size: 15))
                             Spacer().frame(width: 20)
                             
@@ -80,7 +67,7 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
                                         .frame(width: 18, height: 18)
                                 )
                             
-                            Text("4.8 rating")
+                            Text("\(restaurant.rating) rating")
                                 .font(.custom("Satoshi-Regular", size: 15))
                         }
                         
@@ -96,7 +83,14 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
                                 showPopularMenu = true
                             }
                         }
-                        foods
+                        if vm.isBusy {
+                            ProgressView()
+                                .frame(height: 50)
+                                .frame(maxWidth: geometry.size.width, alignment: .center)
+                        } else {
+                            foods
+                        }
+                       
                         HStack {
                             Text("Testimonials")
                                 .font(.custom("Satoshi-Bold", size: 17))
@@ -107,9 +101,9 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
                             }
                         }
                         
-                        TestimonialItemView()
+                        TestimonialItemView(testimonial: restaurant.lastTestimonial)
                         Group {
-                            NavigationLink(destination: TestimonialsView(), isActive: $showTestimonials) {
+                            NavigationLink(destination: TestimonialsView(restaurant: restaurant.id), isActive: $showTestimonials) {
                                 EmptyView()
                             }
                             NavigationLink(destination: PopularMenuView(), isActive: $showPopularMenu) {
@@ -129,13 +123,15 @@ A cheeseburger is a burger with a slice of melted cheese on top of the meat patt
                 }
             }
         }
+       
     }
     
 }
 
 struct RestaurantDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantDetailsView()
+        RestaurantDetailsView(restaurant: dev.restaurant)
+            
     }
 }
 
@@ -151,7 +147,7 @@ extension RestaurantDetailsView {
     
     var category: some View {
         HStack {
-            Text("Popular")
+            Text(restaurant.type)
                 .font(.custom("Satoshi-Regular", size: 14))
                 .foregroundColor(.white)
                 .padding(.horizontal,10)
@@ -195,7 +191,7 @@ extension RestaurantDetailsView {
                 showFullDescription.toggle()
             }
         } label: {
-            Text(description)
+            Text(restaurant.description)
                 .foregroundColor(.theme.label)
                 .lineLimit(showFullDescription ? nil : 3)
                 .font(.custom("Satoshi-Regular", size: 16))
@@ -208,14 +204,10 @@ extension RestaurantDetailsView {
     }
     var foods: some View {
         ScrollView(.horizontal,showsIndicators: false) {
-            LazyHStack(spacing: 30) {
-                FoodView()
-                FoodView()
-                FoodView()
-                FoodView()
-                FoodView()
-                FoodView()
-                FoodView()
+            HStack(spacing: 30) {
+                ForEach(restaurant.popularProducts) { food in
+                    FoodView(food: food)
+                }
             }.padding(.vertical,10)
             
         }

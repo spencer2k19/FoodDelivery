@@ -9,29 +9,42 @@ import SwiftUI
 
 struct TestimonialsView: View {
     @Environment(\.presentationMode) private var presentationMode
+    @StateObject private var vm: TestimonialViewModel
+    
+    
+    
+    init(restaurant: String) {
+        _vm = StateObject(wrappedValue: TestimonialViewModel(restaurant: restaurant))
+    }
     
     var body: some View {
         VStack {
             header
             ScrollView {
                 VStack(spacing: 20) {
-                    TestimonialItemView()
-                    TestimonialItemView()
-                    TestimonialItemView()
-                    TestimonialItemView()
+                    if(vm.isBusy) {
+                        ProgressView()
+                            .padding(.top,20)
+                    } else {
+                        ForEach(vm.testimonials) { testimonial in
+                            TestimonialItemView(testimonial: testimonial)
+                        }
+                    }
                 }
                 .padding(.horizontal)
+                
+                
+                
             }
-            
-            
+            .frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .top)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .top)
     }
+    
 }
 
 struct TestimonialsView_Previews: PreviewProvider {
     static var previews: some View {
-        TestimonialsView()
+        TestimonialsView(restaurant: "1")
     }
 }
 

@@ -73,12 +73,12 @@ struct BioView: View {
                     .keyboardType(.default)
                     .background(Color.theme.fieldBackground)
                     .cornerRadius(12)
-                    .overlay {
+                    .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .inset(by: 0.5)
                             .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
 
-                    }
+                    )
                 
                 Spacer().frame(height: 10)
                 
@@ -94,12 +94,12 @@ struct BioView: View {
                             .font(.custom("Satoshi-Regular", size: 18))
                             .padding(.all,20)
                             .frame(maxWidth: .infinity,alignment: .leading)
-                            .overlay(alignment: .trailing, content: {
+                            .overlay(
                                 Image(systemName: "chevron.down")
                                     .foregroundColor(Color.theme.label)
                                     .padding()
                                 
-                            })
+                            ,alignment: .trailing)
                         
                         if showGender {
                            ForEach(genders, id: \.self) { value in
@@ -126,11 +126,11 @@ struct BioView: View {
                         .background(Color.theme.fieldBackground)
                         .cornerRadius(12)
                         
-                        .overlay {
+                        .overlay (
                             RoundedRectangle(cornerRadius: 12)
                                 .inset(by: 0.5)
                                 .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
-                        }
+                        )
                     
                     
                     
@@ -148,12 +148,12 @@ struct BioView: View {
                         .keyboardType(.phonePad)
                         .background(Color.theme.fieldBackground)
                         .cornerRadius(12)
-                        .overlay {
+                        .overlay (
                             RoundedRectangle(cornerRadius: 12)
                                 .inset(by: 0.5)
                                 .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
 
-                        }
+                        )
                     
                     Spacer().frame(height: 10)
                     
@@ -170,17 +170,17 @@ struct BioView: View {
                             .frame(maxWidth: .infinity,alignment: .leading)
                             .background(Color.theme.fieldBackground)
                             .cornerRadius(12)
-                            .overlay(alignment: .trailing, content: {
+                            .overlay(
                                 Image(systemName: "calendar.badge.clock")
                                     .foregroundColor(Color.theme.label)
                                     .padding()
                                 
-                            })
-                            .overlay {
+                            ,alignment: .trailing)
+                            .overlay(
                                 RoundedRectangle(cornerRadius: 12)
                                     .inset(by: 0.5)
                                     .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
-                            }
+                            )
                         
                         
                         

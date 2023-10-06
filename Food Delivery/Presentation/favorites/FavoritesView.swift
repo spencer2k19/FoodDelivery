@@ -19,14 +19,14 @@ struct FavoritesView: View {
                 .padding(.leading,60)
                 .background(Color.theme.fieldBackground)
                 .cornerRadius(50)
-                .overlay(alignment: .leading) {
+                .overlay (
                     Image("search")
                         .resizable()
                         .renderingMode(.template)
                         .foregroundColor(.theme.label)
                         .frame(width: 20, height: 20)
                         .padding(.leading,20)
-                }
+                , alignment: .leading)
                 
                 .padding(.horizontal,20)
             

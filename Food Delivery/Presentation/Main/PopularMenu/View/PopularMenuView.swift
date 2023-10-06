@@ -11,6 +11,7 @@ struct PopularMenuView: View {
     @Environment(\.presentationMode) private var presentationMode
     @State private var search: String = ""
     @State private var showNotification: Bool = false
+    @StateObject private var vm = PopularMenuViewModel()
     
     let columns = [
         GridItem(.flexible(),spacing: 20),
@@ -28,22 +29,22 @@ struct PopularMenuView: View {
                     .padding(.leading,60)
                     .background(Color.theme.fieldBackground)
                     .cornerRadius(50)
-                    .overlay(alignment: .leading) {
+                    .overlay(
                         Image("search")
                             .resizable()
                             .renderingMode(.template)
                             .foregroundColor(.theme.label)
                             .frame(width: 20, height: 20)
                             .padding(.leading,20)
-                    }
-                    .overlay(alignment: .trailing) {
+                    , alignment: .leading)
+                    .overlay (
                         Image("filter")
                             .resizable()
                             .renderingMode(.template)
                             .foregroundColor(.theme.label)
                             .frame(width: 20, height: 20)
                             .padding(.trailing,20)
-                    }
+                    , alignment: .trailing)
                 
                 Circle()
                     .foregroundColor(Color.theme.fieldBackground)
@@ -62,14 +63,19 @@ struct PopularMenuView: View {
             }.padding(.horizontal)
            
             Spacer().frame(height: 20)
-            ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: columns,spacing: 10) {
-                   FoodGridItemView()
-                   FoodGridItemView()
-                   FoodGridItemView()
-                   FoodGridItemView()
-                }.padding(.horizontal,10)
+            if vm.isBusy {
+                ProgressView()
+                    .padding(.top,20)
+             } else {
+                ScrollView(showsIndicators: false) {
+                    LazyVGrid(columns: columns,spacing: 10) {
+                        ForEach(vm.popularFoods) { popularFood in
+                            FoodGridItemView(food: popularFood)
+                        }
+                    }.padding(.horizontal,10)
+                }
             }
+            
            
         }.frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .top)
     }

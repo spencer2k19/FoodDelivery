@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FoodView: View {
+    let food: Food
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -18,7 +20,7 @@ struct FoodView: View {
                 .overlay(
                     ZStack(content: {
                       
-                            Image("cheese")
+                        Image(food.imageName)
                                 .resizable()
                                 .frame(width: 170, height: 170)
                                 .overlay(
@@ -41,11 +43,11 @@ struct FoodView: View {
                         
                         
                         VStack(spacing: 5) {
-                            Text("Cheese Burger")
+                            Text(food.name)
                                 .font(.custom("Satoshi-Bold", size: 16))
                             
                             HStack {
-                                Text("Cheesy Heaven")
+                                Text(food.description)
                                     .font(.custom("Satoshi-Regular", size: 12))
                                     .foregroundColor(Color(red: 0.58, green: 0.59, blue: 0.62))
                                 
@@ -60,7 +62,7 @@ struct FoodView: View {
                                     .font(.custom("Satoshi-Bold", size: 12))
                                     .padding(.bottom,2)
                                 
-                                Text("5.99")
+                                Text(food.price)
                                     .font(.custom("Satoshi-Bold", size: 16))
                             }
                             
@@ -102,6 +104,6 @@ struct FoodView: View {
 
 struct FoodView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodView()
+        FoodView(food: Food(imageName: "cheese", name: "Cheese Burger", description: "Cheesy Heaven", price: "5,99"))
     }
 }

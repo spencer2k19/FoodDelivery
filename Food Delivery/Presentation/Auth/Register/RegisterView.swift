@@ -36,12 +36,12 @@ struct RegisterView: View {
                         .padding()
                         .background(Color.theme.fieldBackground)
                         .cornerRadius(12)
-                        .overlay {
+                        .overlay (
                             RoundedRectangle(cornerRadius: 12)
                                 .inset(by: 0.5)
                                 .stroke(Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1), lineWidth: 1)
 
-                        }
+                        )
                     
                     Spacer().frame(height: 20)
                     
@@ -54,12 +54,12 @@ struct RegisterView: View {
                         .padding()
                         .background(Color.theme.fieldBackground)
                         .cornerRadius(12)
-                        .overlay {
+                        .overlay (
                             RoundedRectangle(cornerRadius: 12)
                                 .inset(by: 0.5)
                                 .stroke(Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1), lineWidth: 1)
 
-                        }
+                        )
                     
                     
                     Spacer().frame(height: 20)
@@ -73,12 +73,12 @@ struct RegisterView: View {
                         .padding()
                         .background(Color.theme.fieldBackground)
                         .cornerRadius(12)
-                        .overlay {
+                        .overlay (
                             RoundedRectangle(cornerRadius: 12)
                                 .inset(by: 0.5)
                                 .stroke(Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1), lineWidth: 1)
 
-                        }
+                        )
                     
                     
                     
@@ -118,10 +118,10 @@ struct RegisterView: View {
                         }
                         .padding(.horizontal, 24)
                         .padding(.vertical, 16)
-                        .overlay {
+                        .overlay (
                             RoundedRectangle(cornerRadius: 16)
                                 .stroke(Color.theme.strokeBtnColor,lineWidth: 1)
-                        }
+                        )
                     }
                     
                     Spacer().frame(width: 20)
@@ -141,10 +141,10 @@ struct RegisterView: View {
                         }
                         .padding(.horizontal, 24)
                         .padding(.vertical, 16)
-                        .overlay {
+                        .overlay (
                             RoundedRectangle(cornerRadius: 16)
                                 .stroke(Color.theme.strokeBtnColor, lineWidth: 1)
-                        }
+                        )
                     }
                     
                     

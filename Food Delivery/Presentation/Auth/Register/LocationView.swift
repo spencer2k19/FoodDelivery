@@ -9,7 +9,8 @@ import SwiftUI
 
 struct LocationView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.rootPresentationMode) var rootPresentationMode
+    @EnvironmentObject private var navRoute:NavRouteModel
+
     
     
     var body: some View {
@@ -84,7 +85,7 @@ extension LocationView {
     
     var nextBtn: some View {
         Button {
-            rootPresentationMode.wrappedValue.dismiss()
+            navRoute.currentTag = LoginView.identifier
         } label: {
             Text("VALIDATE")
                 .font(.custom("Satoshi-Bold", size: 17))

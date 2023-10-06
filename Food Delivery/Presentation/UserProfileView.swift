@@ -50,7 +50,7 @@ struct UserProfileView: View {
                         HStack {
                             Circle()
                                 .frame(width: 40, height: 40)
-                                .foregroundColor(.theme.background)
+                                .foregroundColor(.black)
                                 .overlay(Image(systemName: "dollarsign").foregroundColor(.white)
                                 )
                             

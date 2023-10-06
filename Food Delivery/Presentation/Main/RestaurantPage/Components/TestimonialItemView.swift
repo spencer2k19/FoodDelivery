@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct TestimonialItemView: View {
+    let testimonial: Testimonial
+    
+    
     var body: some View {
         HStack(alignment: .top,content: {
-            Image("person_testimonial")
+            Image(testimonial.imageName)
                 .resizable()
                 .frame(width: 50, height: 50)
                 .clipShape(Circle())
             Spacer().frame(width: 20)
             VStack(alignment: .leading,spacing: 10) {
                 HStack {
-                    Text("Ricky Martin")
+                    Text(testimonial.authorName)
                         .font(.custom("Satoshi-Bold", size: 17))
                     .foregroundColor(.theme.label)
                     Spacer()
@@ -27,17 +30,17 @@ struct TestimonialItemView: View {
                         .foregroundColor(.theme.accent)
                         .frame(width: 18, height: 18)
                     
-                    Text("5")
+                    Text("\(testimonial.rate)")
                         .font(.custom("Satoshi-Bold", size: 17))
                         .foregroundColor(.theme.accent)
                         
                 }
                 
-                Text("20.11.2023")
+                Text(testimonial.date)
                     .font(.custom("Satoshi-Regular", size: 14))
                     .foregroundColor(.theme.label)
                 
-                Text("The food is very ddelicious an the service is best! love it! ")
+                Text(testimonial.description)
                     .font(.custom("Satoshi-Regular", size: 14))
                     .foregroundColor(.theme.label)
             }
@@ -58,6 +61,6 @@ struct TestimonialItemView: View {
 
 struct TestimonialItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TestimonialItemView()
+        TestimonialItemView(testimonial: dev.testimonial)
     }
 }
