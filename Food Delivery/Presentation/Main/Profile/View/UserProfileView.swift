@@ -10,6 +10,7 @@ import SwiftUI
 struct UserProfileView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var showFavoritesView: Bool = false
+    @StateObject private var vm = UserProfileViewModel()
     
     var contentCardColor: Color {
         return colorScheme == .dark ? Color(red: 0.09, green: 0.12, blue: 0.13)
@@ -81,22 +82,34 @@ struct UserProfileView: View {
                                     .font(.custom("Satoshi-Regular", size: 17))
                                     .foregroundColor(.theme.accent)
                             }
-
+                            
                         }
                         
-                        Group {
-                            FavoriteItemView()
-                            FavoriteItemView()
-                            FavoriteItemView()
-                           
-                            NavigationLink(destination: FavoritesView(), isActive: $showFavoritesView) {
-                                EmptyView()
+                        if vm.isBusy {
+                            Group {
+                                ProgressView()
+                                    .frame(maxWidth: .infinity,alignment: .center)
+                                    .padding(.top,20)
+                                Spacer(minLength: 400)
                             }
-                            
-                            
-                            Spacer(minLength: 400)
+                        } else {
+                            Group {
+                                
+                                ForEach(vm.favorites) { favorite in
+                                    FavoriteItemView(favorite: favorite)
+                                }
+                                
+                                NavigationLink(destination: FavoritesView(), isActive: $showFavoritesView) {
+                                    EmptyView()
+                                }
+                                
+                                
+                                Spacer(minLength: 400)
+                            }
                         }
-                      
+                        
+                        
+                        
                     }
                     .padding(.horizontal, 20)
                     .frame(maxWidth: .infinity, alignment: .leading)

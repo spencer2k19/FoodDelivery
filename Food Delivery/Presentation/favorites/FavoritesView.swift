@@ -10,6 +10,7 @@ import SwiftUI
 struct FavoritesView: View {
     @Environment(\.presentationMode) private var presentationMode
     @State private var search: String = ""
+    @StateObject private var vm = FavoritesViewModel()
     var body: some View {
         VStack {
             header
@@ -32,15 +33,22 @@ struct FavoritesView: View {
             
             
             Spacer().frame(height: 20)
-            ScrollView {
-                VStack(spacing: 20) {
-                   FavoriteItemView()
-                   FavoriteItemView()
-                   FavoriteItemView()
-                   FavoriteItemView()
+            
+            if vm.isBusy {
+                ProgressView()
+                    .padding(.top,40)
+            } else {
+                ScrollView {
+                    VStack(spacing: 20) {
+                        ForEach(vm.favorites) { favorite in
+                            FavoriteItemView(favorite: favorite)
+                        }
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
             }
+            
+            
             
         } .frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .top)
     }

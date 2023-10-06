@@ -21,6 +21,9 @@ class DeveloperPreview {
     }
     
     let food = Food(imageName: "cheese", name: "Cheese Burger", description: "Cheesy Heaven", price: "5.99")
+    let favorite =  Food(imageName: "peperroni", name: "Pizza pepperoni", description: "", price: "25,90")
+    
+    
     let testimonial = Testimonial(imageName: "person_testimonial", authorName: "Ricky Martin", date: "20.11.2023", rate: 5, description: "The food is very ddelicious an the service is best! love it! ")
     
     
