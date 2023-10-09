@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct OtpModifier: ViewModifier {
+    @Environment(\.colorScheme) private var colorScheme
     @Binding var pin: String
     var textLimit = 1
     
@@ -18,18 +19,35 @@ struct OtpModifier: ViewModifier {
         }
     }
     
+    
+    private var strokeColor: Color {
+        if colorScheme == .dark {
+            return Color(red: 0.58, green: 0.59, blue: 0.62).opacity(0.1)
+        } else {
+            return Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1)
+        }
+    }
+    
+    private var backgroundColor: Color {
+        if colorScheme == .dark {
+            return Color(red: 0.58, green: 0.59, blue: 0.62).opacity(0.1)
+        } else {
+            return Color.clear
+        }
+    }
+    
     func body(content: Content) -> some View {
         content
             .multilineTextAlignment(.center)
             .keyboardType(.numberPad)
-            .onReceive(Just(pin)) { _ in
-                limitText(textLimit)
-            }
+//            .onReceive(Just(pin)) { _ in
+//                limitText(textLimit)
+//            }
             .frame(width: 75, height: 60)
-            .background(Color.white.cornerRadius(16))
+            .background(backgroundColor.cornerRadius(16))
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1), lineWidth: 2)
+                    .stroke(strokeColor, lineWidth: 2)
             )
     }
 }

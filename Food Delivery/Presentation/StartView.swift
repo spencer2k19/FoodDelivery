@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct StartView: View {
     @State private var showLogin: Bool = false
+    @EnvironmentObject private var navigator: PathNavigator
     
     
     var body: some View {
@@ -56,7 +58,7 @@ struct StartView: View {
                     Spacer().frame(height: 5)
                     
                     Button {
-                        showLogin = true
+                        navigator.push(Destination.login)
                     } label: {
                         Text("NEXT")
                             .font(.custom("Satoshi-Bold", size: 17))

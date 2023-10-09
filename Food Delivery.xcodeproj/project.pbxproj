@@ -11,8 +11,10 @@
 		B62867202AD3FCE6000296C1 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628671F2AD3FCE6000296C1 /* ForgotPasswordView.swift */; };
 		B62867232AD3FE6C000296C1 /* OtpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62867222AD3FE6C000296C1 /* OtpModifier.swift */; };
 		B62867252AD405B4000296C1 /* OtpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62867242AD405B4000296C1 /* OtpTextField.swift */; };
-		B62867272AD40F56000296C1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62867262AD40F56000296C1 /* ContentView.swift */; };
 		B628672A2AD43742000296C1 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62867292AD43742000296C1 /* ForgotPasswordViewModel.swift */; };
+		B628672C2AD44175000296C1 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628672B2AD44175000296C1 /* UIApplication.swift */; };
+		B628672F2AD4574D000296C1 /* NavigationBackport in Frameworks */ = {isa = PBXBuildFile; productRef = B628672E2AD4574D000296C1 /* NavigationBackport */; };
+		B62867312AD4699E000296C1 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62867302AD4699E000296C1 /* Destination.swift */; };
 		B65A481E2AD0649500A1A873 /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A481D2AD0649500A1A873 /* OrdersView.swift */; };
 		B65A48202AD064B400A1A873 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A481F2AD064B400A1A873 /* OrdersViewModel.swift */; };
 		B65A48222AD064C800A1A873 /* OrderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A48212AD064C800A1A873 /* OrderItemView.swift */; };
@@ -89,8 +91,9 @@
 		B628671F2AD3FCE6000296C1 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		B62867222AD3FE6C000296C1 /* OtpModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpModifier.swift; sourceTree = "<group>"; };
 		B62867242AD405B4000296C1 /* OtpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpTextField.swift; sourceTree = "<group>"; };
-		B62867262AD40F56000296C1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B62867292AD43742000296C1 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		B628672B2AD44175000296C1 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		B62867302AD4699E000296C1 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		B65A481D2AD0649500A1A873 /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
 		B65A481F2AD064B400A1A873 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		B65A48212AD064C800A1A873 /* OrderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemView.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B628672F2AD4574D000296C1 /* NavigationBackport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +193,6 @@
 				B62867282AD4372D000296C1 /* ViewModel */,
 				B62867212AD3FE3B000296C1 /* Components */,
 				B628671F2AD3FCE6000296C1 /* ForgotPasswordView.swift */,
-				B62867262AD40F56000296C1 /* ContentView.swift */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -411,10 +414,10 @@
 			isa = PBXGroup;
 			children = (
 				B6E912982AAF313C002B4B1C /* Food-Delivery-Info.plist */,
+				B6E912912AAF2D7C002B4B1C /* Core */,
 				B6E912922AAF2D81002B4B1C /* Presentation */,
 				B67EF6AC2ACE9C340072B3D4 /* Domain */,
 				B67EF6B02ACE9C6A0072B3D4 /* Data */,
-				B6E912912AAF2D7C002B4B1C /* Core */,
 				B6E912832AAF266C002B4B1C /* Food_DeliveryApp.swift */,
 				B6E912872AAF266E002B4B1C /* Assets.xcassets */,
 				B6E912892AAF266E002B4B1C /* Preview Content */,
@@ -487,6 +490,7 @@
 				B6E912DD2AB36CBC002B4B1C /* View.swift */,
 				B6E912EA2AB5B546002B4B1C /* UIColor.swift */,
 				B67EF6BF2ACECA560072B3D4 /* PreviewProvider.swift */,
+				B628672B2AD44175000296C1 /* UIApplication.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -571,6 +575,7 @@
 			children = (
 				B67EF6982AC346920072B3D4 /* TabIcon.swift */,
 				B67EF6BD2ACEA3620072B3D4 /* BaseViewModel.swift */,
+				B62867302AD4699E000296C1 /* Destination.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -658,6 +663,9 @@
 			dependencies = (
 			);
 			name = "Food Delivery";
+			packageProductDependencies = (
+				B628672E2AD4574D000296C1 /* NavigationBackport */,
+			);
 			productName = "Food Delivery";
 			productReference = B6E912802AAF266C002B4B1C /* Food Delivery.app */;
 			productType = "com.apple.product-type.application";
@@ -686,6 +694,9 @@
 				Base,
 			);
 			mainGroup = B6E912772AAF266C002B4B1C;
+			packageReferences = (
+				B628672D2AD4574D000296C1 /* XCRemoteSwiftPackageReference "NavigationBackport" */,
+			);
 			productRefGroup = B6E912812AAF266C002B4B1C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -758,12 +769,13 @@
 				B6E912CF2AB1F7B5002B4B1C /* UploadPhotoView.swift in Sources */,
 				B65A48202AD064B400A1A873 /* OrdersViewModel.swift in Sources */,
 				B6E912F12AB61314002B4B1C /* NotificationItemView.swift in Sources */,
-				B62867272AD40F56000296C1 /* ContentView.swift in Sources */,
 				B6E912DA2AB32157002B4B1C /* CategoryView.swift in Sources */,
 				B6662F7E2AC1D4E3007D4B14 /* TestimonialsView.swift in Sources */,
 				B67EF6C82AD014FD0072B3D4 /* TestimonialsViewModel.swift in Sources */,
 				B67EF6CA2AD051310072B3D4 /* UserRepository.swift in Sources */,
 				B67EF6AA2ACB1F770072B3D4 /* Testimonial.swift in Sources */,
+				B628672C2AD44175000296C1 /* UIApplication.swift in Sources */,
+				B62867312AD4699E000296C1 /* Destination.swift in Sources */,
 				B62867202AD3FCE6000296C1 /* ForgotPasswordView.swift in Sources */,
 				B65A481E2AD0649500A1A873 /* OrdersView.swift in Sources */,
 				B67EF6BC2ACEA1360072B3D4 /* FoodRepositoryImpl.swift in Sources */,
@@ -997,6 +1009,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B628672D2AD4574D000296C1 /* XCRemoteSwiftPackageReference "NavigationBackport" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnpatrickmorgan/NavigationBackport";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B628672E2AD4574D000296C1 /* NavigationBackport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B628672D2AD4574D000296C1 /* XCRemoteSwiftPackageReference "NavigationBackport" */;
+			productName = NavigationBackport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6E912782AAF266C002B4B1C /* Project object */;
 }

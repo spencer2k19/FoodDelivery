@@ -6,18 +6,28 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 @main
 struct Food_DeliveryApp: App {
-    @StateObject private var navRoute = NavRouteModel()
-    
+   
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NBNavigationStack {
                StartView()
+                    .nbNavigationDestination(for: Destination.self, destination: { destination in
+                        switch destination {
+                        case .login:
+                            LoginView()
+                        case .register:
+                            RegisterView()
+                            
+                        default:
+                            LoginView()
+                        }
+                    })
             }
-            .navigationViewStyle(StackNavigationViewStyle())
-            .environmentObject(navRoute)
+           
            
         }
     }

@@ -13,6 +13,7 @@ struct ForgotPasswordView: View {
     @State private var pinTwo: String = ""
     @State private var pinThree: String = ""
     @State private var pinFour: String = ""
+
     
     var pinTwoResponder: Bool { return pinOne.count == 1 }
     var pinThreeResponder: Bool { return pinTwo.count == 1 }
@@ -38,7 +39,7 @@ struct ForgotPasswordView: View {
             Spacer()
             Text("Code has been send to +6282******39")
                 .font(.custom("Satoshi-Bold", size: 15))
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 15)
             
             ZStack {
                 
@@ -60,15 +61,16 @@ struct ForgotPasswordView: View {
                 .accentColor(.clear)
                 .background(Color.clear)
                 .keyboardType(.numberPad)
+               
             }
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 15)
             Text("Resend code in 56 s")
                 .font(.custom("Satoshi-Light", size: 14))
             
             Spacer()
             
             Button {
-                
+                UIApplication.shared.endEditing()
             } label: {
                 Text("SAVE")
                     .font(.custom("Satoshi-Bold", size: 18))
@@ -83,6 +85,7 @@ struct ForgotPasswordView: View {
             
             
         }
+        
         .navigationBarBackButtonHidden()
     }
 }
@@ -120,6 +123,7 @@ extension ForgotPasswordView {
             
         }.frame(maxWidth: .infinity,alignment: .leading)
             .padding()
+        
     }
     
     
@@ -128,11 +132,6 @@ extension ForgotPasswordView {
         return Text(text)
             .font(.title)
             .frame(width: textBoxWidth, height: textBoxHeight)
-            .background(VStack{
-              Spacer()
-              RoundedRectangle(cornerRadius: 1)
-                  .frame(height: 0.5)
-             })
-            .padding(paddingOfBox)
+            .otpForm(pin: .constant("2"))
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct LoginView: View {
     @State private var emailField: String = ""
@@ -13,6 +14,7 @@ struct LoginView: View {
     @State private var isChecked: Bool = false
     @EnvironmentObject private var navRoute:NavRouteModel
     static var identifier = "login"
+    @EnvironmentObject var navigator: PathNavigator
     
     var body: some View {
         ScrollView {
@@ -143,7 +145,7 @@ extension LoginView {
     
     private var facebookBtn: some View {
         Button {
-            
+            navigator.push(Destination.home(user: "value"))
         } label: {
             HStack {
                 Image("facebook_icon")
