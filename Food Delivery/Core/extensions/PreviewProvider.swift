@@ -26,6 +26,9 @@ class DeveloperPreview {
     
     let testimonial = Testimonial(imageName: "person_testimonial", authorName: "Ricky Martin", date: "20.11.2023", rate: 5, description: "The food is very ddelicious an the service is best! love it! ")
     
+    let order = Order(restaurantLogo: "mcdonald", restaurantName: "McDonald's", createdAt: "21:30",
+                      totalPrice: "45.50", status: "Proccess")
+    
     
     let restaurant =  Restaurant(image: "restaurant_page", logo: "wendy", type: "Popular", name: "Wendy's", duration: "15 mins", distance: "3 km", rating: 4.8, description: """
 A cheeseburger is a burger with a slice of melted cheese on top of the meat patty, added near the end of the cooking time. Cheeseburgers can include variations in structure, ingredients and composition. As with other hamburgers, a cheeseburger may include various condiments and other toppings such as:

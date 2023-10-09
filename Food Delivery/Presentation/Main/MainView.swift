@@ -24,8 +24,7 @@ struct MainView: View {
                        
                 }
             
-            Text("Notifs")
-            
+            OrdersView()
                 .tabItem {
                     Image(uiImage: UIImage(named: "commerce")!)
                 }

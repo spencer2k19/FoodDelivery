@@ -53,6 +53,16 @@ class FoodUseCase {
         }
     }
     
+    
+    ///fetch all restaurants
+    func fetchOrders() async throws -> [Order] {
+        do {
+            return try await foodRepository.fetchOrders()
+        } catch let error {
+            throw error
+        }
+    }
+    
     ///fetch all testimonials of restaurant
     func fetchAllTestimonials(restaurantId: String) async throws -> [Testimonial] {
         do {

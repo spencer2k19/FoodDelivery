@@ -29,13 +29,15 @@ struct LoginView: View {
             
             Group {
                 signInBtn
-                Button {
-                    
+                
+                NavigationLink {
+                    ForgotPasswordView()
                 } label: {
                     Text("Forgot password ?")
-                        .font(.custom("Satoshi", size: 17))
+                        .font(.custom("Satoshi-Regular", size: 17))
                         .foregroundColor(Color.theme.accent)
                 }
+
                 Spacer().frame(height: 30)
                 HStack {
                     Rectangle()

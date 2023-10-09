@@ -12,5 +12,6 @@ protocol FoodRepository {
     func fetchAllPopularMenu() async throws -> [Food]
     func fetchCategories() async throws -> [Category]
     func fetchRestaurants() async throws -> [Restaurant]
+    func fetchOrders() async throws -> [Order]
     func fetchTestimonials(of restaurantId: String) async throws -> [Testimonial]
 }
