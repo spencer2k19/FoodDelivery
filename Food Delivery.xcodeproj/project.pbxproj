@@ -15,6 +15,8 @@
 		B628672C2AD44175000296C1 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628672B2AD44175000296C1 /* UIApplication.swift */; };
 		B628672F2AD4574D000296C1 /* NavigationBackport in Frameworks */ = {isa = PBXBuildFile; productRef = B628672E2AD4574D000296C1 /* NavigationBackport */; };
 		B62867312AD4699E000296C1 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62867302AD4699E000296C1 /* Destination.swift */; };
+		B62867342AD5884D000296C1 /* ResendPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62867332AD5884D000296C1 /* ResendPasswordView.swift */; };
+		B62867362AD58B94000296C1 /* CongratsForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62867352AD58B94000296C1 /* CongratsForgotPasswordView.swift */; };
 		B65A481E2AD0649500A1A873 /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A481D2AD0649500A1A873 /* OrdersView.swift */; };
 		B65A48202AD064B400A1A873 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A481F2AD064B400A1A873 /* OrdersViewModel.swift */; };
 		B65A48222AD064C800A1A873 /* OrderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A48212AD064C800A1A873 /* OrderItemView.swift */; };
@@ -94,6 +96,8 @@
 		B62867292AD43742000296C1 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		B628672B2AD44175000296C1 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		B62867302AD4699E000296C1 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		B62867332AD5884D000296C1 /* ResendPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendPasswordView.swift; sourceTree = "<group>"; };
+		B62867352AD58B94000296C1 /* CongratsForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsForgotPasswordView.swift; sourceTree = "<group>"; };
 		B65A481D2AD0649500A1A873 /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
 		B65A481F2AD064B400A1A873 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		B65A48212AD064C800A1A873 /* OrderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemView.swift; sourceTree = "<group>"; };
@@ -182,7 +186,9 @@
 		B628671D2AD3FCAB000296C1 /* Forgot */ = {
 			isa = PBXGroup;
 			children = (
+				B62867322AD58833000296C1 /* ResendPassword */,
 				B628671E2AD3FCCC000296C1 /* ForgotPassword */,
+				B62867352AD58B94000296C1 /* CongratsForgotPasswordView.swift */,
 			);
 			path = Forgot;
 			sourceTree = "<group>";
@@ -212,6 +218,14 @@
 				B62867292AD43742000296C1 /* ForgotPasswordViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B62867322AD58833000296C1 /* ResendPassword */ = {
+			isa = PBXGroup;
+			children = (
+				B62867332AD5884D000296C1 /* ResendPasswordView.swift */,
+			);
+			path = ResendPassword;
 			sourceTree = "<group>";
 		};
 		B65A481C2AD0646C00A1A873 /* Orders */ = {
@@ -736,6 +750,7 @@
 			files = (
 				B67EF6D12AD052FF0072B3D4 /* FoodUseCase.swift in Sources */,
 				B67EF6992AC346920072B3D4 /* TabIcon.swift in Sources */,
+				B62867342AD5884D000296C1 /* ResendPasswordView.swift in Sources */,
 				B6E912DE2AB36CBC002B4B1C /* View.swift in Sources */,
 				B628671C2AD2FFEB000296C1 /* Order.swift in Sources */,
 				B67EF6A82ACB12C80072B3D4 /* Restaurant.swift in Sources */,
@@ -778,6 +793,7 @@
 				B62867312AD4699E000296C1 /* Destination.swift in Sources */,
 				B62867202AD3FCE6000296C1 /* ForgotPasswordView.swift in Sources */,
 				B65A481E2AD0649500A1A873 /* OrdersView.swift in Sources */,
+				B62867362AD58B94000296C1 /* CongratsForgotPasswordView.swift in Sources */,
 				B67EF6BC2ACEA1360072B3D4 /* FoodRepositoryImpl.swift in Sources */,
 				B6E912E92AB5AF8F002B4B1C /* MainView.swift in Sources */,
 				B67EF6D52AD0542B0072B3D4 /* UserRepositoryImpl.swift in Sources */,

@@ -29,6 +29,8 @@ enum Destination: Codable, Hashable {
     case favorites
     case popularMenu
     case forgotPassword
+    case resendPassword
+    case congratsForgotPassword
     
     
     // Implement the hash(into:) function
@@ -67,6 +69,12 @@ enum Destination: Codable, Hashable {
                hasher.combine(14)
            case .forgotPassword:
                hasher.combine(15)
+               
+           case .resendPassword:
+               hasher.combine(16)
+               
+           case .congratsForgotPassword:
+               hasher.combine(17)
                
            }
        }

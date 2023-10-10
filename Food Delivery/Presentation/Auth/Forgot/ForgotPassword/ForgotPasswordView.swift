@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct ForgotPasswordView: View {
-    @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject private var navigator: PathNavigator
     @State private var pinOne: String = ""
     @State private var pinTwo: String = ""
     @State private var pinThree: String = ""
@@ -70,7 +71,7 @@ struct ForgotPasswordView: View {
             Spacer()
             
             Button {
-                UIApplication.shared.endEditing()
+                navigator.push(Destination.resendPassword)
             } label: {
                 Text("SAVE")
                     .font(.custom("Satoshi-Bold", size: 18))
@@ -112,7 +113,7 @@ extension ForgotPasswordView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             

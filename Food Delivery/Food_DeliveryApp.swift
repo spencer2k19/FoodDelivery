@@ -50,6 +50,10 @@ struct Food_DeliveryApp: App {
                         case .forgotPassword:
                             ForgotPasswordView()
                        
+                        case .resendPassword:
+                            ResendPasswordView()
+                        case .congratsForgotPassword:
+                            CongratsForgotPasswordView()
                         }
                     })
             }

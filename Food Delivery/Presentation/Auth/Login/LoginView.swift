@@ -30,13 +30,13 @@ struct LoginView: View {
             Group {
                 signInBtn
                 
-                NavigationLink {
-                    ForgotPasswordView()
-                } label: {
+                NBNavigationLink(value: Destination.forgotPassword) {
                     Text("Forgot password ?")
                         .font(.custom("Satoshi-Regular", size: 17))
                         .foregroundColor(Color.theme.accent)
                 }
+                
+                
 
                 Spacer().frame(height: 30)
                 HStack {
