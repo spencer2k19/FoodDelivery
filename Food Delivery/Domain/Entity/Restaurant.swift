@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Restaurant: Identifiable {
+struct Restaurant: Identifiable, Codable {
     let image: String
     let logo: String
     let type: String

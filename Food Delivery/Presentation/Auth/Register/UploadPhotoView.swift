@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct UploadPhotoView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @State private var locationViewTag: String? = nil
+    @EnvironmentObject private var navigator: PathNavigator
     
     
     var body: some View {
@@ -98,7 +99,7 @@ extension UploadPhotoView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             
@@ -114,7 +115,7 @@ extension UploadPhotoView {
     
     var nextBtn: some View {
         Button {
-            locationViewTag = "location"
+            navigator.push(Destination.location)
         } label: {
             Text("NEXT")
                 .font(.custom("Satoshi-Bold", size: 17))

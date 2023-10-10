@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct PaymentMethodView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @State private var methodPaymentChoice:Int = 0
-    @State private var showCreditCardView: Bool = false
+    @EnvironmentObject private var navigator: PathNavigator
     
     
     let fromLogin: Bool
@@ -41,9 +41,7 @@ struct PaymentMethodView: View {
                 cashappMethod
                 Spacer().frame(height: 40)
                 nextBtn
-                NavigationLink(destination: AddCreditCardView(), isActive: $showCreditCardView) {
-                    EmptyView()
-                }
+               
                 
             }
         }
@@ -75,7 +73,7 @@ extension PaymentMethodView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             
@@ -152,7 +150,9 @@ extension PaymentMethodView {
     var nextBtn: some View {
         Button {
             if fromLogin {
-                showCreditCardView = true
+                navigator.push(Destination.addCreditCard)
+            } else {
+                navigator.popTo(Destination.home)
             }
         } label: {
             Text("NEXT")

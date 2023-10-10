@@ -8,10 +8,15 @@
 import Foundation
 
 enum Destination: Codable, Hashable {
+    
+    static func == (lhs: Destination, rhs: Destination) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
     case login
     case register
     case bio
-    case payment
+    case payment(fromLogin: Bool)
     case addCreditCard
     case uploadPhoto
     case location
@@ -19,10 +24,51 @@ enum Destination: Codable, Hashable {
     case notifications
     case orderDetails
     case deliverAddress
-    case restaurantDetails
-    case testimonials
+    case restaurantDetails(restaurant: Restaurant)
+    case testimonials(restaurantId: String)
     case favorites
     case popularMenu
     case forgotPassword
+    
+    
+    // Implement the hash(into:) function
+       func hash(into hasher: inout Hasher) {
+           // Hash each case individually
+           switch self {
+           case .login:
+               hasher.combine(0)
+           case .register:
+               hasher.combine(1)
+           case .bio:
+               hasher.combine(2)
+           case .payment(_):
+               hasher.combine(3)
+           case .addCreditCard:
+               hasher.combine(4)
+           case .uploadPhoto:
+               hasher.combine(5)
+           case .location:
+               hasher.combine(6)
+           case .home:
+               hasher.combine(7)
+           case .notifications:
+               hasher.combine(8)
+           case .orderDetails:
+               hasher.combine(9)
+           case .deliverAddress:
+               hasher.combine(10)
+           case .restaurantDetails(_):
+               hasher.combine(11)
+           case .testimonials(_):
+               hasher.combine(12)
+           case .favorites:
+               hasher.combine(13)
+           case .popularMenu:
+               hasher.combine(14)
+           case .forgotPassword:
+               hasher.combine(15)
+               
+           }
+       }
     
 }

@@ -10,7 +10,6 @@ import SwiftUI
 struct PopularMenuView: View {
     @Environment(\.presentationMode) private var presentationMode
     @State private var search: String = ""
-    @State private var showNotification: Bool = false
     @StateObject private var vm = PopularMenuViewModel()
     
     let columns = [
@@ -55,9 +54,7 @@ struct PopularMenuView: View {
                             .renderingMode(.template)
                             .foregroundColor(.theme.label)
                             .frame(width: 20, height: 20)
-                            .onTapGesture {
-                                showNotification = true
-                            }
+                           
                         
                     )
             }.padding(.horizontal)

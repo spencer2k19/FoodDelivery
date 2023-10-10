@@ -6,15 +6,13 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct RegisterView: View {
     @State private var emailField: String = ""
     @State private var passwordField: String = ""
     @State private var confirmPasswordField: String = ""
-    @Environment(\.presentationMode) var presentationMode
-    @State private var goToBioView: Bool = false
-    
-    static let identifier = "register"
+    @EnvironmentObject private var navigator: PathNavigator
     
     
     var body: some View {
@@ -87,7 +85,7 @@ struct RegisterView: View {
                 .padding()
                 
                 Button {
-                    goToBioView = true
+                    navigator.push(Destination.bio)
                 } label: {
                     Text("NEXT")
                         .font(.custom("Satoshi-Bold", size: 18))
@@ -157,17 +155,11 @@ struct RegisterView: View {
                 HStack {
                     Text("Already have an account ?")
                     Button("Sign in") {
-                        presentationMode.wrappedValue.dismiss()
+                        navigator.pop()
                     }
                 }
                 
                
-                    NavigationLink(destination: BioView(), isActive: $goToBioView) {
-                        EmptyView()
-                    }
-                
-               
-                
             }
         
        

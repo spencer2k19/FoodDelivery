@@ -12,8 +12,6 @@ struct LoginView: View {
     @State private var emailField: String = ""
     @State private var passwordField: String = ""
     @State private var isChecked: Bool = false
-    @EnvironmentObject private var navRoute:NavRouteModel
-    static var identifier = "login"
     @EnvironmentObject var navigator: PathNavigator
     
     var body: some View {
@@ -65,10 +63,7 @@ struct LoginView: View {
                 
                 Spacer().frame(height: 30)
                 footerContent
-                
-                NavigationLink(destination: MainView(), tag: MainView.identifier, selection: $navRoute.currentTag) {
-                    EmptyView()
-                }
+               
             }
         }
         .navigationBarBackButtonHidden()
@@ -130,7 +125,7 @@ extension LoginView {
     
     private var signInBtn: some View {
         Button {
-            navRoute.currentTag = MainView.identifier
+            navigator.push(Destination.home)
         } label: {
             Text("SIGN IN")
                 .foregroundColor(.white)
@@ -145,7 +140,7 @@ extension LoginView {
     
     private var facebookBtn: some View {
         Button {
-            navigator.push(Destination.home(user: "value"))
+            
         } label: {
             HStack {
                 Image("facebook_icon")
@@ -206,11 +201,14 @@ extension LoginView {
             Text("Don't have an account ?")
                 .font(.custom("Satoshi-Regular", size: 16))
             
-            NavigationLink(destination: RegisterView(), tag: RegisterView.identifier, selection: $navRoute.currentTag) {
+            Button {
+                navigator.push(Destination.register)
+            } label: {
                 Text("Sign up")
                     .font(.custom("Satoshi-Regular", size: 17))
+                    .foregroundColor(Color.theme.accent)
             }
-            .foregroundColor(Color.theme.accent)
+                    
             
            
             

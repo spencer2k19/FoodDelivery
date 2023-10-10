@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct OrderDetailsView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @Environment(\.colorScheme) private var colorScheme
     @State private var searchField: String = ""
-    @State private var showDeliveryView: Bool = false
+    @EnvironmentObject private var navigator: PathNavigator
     
     var orderColor: Color {
         return colorScheme == .dark ? Color.white.opacity(0.6) : Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.6)
@@ -107,7 +107,7 @@ struct OrderDetailsView: View {
                 Spacer().frame(height: 30)
                 
                 Button {
-                    showDeliveryView = true
+                    navigator.push(Destination.deliverAddress)
                 } label: {
                     Text("Place my order")
                         .font(.custom("Satoshi-Bold", size: 16))
@@ -118,9 +118,7 @@ struct OrderDetailsView: View {
                         .cornerRadius(16)
                 }
                 
-                NavigationLink(destination: DeliveryView(), isActive: $showDeliveryView) {
-                    EmptyView()
-                }
+               
             }
        
         }
@@ -151,7 +149,7 @@ extension OrderDetailsView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             

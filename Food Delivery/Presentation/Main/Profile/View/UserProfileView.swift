@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct UserProfileView: View {
     @Environment(\.colorScheme) private var colorScheme
-    @State private var showFavoritesView: Bool = false
     @StateObject private var vm = UserProfileViewModel()
+    @EnvironmentObject private var navigator: PathNavigator
     
     var contentCardColor: Color {
         return colorScheme == .dark ? Color(red: 0.09, green: 0.12, blue: 0.13)
@@ -76,7 +77,7 @@ struct UserProfileView: View {
                             
                             Spacer()
                             Button {
-                                showFavoritesView = true
+                                navigator.push(Destination.favorites)
                             } label: {
                                 Text("See all")
                                     .font(.custom("Satoshi-Regular", size: 17))
@@ -98,11 +99,6 @@ struct UserProfileView: View {
                                 ForEach(vm.favorites) { favorite in
                                     FavoriteItemView(favorite: favorite)
                                 }
-                                
-                                NavigationLink(destination: FavoritesView(), isActive: $showFavoritesView) {
-                                    EmptyView()
-                                }
-                                
                                 
                                 Spacer(minLength: 400)
                             }

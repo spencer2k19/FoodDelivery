@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct LocationView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var navRoute:NavRouteModel
-
+    @EnvironmentObject private var navigator: PathNavigator
     
     
     var body: some View {
@@ -70,7 +69,7 @@ extension LocationView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             
@@ -85,7 +84,7 @@ extension LocationView {
     
     var nextBtn: some View {
         Button {
-            navRoute.currentTag = LoginView.identifier
+            navigator.popTo(Destination.login)
         } label: {
             Text("VALIDATE")
                 .font(.custom("Satoshi-Bold", size: 17))

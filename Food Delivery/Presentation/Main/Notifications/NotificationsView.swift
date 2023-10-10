@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct NotificationsView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @State private var searchField: String = ""
-    @State private var showOrderDetails:Bool = false
+    @EnvironmentObject private var navigator: PathNavigator
     var callableOnClick: () ->Void {
         return {
-            self.showOrderDetails = true
+            navigator.push(Destination.orderDetails)
         }
     }
     
@@ -44,13 +44,7 @@ struct NotificationsView: View {
             NotificationItemView(callable: callableOnClick)
             NotificationItemView(callable: callableOnClick)
             NotificationItemView(callable: callableOnClick)
-            
-            
-            NavigationLink(destination: OrderDetailsView(), isActive: $showOrderDetails) {
-                EmptyView()
-            }
-            
-          
+           
             
             
         }.padding(.horizontal)
@@ -80,7 +74,7 @@ extension NotificationsView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             

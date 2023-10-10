@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct RestaurantDetailsView: View {
     @Environment(\.colorScheme) private var colorScheme
-    @State private var showTestimonials: Bool = false
     @State private var showFullDescription: Bool = false
-    @State private var showPopularMenu: Bool = false
     @StateObject private var vm = RestaurantPageViewModel()
+    @EnvironmentObject private var navigator: PathNavigator
+    
     let restaurant: Restaurant
 
     var circleContentColor: Color {
@@ -80,7 +81,7 @@ struct RestaurantDetailsView: View {
                             
                             Spacer()
                             Button("See all") {
-                                showPopularMenu = true
+                                navigator.push(Destination.popularMenu)
                             }
                         }
                         if vm.isBusy {
@@ -97,21 +98,12 @@ struct RestaurantDetailsView: View {
                             
                             Spacer()
                             Button("See all") {
-                                showTestimonials = true
+                                navigator.push(Destination.testimonials(restaurantId: restaurant.id))
                             }
                         }
                         
                         TestimonialItemView(testimonial: restaurant.lastTestimonial)
-                        Group {
-                            NavigationLink(destination: TestimonialsView(restaurant: restaurant.id), isActive: $showTestimonials) {
-                                EmptyView()
-                            }
-                            NavigationLink(destination: PopularMenuView(), isActive: $showPopularMenu) {
-                                EmptyView()
-                            }
-                            
-                            Spacer(minLength: 400)
-                        }
+                        Spacer(minLength: 400)
                         
                         
                     }

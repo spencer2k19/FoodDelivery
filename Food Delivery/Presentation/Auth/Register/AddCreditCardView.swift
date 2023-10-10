@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct AddCreditCardView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @State private var fullname: String = ""
     @State private var cardNumber: String = ""
     @State private var expireIn: String = ""
     @State private var cvv: String = ""
-    @State private var showUploadView: Bool = false
-    
+    @EnvironmentObject private var navigator: PathNavigator
     
     var body: some View {
         ScrollView {
@@ -75,11 +74,7 @@ struct AddCreditCardView: View {
                     
                     Spacer().frame(height: 20)
                     nextBtn
-                    NavigationLink(destination: UploadPhotoView(), isActive: $showUploadView) {
-                        EmptyView()
-                    }
-                    
-                    
+                   
                 }
                 
                 
@@ -119,7 +114,7 @@ extension AddCreditCardView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             
@@ -136,7 +131,7 @@ extension AddCreditCardView {
     
     var nextBtn: some View {
         Button {
-            showUploadView = true
+            navigator.push(Destination.uploadPhoto)
         } label: {
             Text("NEXT")
                 .font(.custom("Satoshi-Bold", size: 17))

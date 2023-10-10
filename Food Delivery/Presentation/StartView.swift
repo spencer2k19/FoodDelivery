@@ -9,7 +9,6 @@ import SwiftUI
 import NavigationBackport
 
 struct StartView: View {
-    @State private var showLogin: Bool = false
     @EnvironmentObject private var navigator: PathNavigator
     
     
@@ -77,10 +76,7 @@ struct StartView: View {
                 }.frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal,20)
                     .padding(.bottom,40)
-                
-                NavigationLink(destination: LoginView(), isActive: $showLogin) {
-                    EmptyView()
-                }
+              
                 
             }
         }

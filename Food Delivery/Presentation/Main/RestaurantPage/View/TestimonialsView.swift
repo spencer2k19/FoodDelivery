@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct TestimonialsView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @StateObject private var vm: TestimonialViewModel
+    @EnvironmentObject private var navigator: PathNavigator
     
     
     
@@ -64,7 +65,7 @@ extension TestimonialsView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             

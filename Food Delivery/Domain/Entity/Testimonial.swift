@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Testimonial: Identifiable {
+struct Testimonial: Identifiable, Codable {
     let imageName: String
     let authorName: String
     let date: String

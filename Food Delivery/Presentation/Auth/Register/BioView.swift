@@ -6,17 +6,16 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct BioView: View {
     @State private var fullname: String = ""
     @State private var phoneNumber: String = ""
-    @Environment(\.presentationMode) private var presentationMode
     @State private var gender: String = "Male"
     @State private var birthdate: String = "23/Octomber/1990"
-    @State private var showPaymentView: Bool = false
-    @State private var showAddCreditView: Bool = false
     @State private var showGender: Bool = false
     var genders: [String] = ["Male", "Female"]
+    @EnvironmentObject private var navigator: PathNavigator
     
     static let identifier = "bio"
     
@@ -51,7 +50,7 @@ struct BioView: View {
                           
                     )
                     .onTapGesture {
-                        presentationMode.wrappedValue.dismiss()
+                        navigator.pop()
                     }
                 Spacer().frame(width: 40)
                 
@@ -203,7 +202,7 @@ struct BioView: View {
             Spacer().frame(height: 40)
             
             Button(action: {
-                showPaymentView = true
+                navigator.push(Destination.payment(fromLogin: true))
             }) {
                 Text("NEXT")
                     .font(.custom("Satoshi-Bold", size: 18))
@@ -217,10 +216,7 @@ struct BioView: View {
                 
             }
             
-            NavigationLink(destination: PaymentMethodView(fromLogin: true), isActive: $showPaymentView) {
-                EmptyView()
-            }
-            
+          
         }
         .navigationTitle("")
         .navigationBarBackButtonHidden()

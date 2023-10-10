@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct DeliveryView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @Environment(\.colorScheme) private var colorScheme
     @State private var deliveryPlaceIndex:Int = -1
-    @State private var showPaymentView: Bool = false
-    
+    @EnvironmentObject private var navigator: PathNavigator
     
     var orderColor: Color {
         return colorScheme == .dark ? Color.white.opacity(0.6) : Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.6)
@@ -92,7 +91,7 @@ struct DeliveryView: View {
             Spacer().frame(height: 30)
             
             Button {
-                showPaymentView = true
+                navigator.push(Destination.payment(fromLogin: false))
             } label: {
                 Text("NEXT")
                     .font(.custom("Satoshi-Bold", size: 16))
@@ -103,9 +102,7 @@ struct DeliveryView: View {
                     .cornerRadius(16)
             }
             
-            NavigationLink(destination: PaymentMethodView(fromLogin: false), isActive: $showPaymentView) {
-                EmptyView()
-            }
+        
             
             
         }
@@ -135,7 +132,7 @@ extension DeliveryView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             

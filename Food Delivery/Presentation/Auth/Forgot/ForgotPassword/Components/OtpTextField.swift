@@ -37,7 +37,7 @@ struct OtpTextField: UIViewRepresentable {
         
         func textFieldDidChangeSelection(_ textField: UITextField) {
             parent.text = textField.text ?? ""
-            let value = parent.text
+           
             if let next = parent.nextResponder {
                 if parent.text.count == 1 && next {
                     textField.resignFirstResponder()

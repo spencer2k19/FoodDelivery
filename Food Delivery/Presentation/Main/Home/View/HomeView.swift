@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct HomeView: View {
     @State private var search: String = ""
     @State private var selectedPage = 0
-    @State private var showNotification: Bool = false
-    @State private var showRectaurantDetail: Bool = false
     @StateObject private var vm =  HomeViewModel()
     @State private var loadingData = false
+    @EnvironmentObject private var navigator: PathNavigator
     
     
     
@@ -52,7 +52,7 @@ struct HomeView: View {
                             .foregroundColor(.theme.label)
                             .frame(width: 20, height: 20)
                             .onTapGesture {
-                                showNotification = true
+                                navigator.push(Destination.notifications)
                             }
                         
                     )
@@ -60,13 +60,6 @@ struct HomeView: View {
                 
                 
             }
-            
-            //Navigation Link on  notifications
-            NavigationLink(destination: NotificationsView(), isActive: $showNotification) {
-                EmptyView()
-            }
-            
-            
             
             
             ScrollView(showsIndicators: false) {
@@ -189,16 +182,10 @@ struct HomeView: View {
                         ScrollView(.horizontal,showsIndicators: false) {
                             HStack(spacing: 20) {
                                 ForEach(vm.restaurants) { restaurant in
-                                    
-                                    
-                                    NavigationLink {
-                                        RestaurantDetailsView(restaurant: restaurant)
-                                    } label: {
-                                        RestaurantView(restaurant: restaurant)
-                                    }
-                                    
-                                    
-                                    
+                                  RestaurantView(restaurant: restaurant)
+                                    .onTapGesture {
+                                            navigator.push(Destination.restaurantDetails(restaurant: restaurant))
+                                        }
                                     
                                 }
                                 
