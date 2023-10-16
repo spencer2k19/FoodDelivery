@@ -13,6 +13,7 @@ struct LoginView: View {
     @State private var passwordField: String = ""
     @State private var isChecked: Bool = false
     @EnvironmentObject var navigator: PathNavigator
+    @StateObject private var vm = LoginViewModel()
     
     var body: some View {
         ScrollView {
@@ -100,6 +101,13 @@ extension LoginView {
         .padding()
     }
     
+    
+    private func login() {
+        Task {
+            try? await vm.login(email: emailField, password: passwordField)
+        }
+    }
+    
     private var emailFieldView: some View {
         TextField("Enter email", text: $emailField)
             .padding()
@@ -125,16 +133,31 @@ extension LoginView {
     
     private var signInBtn: some View {
         Button {
-            navigator.push(Destination.home)
+            //navigator.push(Destination.home)
+           login()
         } label: {
-            Text("SIGN IN")
-                .foregroundColor(.white)
-                .font(.custom("Satoshi-Bold", size: 17))
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.theme.accent)
-                .cornerRadius(12)
-                .padding()
+            if vm.isBusy {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.theme.accent)
+                    .cornerRadius(12)
+                    .padding()
+                    
+            } else {
+                Text("SIGN IN")
+                    .foregroundColor(.white)
+                    .font(.custom("Satoshi-Bold", size: 17))
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.theme.accent)
+                    .cornerRadius(12)
+                    .padding()
+            }
+            
+           
         }
     }
     

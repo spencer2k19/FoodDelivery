@@ -6,8 +6,27 @@
 //
 
 import Foundation
+import Alamofire
+
+
 
 class UserRepositoryImpl: UserRepository {
+    func login(data: [String : String]) async throws -> TokenData {
+        do {
+            var request = GenericRequest()
+            request.method = .post
+            request.parameters = data
+            request.path = ApiConstants.LOGIN_URL
+            request.encoding = JSONEncoding.default
+           
+            let result: TokenData = try await ApiRequest.request(request)
+            return result
+          
+        } catch let error {
+            throw error
+        }
+    }
+    
     
     func fetchFavoritesUserFood() async throws -> [Food] {
         do {

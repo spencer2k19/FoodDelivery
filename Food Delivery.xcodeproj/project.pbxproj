@@ -28,6 +28,12 @@
 		B6662F852AC24179007D4B14 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6662F842AC24179007D4B14 /* FavoritesView.swift */; };
 		B6662F872AC330EC007D4B14 /* PopularMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6662F862AC330EC007D4B14 /* PopularMenuView.swift */; };
 		B6662F892AC33A9E007D4B14 /* FoodGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6662F882AC33A9E007D4B14 /* FoodGridItemView.swift */; };
+		B67E351A2ADD540200743128 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B67E35192ADD540200743128 /* Alamofire */; };
+		B67E351C2ADD7CF400743128 /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E351B2ADD7CF400743128 /* TokenData.swift */; };
+		B67E351E2ADD817600743128 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E351D2ADD817600743128 /* ApiConstants.swift */; };
+		B67E35202ADD8C7200743128 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E351F2ADD8C7200743128 /* LoginViewModel.swift */; };
+		B67E35222ADD8F9800743128 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35212ADD8F9800743128 /* ApiRequest.swift */; };
+		B67E35272ADDE8DB00743128 /* GeneralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35262ADDE8DB00743128 /* GeneralError.swift */; };
 		B67EF6992AC346920072B3D4 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6982AC346920072B3D4 /* TabIcon.swift */; };
 		B67EF69D2AC466E10072B3D4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF69C2AC466E10072B3D4 /* StartView.swift */; };
 		B67EF6A42ACB123F0072B3D4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6A32ACB123F0072B3D4 /* Category.swift */; };
@@ -109,6 +115,11 @@
 		B6662F842AC24179007D4B14 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		B6662F862AC330EC007D4B14 /* PopularMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMenuView.swift; sourceTree = "<group>"; };
 		B6662F882AC33A9E007D4B14 /* FoodGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGridItemView.swift; sourceTree = "<group>"; };
+		B67E351B2ADD7CF400743128 /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
+		B67E351D2ADD817600743128 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		B67E351F2ADD8C7200743128 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B67E35212ADD8F9800743128 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		B67E35262ADDE8DB00743128 /* GeneralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralError.swift; sourceTree = "<group>"; };
 		B67EF6982AC346920072B3D4 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
 		B67EF69C2AC466E10072B3D4 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		B67EF6A32ACB123F0072B3D4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -177,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B628672F2AD4574D000296C1 /* NavigationBackport in Frameworks */,
+				B67E351A2ADD540200743128 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +314,8 @@
 				B67EF6A72ACB12C80072B3D4 /* Restaurant.swift */,
 				B67EF6A92ACB1F770072B3D4 /* Testimonial.swift */,
 				B628671B2AD2FFEB000296C1 /* Order.swift */,
+				B67E351B2ADD7CF400743128 /* TokenData.swift */,
+				B67E35262ADDE8DB00743128 /* GeneralError.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -454,6 +468,7 @@
 				B6E912A52AB06CD6002B4B1C /* Fonts */,
 				B6E9129D2AAF44E5002B4B1C /* extensions */,
 				B6E912E12AB45B8A002B4B1C /* RootPresentationMode.swift */,
+				B67E351D2ADD817600743128 /* ApiConstants.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -493,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E9129B2AAF3228002B4B1C /* LoginView.swift */,
+				B67E351F2ADD8C7200743128 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -590,6 +606,7 @@
 				B67EF6982AC346920072B3D4 /* TabIcon.swift */,
 				B67EF6BD2ACEA3620072B3D4 /* BaseViewModel.swift */,
 				B62867302AD4699E000296C1 /* Destination.swift */,
+				B67E35212ADD8F9800743128 /* ApiRequest.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -679,6 +696,7 @@
 			name = "Food Delivery";
 			packageProductDependencies = (
 				B628672E2AD4574D000296C1 /* NavigationBackport */,
+				B67E35192ADD540200743128 /* Alamofire */,
 			);
 			productName = "Food Delivery";
 			productReference = B6E912802AAF266C002B4B1C /* Food Delivery.app */;
@@ -710,6 +728,7 @@
 			mainGroup = B6E912772AAF266C002B4B1C;
 			packageReferences = (
 				B628672D2AD4574D000296C1 /* XCRemoteSwiftPackageReference "NavigationBackport" */,
+				B67E35182ADD540200743128 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B6E912812AAF266C002B4B1C /* Products */;
 			projectDirPath = "";
@@ -753,6 +772,7 @@
 				B62867342AD5884D000296C1 /* ResendPasswordView.swift in Sources */,
 				B6E912DE2AB36CBC002B4B1C /* View.swift in Sources */,
 				B628671C2AD2FFEB000296C1 /* Order.swift in Sources */,
+				B67E35272ADDE8DB00743128 /* GeneralError.swift in Sources */,
 				B67EF6A82ACB12C80072B3D4 /* Restaurant.swift in Sources */,
 				B62867252AD405B4000296C1 /* OtpTextField.swift in Sources */,
 				B67EF6B82ACE9EF70072B3D4 /* FoodRepository.swift in Sources */,
@@ -771,8 +791,10 @@
 				B67EF6B62ACE9D650072B3D4 /* RestaurantPageViewModel.swift in Sources */,
 				B6E912A42AAFBD63002B4B1C /* RegisterView.swift in Sources */,
 				B6E912CA2AB1B0BB002B4B1C /* MethodRowView.swift in Sources */,
+				B67E35222ADD8F9800743128 /* ApiRequest.swift in Sources */,
 				B6662F872AC330EC007D4B14 /* PopularMenuView.swift in Sources */,
 				B6662F852AC24179007D4B14 /* FavoritesView.swift in Sources */,
+				B67E351C2ADD7CF400743128 /* TokenData.swift in Sources */,
 				B628672A2AD43742000296C1 /* ForgotPasswordViewModel.swift in Sources */,
 				B6E912FC2AB76521002B4B1C /* DeliveryItemView.swift in Sources */,
 				B6E912E02AB45218002B4B1C /* RestaurantView.swift in Sources */,
@@ -781,6 +803,7 @@
 				B6E912DC2AB32A7B002B4B1C /* FoodView.swift in Sources */,
 				B67EF6C02ACECA560072B3D4 /* PreviewProvider.swift in Sources */,
 				B6E912D12AB1FF79002B4B1C /* LocationView.swift in Sources */,
+				B67E351E2ADD817600743128 /* ApiConstants.swift in Sources */,
 				B6E912CF2AB1F7B5002B4B1C /* UploadPhotoView.swift in Sources */,
 				B65A48202AD064B400A1A873 /* OrdersViewModel.swift in Sources */,
 				B6E912F12AB61314002B4B1C /* NotificationItemView.swift in Sources */,
@@ -790,6 +813,7 @@
 				B67EF6CA2AD051310072B3D4 /* UserRepository.swift in Sources */,
 				B67EF6AA2ACB1F770072B3D4 /* Testimonial.swift in Sources */,
 				B628672C2AD44175000296C1 /* UIApplication.swift in Sources */,
+				B67E35202ADD8C7200743128 /* LoginViewModel.swift in Sources */,
 				B62867312AD4699E000296C1 /* Destination.swift in Sources */,
 				B62867202AD3FCE6000296C1 /* ForgotPasswordView.swift in Sources */,
 				B65A481E2AD0649500A1A873 /* OrdersView.swift in Sources */,
@@ -1035,6 +1059,14 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		B67E35182ADD540200743128 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1042,6 +1074,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B628672D2AD4574D000296C1 /* XCRemoteSwiftPackageReference "NavigationBackport" */;
 			productName = NavigationBackport;
+		};
+		B67E35192ADD540200743128 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B67E35182ADD540200743128 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

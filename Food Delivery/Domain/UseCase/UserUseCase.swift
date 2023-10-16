@@ -14,6 +14,15 @@ class UserUseCase {
         self.repository = repository
     }
     
+    func login(data: [String: String]) async throws {
+        do {
+           let tokenData =  try await repository.login(data: data)
+            print("Token got successfully: \(tokenData)")
+        } catch let error {
+           throw error
+        }
+    }
+    
     ///fetch all user favorites foods
     func fetchUserFavorites() async throws -> [Food] {
         do {
