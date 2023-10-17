@@ -9,9 +9,10 @@ import SwiftUI
 import NavigationBackport
 
 struct LoginView: View {
-    @State private var emailField: String = ""
-    @State private var passwordField: String = ""
+    
     @State private var isChecked: Bool = false
+    
+    
     @EnvironmentObject var navigator: PathNavigator
     @StateObject private var vm = LoginViewModel()
     
@@ -38,7 +39,7 @@ struct LoginView: View {
                 }
                 
                 
-
+                
                 Spacer().frame(height: 30)
                 HStack {
                     Rectangle()
@@ -64,10 +65,11 @@ struct LoginView: View {
                 
                 Spacer().frame(height: 30)
                 footerContent
-               
+                
             }
         }
         .navigationBarBackButtonHidden()
+        .onError($vm.errorWrapper)
     }
     
 }
@@ -88,12 +90,24 @@ extension LoginView {
             
             emailFieldView
             
+            if !vm.errorMsgForEmail.isEmpty {
+                Text(vm.errorMsgForEmail)
+                    .font(.custom("Satoshi-Regular", size: 15))
+                    .foregroundColor(.theme.red)
+            }
             Spacer().frame(height:20)
             
             Text("Password")
                 .font(.custom("Satoshi-Bold", size: 17))
             
+           
+            
             passwordFieldVew
+            if !vm.errorMsgForPassword.isEmpty {
+                Text(vm.errorMsgForPassword)
+                    .font(.custom("Satoshi-Regular", size: 15))
+                    .foregroundColor(.theme.red)
+            }
             
             
         }
@@ -104,37 +118,37 @@ extension LoginView {
     
     private func login() {
         Task {
-            try? await vm.login(email: emailField, password: passwordField)
+            try? await vm.login()
         }
     }
     
     private var emailFieldView: some View {
-        TextField("Enter email", text: $emailField)
+        TextField("Enter email", text: $vm.email)
             .padding()
             .background(Color.theme.fieldBackground)
             .cornerRadius(12)
             .overlay( RoundedRectangle(cornerRadius: 12)
                 .inset(by: 0.5)
-                .stroke(Color(red: 0.09, green: 0.12, blue: 0.13),lineWidth: 1).opacity(0.1))
+                .stroke( !vm.errorMsgForEmail.isEmpty ? Color.theme.red :  Color(red: 0.09, green: 0.12, blue: 0.13),lineWidth: 1).opacity(0.1))
         
     }
     
     private var passwordFieldVew: some View {
-        SecureField("Enter password", text: $passwordField)
+        SecureField("Enter password", text: $vm.password)
             .padding()
             .background(Color.theme.fieldBackground)
             .cornerRadius(12)
             .overlay (
                 RoundedRectangle(cornerRadius: 12)
                     .inset(by: 0.5)
-                    .stroke(Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1),lineWidth: 1)
+                    .stroke(!vm.errorMsgForPassword.isEmpty ? Color.theme.red :  Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1),lineWidth: 1)
             )
     }
     
     private var signInBtn: some View {
         Button {
             //navigator.push(Destination.home)
-           login()
+            login()
         } label: {
             if vm.isBusy {
                 ProgressView()
@@ -145,7 +159,7 @@ extension LoginView {
                     .background(Color.theme.accent)
                     .cornerRadius(12)
                     .padding()
-                    
+                
             } else {
                 Text("SIGN IN")
                     .foregroundColor(.white)
@@ -155,10 +169,12 @@ extension LoginView {
                     .background(Color.theme.accent)
                     .cornerRadius(12)
                     .padding()
+                    
             }
             
-           
+            
         }
+        .disabled(!vm.errorMsgForEmail.isEmpty || !vm.errorMsgForPassword.isEmpty)
     }
     
     private var facebookBtn: some View {
@@ -231,9 +247,9 @@ extension LoginView {
                     .font(.custom("Satoshi-Regular", size: 17))
                     .foregroundColor(Color.theme.accent)
             }
-                    
             
-           
+            
+            
             
             
         }

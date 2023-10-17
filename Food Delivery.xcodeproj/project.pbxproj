@@ -34,6 +34,25 @@
 		B67E35202ADD8C7200743128 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E351F2ADD8C7200743128 /* LoginViewModel.swift */; };
 		B67E35222ADD8F9800743128 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35212ADD8F9800743128 /* ApiRequest.swift */; };
 		B67E35272ADDE8DB00743128 /* GeneralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35262ADDE8DB00743128 /* GeneralError.swift */; };
+		B67E352A2ADE83A300743128 /* ErrorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35292ADE83A300743128 /* ErrorViewModifier.swift */; };
+		B67E352C2ADE840F00743128 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E352B2ADE840F00743128 /* ErrorWrapper.swift */; };
+		B67E353B2ADE936000743128 /* IsRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E352E2ADE936000743128 /* IsRequired.swift */; };
+		B67E353C2ADE936000743128 /* MaxLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E352F2ADE936000743128 /* MaxLength.swift */; };
+		B67E353D2ADE936000743128 /* MaxValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35302ADE936000743128 /* MaxValue.swift */; };
+		B67E353E2ADE936000743128 /* IsName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35312ADE936000743128 /* IsName.swift */; };
+		B67E353F2ADE936000743128 /* IsEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35322ADE936000743128 /* IsEqualTo.swift */; };
+		B67E35402ADE936000743128 /* IsStrongPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35332ADE936000743128 /* IsStrongPassword.swift */; };
+		B67E35412ADE936000743128 /* MinLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35342ADE936000743128 /* MinLength.swift */; };
+		B67E35422ADE936000743128 /* MinValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35352ADE936000743128 /* MinValue.swift */; };
+		B67E35432ADE936000743128 /* IsEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35362ADE936000743128 /* IsEmail.swift */; };
+		B67E35442ADE936000743128 /* ExactSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35372ADE936000743128 /* ExactSize.swift */; };
+		B67E35452ADE936000743128 /* IsNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35382ADE936000743128 /* IsNumber.swift */; };
+		B67E35462ADE936000743128 /* IsDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35392ADE936000743128 /* IsDate.swift */; };
+		B67E35472ADE936000743128 /* IsInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E353A2ADE936000743128 /* IsInteger.swift */; };
+		B67E354C2ADE936C00743128 /* SwiftFormRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35492ADE936C00743128 /* SwiftFormRule.swift */; };
+		B67E354D2ADE936C00743128 /* SwiftFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E354A2ADE936C00743128 /* SwiftFormModel.swift */; };
+		B67E354E2ADE936C00743128 /* SwiftFormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E354B2ADE936C00743128 /* SwiftFormValidator.swift */; };
+		B67E35502ADE970900743128 /* SFHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E354F2ADE970900743128 /* SFHelpers.swift */; };
 		B67EF6992AC346920072B3D4 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6982AC346920072B3D4 /* TabIcon.swift */; };
 		B67EF69D2AC466E10072B3D4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF69C2AC466E10072B3D4 /* StartView.swift */; };
 		B67EF6A42ACB123F0072B3D4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6A32ACB123F0072B3D4 /* Category.swift */; };
@@ -120,6 +139,25 @@
 		B67E351F2ADD8C7200743128 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B67E35212ADD8F9800743128 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		B67E35262ADDE8DB00743128 /* GeneralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralError.swift; sourceTree = "<group>"; };
+		B67E35292ADE83A300743128 /* ErrorViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModifier.swift; sourceTree = "<group>"; };
+		B67E352B2ADE840F00743128 /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		B67E352E2ADE936000743128 /* IsRequired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsRequired.swift; sourceTree = "<group>"; };
+		B67E352F2ADE936000743128 /* MaxLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxLength.swift; sourceTree = "<group>"; };
+		B67E35302ADE936000743128 /* MaxValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxValue.swift; sourceTree = "<group>"; };
+		B67E35312ADE936000743128 /* IsName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsName.swift; sourceTree = "<group>"; };
+		B67E35322ADE936000743128 /* IsEqualTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsEqualTo.swift; sourceTree = "<group>"; };
+		B67E35332ADE936000743128 /* IsStrongPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsStrongPassword.swift; sourceTree = "<group>"; };
+		B67E35342ADE936000743128 /* MinLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinLength.swift; sourceTree = "<group>"; };
+		B67E35352ADE936000743128 /* MinValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinValue.swift; sourceTree = "<group>"; };
+		B67E35362ADE936000743128 /* IsEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsEmail.swift; sourceTree = "<group>"; };
+		B67E35372ADE936000743128 /* ExactSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExactSize.swift; sourceTree = "<group>"; };
+		B67E35382ADE936000743128 /* IsNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsNumber.swift; sourceTree = "<group>"; };
+		B67E35392ADE936000743128 /* IsDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsDate.swift; sourceTree = "<group>"; };
+		B67E353A2ADE936000743128 /* IsInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsInteger.swift; sourceTree = "<group>"; };
+		B67E35492ADE936C00743128 /* SwiftFormRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFormRule.swift; sourceTree = "<group>"; };
+		B67E354A2ADE936C00743128 /* SwiftFormModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFormModel.swift; sourceTree = "<group>"; };
+		B67E354B2ADE936C00743128 /* SwiftFormValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFormValidator.swift; sourceTree = "<group>"; };
+		B67E354F2ADE970900743128 /* SFHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFHelpers.swift; sourceTree = "<group>"; };
 		B67EF6982AC346920072B3D4 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
 		B67EF69C2AC466E10072B3D4 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		B67EF6A32ACB123F0072B3D4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -270,6 +308,44 @@
 			path = favorites;
 			sourceTree = "<group>";
 		};
+		B67E35282ADE838500743128 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				B67E35292ADE83A300743128 /* ErrorViewModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		B67E352D2ADE936000743128 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				B67E352E2ADE936000743128 /* IsRequired.swift */,
+				B67E352F2ADE936000743128 /* MaxLength.swift */,
+				B67E35302ADE936000743128 /* MaxValue.swift */,
+				B67E35312ADE936000743128 /* IsName.swift */,
+				B67E35322ADE936000743128 /* IsEqualTo.swift */,
+				B67E35332ADE936000743128 /* IsStrongPassword.swift */,
+				B67E35342ADE936000743128 /* MinLength.swift */,
+				B67E35352ADE936000743128 /* MinValue.swift */,
+				B67E35362ADE936000743128 /* IsEmail.swift */,
+				B67E35372ADE936000743128 /* ExactSize.swift */,
+				B67E35382ADE936000743128 /* IsNumber.swift */,
+				B67E35392ADE936000743128 /* IsDate.swift */,
+				B67E353A2ADE936000743128 /* IsInteger.swift */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
+		B67E35482ADE936C00743128 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				B67E35492ADE936C00743128 /* SwiftFormRule.swift */,
+				B67E354A2ADE936C00743128 /* SwiftFormModel.swift */,
+				B67E354B2ADE936C00743128 /* SwiftFormValidator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
 		B67EF6AB2ACE99E30072B3D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +392,7 @@
 				B628671B2AD2FFEB000296C1 /* Order.swift */,
 				B67E351B2ADD7CF400743128 /* TokenData.swift */,
 				B67E35262ADDE8DB00743128 /* GeneralError.swift */,
+				B67E352B2ADE840F00743128 /* ErrorWrapper.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -464,6 +541,8 @@
 		B6E912912AAF2D7C002B4B1C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B67E35482ADE936C00743128 /* Validator */,
+				B67E352D2ADE936000743128 /* Rules */,
 				B6E912E32AB4749D002B4B1C /* Utilities */,
 				B6E912A52AB06CD6002B4B1C /* Fonts */,
 				B6E9129D2AAF44E5002B4B1C /* extensions */,
@@ -476,6 +555,7 @@
 		B6E912922AAF2D81002B4B1C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B67E35282ADE838500743128 /* Modifiers */,
 				B6662F812AC23F97007D4B14 /* favorites */,
 				B6E912E72AB5AF80002B4B1C /* Main */,
 				B6E912E42AB474B8002B4B1C /* Common */,
@@ -607,6 +687,7 @@
 				B67EF6BD2ACEA3620072B3D4 /* BaseViewModel.swift */,
 				B62867302AD4699E000296C1 /* Destination.swift */,
 				B67E35212ADD8F9800743128 /* ApiRequest.swift */,
+				B67E354F2ADE970900743128 /* SFHelpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -767,6 +848,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67E353E2ADE936000743128 /* IsName.swift in Sources */,
 				B67EF6D12AD052FF0072B3D4 /* FoodUseCase.swift in Sources */,
 				B67EF6992AC346920072B3D4 /* TabIcon.swift in Sources */,
 				B62867342AD5884D000296C1 /* ResendPasswordView.swift in Sources */,
@@ -775,22 +857,31 @@
 				B67E35272ADDE8DB00743128 /* GeneralError.swift in Sources */,
 				B67EF6A82ACB12C80072B3D4 /* Restaurant.swift in Sources */,
 				B62867252AD405B4000296C1 /* OtpTextField.swift in Sources */,
+				B67E354D2ADE936C00743128 /* SwiftFormModel.swift in Sources */,
 				B67EF6B82ACE9EF70072B3D4 /* FoodRepository.swift in Sources */,
+				B67E35422ADE936000743128 /* MinValue.swift in Sources */,
 				B6E912EB2AB5B546002B4B1C /* UIColor.swift in Sources */,
 				B67EF6D32AD053110072B3D4 /* UserUseCase.swift in Sources */,
 				B67EF6DD2AD05C9E0072B3D4 /* FavoritesViewModel.swift in Sources */,
 				B6E912F72AB649A7002B4B1C /* OrderDetailItemView.swift in Sources */,
+				B67E35502ADE970900743128 /* SFHelpers.swift in Sources */,
 				B6E912CD2AB1CB80002B4B1C /* AddCreditCardView.swift in Sources */,
 				B6E912EE2AB61169002B4B1C /* NotificationsView.swift in Sources */,
 				B6E912E22AB45B8A002B4B1C /* RootPresentationMode.swift in Sources */,
 				B65A48222AD064C800A1A873 /* OrderItemView.swift in Sources */,
 				B67EF6C52AD010270072B3D4 /* PopularMenuViewModel.swift in Sources */,
+				B67E353F2ADE936000743128 /* IsEqualTo.swift in Sources */,
+				B67E35462ADE936000743128 /* IsDate.swift in Sources */,
 				B6662F7C2AC1CD8D007D4B14 /* TestimonialItemView.swift in Sources */,
+				B67E353D2ADE936000743128 /* MaxValue.swift in Sources */,
+				B67E35412ADE936000743128 /* MinLength.swift in Sources */,
 				B6E912F92AB76453002B4B1C /* DeliveryView.swift in Sources */,
 				B6E9129C2AAF3228002B4B1C /* LoginView.swift in Sources */,
+				B67E35432ADE936000743128 /* IsEmail.swift in Sources */,
 				B67EF6B62ACE9D650072B3D4 /* RestaurantPageViewModel.swift in Sources */,
 				B6E912A42AAFBD63002B4B1C /* RegisterView.swift in Sources */,
 				B6E912CA2AB1B0BB002B4B1C /* MethodRowView.swift in Sources */,
+				B67E35442ADE936000743128 /* ExactSize.swift in Sources */,
 				B67E35222ADD8F9800743128 /* ApiRequest.swift in Sources */,
 				B6662F872AC330EC007D4B14 /* PopularMenuView.swift in Sources */,
 				B6662F852AC24179007D4B14 /* FavoritesView.swift in Sources */,
@@ -799,6 +890,7 @@
 				B6E912FC2AB76521002B4B1C /* DeliveryItemView.swift in Sources */,
 				B6E912E02AB45218002B4B1C /* RestaurantView.swift in Sources */,
 				B6E912A12AAF4532002B4B1C /* Color.swift in Sources */,
+				B67E35472ADE936000743128 /* IsInteger.swift in Sources */,
 				B6E912C52AB0FCB6002B4B1C /* BioView.swift in Sources */,
 				B6E912DC2AB32A7B002B4B1C /* FoodView.swift in Sources */,
 				B67EF6C02ACECA560072B3D4 /* PreviewProvider.swift in Sources */,
@@ -813,18 +905,26 @@
 				B67EF6CA2AD051310072B3D4 /* UserRepository.swift in Sources */,
 				B67EF6AA2ACB1F770072B3D4 /* Testimonial.swift in Sources */,
 				B628672C2AD44175000296C1 /* UIApplication.swift in Sources */,
+				B67E353C2ADE936000743128 /* MaxLength.swift in Sources */,
 				B67E35202ADD8C7200743128 /* LoginViewModel.swift in Sources */,
+				B67E354E2ADE936C00743128 /* SwiftFormValidator.swift in Sources */,
+				B67E352A2ADE83A300743128 /* ErrorViewModifier.swift in Sources */,
+				B67E353B2ADE936000743128 /* IsRequired.swift in Sources */,
+				B67E352C2ADE840F00743128 /* ErrorWrapper.swift in Sources */,
 				B62867312AD4699E000296C1 /* Destination.swift in Sources */,
 				B62867202AD3FCE6000296C1 /* ForgotPasswordView.swift in Sources */,
+				B67E35452ADE936000743128 /* IsNumber.swift in Sources */,
 				B65A481E2AD0649500A1A873 /* OrdersView.swift in Sources */,
 				B62867362AD58B94000296C1 /* CongratsForgotPasswordView.swift in Sources */,
 				B67EF6BC2ACEA1360072B3D4 /* FoodRepositoryImpl.swift in Sources */,
 				B6E912E92AB5AF8F002B4B1C /* MainView.swift in Sources */,
+				B67E354C2ADE936C00743128 /* SwiftFormRule.swift in Sources */,
 				B67EF6D52AD0542B0072B3D4 /* UserRepositoryImpl.swift in Sources */,
 				B6662F802AC2397C007D4B14 /* UserProfileView.swift in Sources */,
 				B6662F892AC33A9E007D4B14 /* FoodGridItemView.swift in Sources */,
 				B67EF69D2AC466E10072B3D4 /* StartView.swift in Sources */,
 				B6E912D72AB311CA002B4B1C /* HomeViewModel.swift in Sources */,
+				B67E35402ADE936000743128 /* IsStrongPassword.swift in Sources */,
 				B62867232AD3FE6C000296C1 /* OtpModifier.swift in Sources */,
 				B6E912D42AB31180002B4B1C /* HomeView.swift in Sources */,
 				B6E912E62AB474D0002B4B1C /* NavRouteModel.swift in Sources */,
