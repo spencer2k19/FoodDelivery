@@ -53,6 +53,9 @@
 		B67E354D2ADE936C00743128 /* SwiftFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E354A2ADE936C00743128 /* SwiftFormModel.swift */; };
 		B67E354E2ADE936C00743128 /* SwiftFormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E354B2ADE936C00743128 /* SwiftFormValidator.swift */; };
 		B67E35502ADE970900743128 /* SFHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E354F2ADE970900743128 /* SFHelpers.swift */; };
+		B67E35532ADEDF8800743128 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35522ADEDF8800743128 /* AuthService.swift */; };
+		B67E35582ADEE39A00743128 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35572ADEE39A00743128 /* IntroView.swift */; };
+		B67E355A2ADEE3B200743128 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35592ADEE3B200743128 /* IntroViewModel.swift */; };
 		B67EF6992AC346920072B3D4 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6982AC346920072B3D4 /* TabIcon.swift */; };
 		B67EF69D2AC466E10072B3D4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF69C2AC466E10072B3D4 /* StartView.swift */; };
 		B67EF6A42ACB123F0072B3D4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6A32ACB123F0072B3D4 /* Category.swift */; };
@@ -158,6 +161,9 @@
 		B67E354A2ADE936C00743128 /* SwiftFormModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFormModel.swift; sourceTree = "<group>"; };
 		B67E354B2ADE936C00743128 /* SwiftFormValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFormValidator.swift; sourceTree = "<group>"; };
 		B67E354F2ADE970900743128 /* SFHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFHelpers.swift; sourceTree = "<group>"; };
+		B67E35522ADEDF8800743128 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B67E35572ADEE39A00743128 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		B67E35592ADEE3B200743128 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		B67EF6982AC346920072B3D4 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
 		B67EF69C2AC466E10072B3D4 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		B67EF6A32ACB123F0072B3D4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -346,6 +352,23 @@
 			path = Validator;
 			sourceTree = "<group>";
 		};
+		B67E35512ADEDEC000743128 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B67E35522ADEDF8800743128 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B67E35542ADEE37200743128 /* intro */ = {
+			isa = PBXGroup;
+			children = (
+				B67E35572ADEE39A00743128 /* IntroView.swift */,
+				B67E35592ADEE3B200743128 /* IntroViewModel.swift */,
+			);
+			path = intro;
+			sourceTree = "<group>";
+		};
 		B67EF6AB2ACE99E30072B3D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +380,7 @@
 		B67EF6AC2ACE9C340072B3D4 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B67E35512ADEDEC000743128 /* Services */,
 				B67EF6AF2ACE9C580072B3D4 /* Entity */,
 				B67EF6AE2ACE9C4F0072B3D4 /* Repository */,
 				B67EF6AD2ACE9C470072B3D4 /* UseCase */,
@@ -555,6 +579,7 @@
 		B6E912922AAF2D81002B4B1C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B67E35542ADEE37200743128 /* intro */,
 				B67E35282ADE838500743128 /* Modifiers */,
 				B6662F812AC23F97007D4B14 /* favorites */,
 				B6E912E72AB5AF80002B4B1C /* Main */,
@@ -904,7 +929,10 @@
 				B67EF6C82AD014FD0072B3D4 /* TestimonialsViewModel.swift in Sources */,
 				B67EF6CA2AD051310072B3D4 /* UserRepository.swift in Sources */,
 				B67EF6AA2ACB1F770072B3D4 /* Testimonial.swift in Sources */,
+				B67E35582ADEE39A00743128 /* IntroView.swift in Sources */,
 				B628672C2AD44175000296C1 /* UIApplication.swift in Sources */,
+				B67E35532ADEDF8800743128 /* AuthService.swift in Sources */,
+				B67E355A2ADEE3B200743128 /* IntroViewModel.swift in Sources */,
 				B67E353C2ADE936000743128 /* MaxLength.swift in Sources */,
 				B67E35202ADD8C7200743128 /* LoginViewModel.swift in Sources */,
 				B67E354E2ADE936C00743128 /* SwiftFormValidator.swift in Sources */,

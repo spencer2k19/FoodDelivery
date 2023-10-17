@@ -118,7 +118,10 @@ extension LoginView {
     
     private func login() {
         Task {
-            try? await vm.login()
+            try? await vm.login(onSuccess: {
+                navigator.push(Destination.home)
+            })
+           
         }
     }
     
@@ -129,7 +132,7 @@ extension LoginView {
             .cornerRadius(12)
             .overlay( RoundedRectangle(cornerRadius: 12)
                 .inset(by: 0.5)
-                .stroke( !vm.errorMsgForEmail.isEmpty ? Color.theme.red :  Color(red: 0.09, green: 0.12, blue: 0.13),lineWidth: 1).opacity(0.1))
+                .stroke( !vm.errorMsgForEmail.isEmpty ? Color.theme.red :  Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1),lineWidth: 1))
         
     }
     
@@ -174,7 +177,7 @@ extension LoginView {
             
             
         }
-        .disabled(!vm.errorMsgForEmail.isEmpty || !vm.errorMsgForPassword.isEmpty)
+       
     }
     
     private var facebookBtn: some View {

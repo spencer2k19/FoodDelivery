@@ -19,8 +19,8 @@ class UserRepositoryImpl: UserRepository {
             request.path = ApiConstants.LOGIN_URL
             request.encoding = JSONEncoding.default
            
-            let result: TokenData = try await ApiRequest.request(request)
-            return result
+            let result: ResponseToken = try await ApiRequest.request(request)
+            return result.data
           
         } catch let error {
             throw error

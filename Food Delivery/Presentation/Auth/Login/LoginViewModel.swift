@@ -16,42 +16,50 @@ class LoginViewModel: BaseViewModel {
     @Published var errorMsgForEmail = ""
     @Published var errorMsgForPassword = ""
     
+    
     override init() {
         super.init()
-        addSubscribers()
+        //addSubscribers()
     }
    
     // Output subscribers
     private var cancellables = Set<AnyCancellable>()
     
-    func login() async throws {
+    func login(onSuccess: () -> Void) async throws {
         do {
-            if await !isFormValid() {
+            if await !validForm() {
                 return
             }
             await setBusy(value: true)
             try await useCase.login(data: ["email": email, "password":password])
             await setBusy(value: false)
+            print("All is good there")
+            onSuccess()
         }  catch let error as APIError {
             await setBusy(value: false)
             await setError(error: error)
         }
     }
     
-    private func isFormValid() async -> Bool {
-        await MainActor.run(body: {
-            
+    private func validForm() async -> Bool {
+        
+        return await MainActor.run(body: {
+            var errors: [Bool] = []
+            errorMsgForEmail = ""
+            errorMsgForPassword = ""
             if(email.isEmpty) {
                 errorMsgForEmail = "*Please enter your email address"
-                return false
+                errors.append(false)
+            } else if !(isEmailValid(email)) {
+                errorMsgForEmail = "*Please enter an valid email address"
+                errors.append(false)
             }
             
             if password.isEmpty {
                 errorMsgForPassword = "*Please enter an valid password"
-                return false
+                errors.append(false)
             }
-            
-            return true
+            return !errors.contains(false)
         })
       
        
@@ -88,8 +96,6 @@ class LoginViewModel: BaseViewModel {
         $password.dropFirst(3).sink { [weak self] value in
             self?.validatePassword(value: value)
         }.store(in: &cancellables)
-        
-        
       
     }
     

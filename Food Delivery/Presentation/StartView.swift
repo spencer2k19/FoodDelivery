@@ -80,7 +80,7 @@ struct StartView: View {
                 
             }
         }
-        
+        .navigationBarBackButtonHidden()
        
     }
 }

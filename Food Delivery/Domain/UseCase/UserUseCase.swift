@@ -9,6 +9,7 @@ import Foundation
 
 class UserUseCase {
     let repository: UserRepository
+    let authService = AuthService.instance
     
     init(repository: UserRepository = UserRepositoryImpl()) {
         self.repository = repository
@@ -18,6 +19,7 @@ class UserUseCase {
         do {
            let tokenData =  try await repository.login(data: data)
             print("Token got successfully: \(tokenData)")
+            try authService.saveTokenData(tokenData: tokenData)
         } catch let error {
            throw error
         }

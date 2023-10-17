@@ -14,9 +14,11 @@ struct Food_DeliveryApp: App {
     var body: some Scene {
         WindowGroup {
             NBNavigationStack {
-               StartView()
+               IntroView()
                     .nbNavigationDestination(for: Destination.self, destination: { destination in
                         switch destination {
+                        case .start:
+                            StartView()
                         case .login:
                             LoginView()
                         case .register:
