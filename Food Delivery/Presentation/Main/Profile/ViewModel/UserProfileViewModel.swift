@@ -10,12 +10,23 @@ import Foundation
 class UserProfileViewModel: BaseViewModel {
     @Published var favorites: [Food] = []
     private var useCase = UserUseCase()
+    let service = AuthService.instance
+    
+    
+    var user: User? {
+        return service.userData
+    }
     
     override init() {
         super.init()
         Task { [weak self] in
             try? await self?.fetchFavorites()
         }
+    }
+    
+    
+    func logout() {
+        service.logout()
     }
     
     

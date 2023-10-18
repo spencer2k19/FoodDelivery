@@ -10,7 +10,6 @@ import Foundation
 
 //   let responseToken = try? JSONDecoder().decode(ResponseToken.self, from: jsonData)
 
-import Foundation
 
 // MARK: - ResponseToken
 struct ResponseToken: Codable {

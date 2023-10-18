@@ -10,4 +10,5 @@ import Foundation
 protocol UserRepository {
     func fetchFavoritesUserFood() async throws -> [Food]
     func login(data: [String: String]) async throws -> TokenData
+    func fetchUserData() async throws -> User
 }

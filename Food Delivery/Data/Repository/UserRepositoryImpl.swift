@@ -11,6 +11,21 @@ import Alamofire
 
 
 class UserRepositoryImpl: UserRepository {
+    func fetchUserData() async throws -> User {
+        do {
+            var request = GenericRequest()
+            request.method = .get
+            request.path = ApiConstants.ME_URL
+            request.encoding = JSONEncoding.default
+            let responseUser: ResponseUser = try await ApiRequest.request(request)
+            return responseUser.data
+            
+        } catch let error {
+            print("Error come from there: \(error)")
+            throw error
+        }
+    }
+    
     func login(data: [String : String]) async throws -> TokenData {
         do {
             var request = GenericRequest()

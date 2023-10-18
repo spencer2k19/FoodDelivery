@@ -44,17 +44,14 @@ struct GenericRequest {
         parameters = nil
         encoding = JSONEncoding() as ParameterEncoding
         headers = ["Content-Type": "application/json",
-                   "Accept": "application/json",
-                   "Charset": "utf-8",
-                   
-        ]
+                   "Accept": "application/json"
+                  ]
     }
 }
 
 
 
 class ApiRequest {
-    
     
     private static func mapDataToGeneralError(data: Data?) -> String {
         guard let serverData = data else {
@@ -72,32 +69,26 @@ class ApiRequest {
         do {
             let dataTask = AF.request(genericRequest.path,method: genericRequest.method, parameters: genericRequest.parameters,
                                       encoding: genericRequest.encoding,
-                                      
-                                      headers: genericRequest.headers
-                                      
-                                      
-            ).validate(statusCode: 200..<600)
-                .validate(contentType: ["application/json"])
+                                      interceptor: TokenInterceptor()
+            ).validate()
                 .serializingDecodable(T.self)
             
             let response = await dataTask.response
+            
             let statusCode = response.response?.statusCode
             switch response.result {
             case .success(let data):
-                if 200 ... 299 ~= statusCode ?? 300 {
-                    return data
-                } else if statusCode == 400 {
+                return data
+            case .failure(let error):
+                print("Failure is called: \(error.localizedDescription)")
+                if statusCode == 400 {
                     throw APIError.badRequest(message: ApiRequest.mapDataToGeneralError(data: response.data))
                 }  else if statusCode == 401 {
                     throw APIError.unauthorized(message: ApiRequest.mapDataToGeneralError(data: response.data))
                 }   else {
                     throw APIError.errorConnection
                 }
-                
-                
-            case .failure(let error):
-                print("Failure is called")
-                throw error
+               
             }
             
             

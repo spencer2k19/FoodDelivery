@@ -12,6 +12,7 @@ struct UserProfileView: View {
     @Environment(\.colorScheme) private var colorScheme
     @StateObject private var vm = UserProfileViewModel()
     @EnvironmentObject private var navigator: PathNavigator
+    @State private var showLogoutAlert:Bool = false
     
     var contentCardColor: Color {
         return colorScheme == .dark ? Color(red: 0.09, green: 0.12, blue: 0.13)
@@ -26,13 +27,32 @@ struct UserProfileView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading) {
                         
-                        category
-                        Text("Muhammad Dominguez")
+                        HStack {
+                            category
+                            
+                            Spacer()
+                            
+                            Button {
+                                showLogoutAlert.toggle()
+                            } label: {
+                                Text("Logout")
+                                    .font(.custom("Satoshi-Regular", size: 14))
+                            }
+
+                            
+                            
+                            
+                            
+                        }
+                        
+                        
+                        
+                        Text("\(vm.user?.firstName ?? "") \(vm.user?.lastName ?? "")")
                             .font(.custom("Satoshi-Bold", size: 17))
                         
                         HStack {
                             
-                            Text("Muhamed_dominguez@yahoo.com")
+                            Text("\(vm.user?.email ?? "")")
                                 .font(.custom("Satoshi-Light", size: 17))
                             
                             Spacer()
@@ -113,8 +133,19 @@ struct UserProfileView: View {
                     .cornerRadius(30, corners: [.topLeft, .topRight])
                     .offset(CGSize(width: 0, height: 300))
                 }
+            }.alert(isPresented: $showLogoutAlert) {
+                Alert(title: Text("Logout"),
+                      message: Text("Are you sure you want to logout ?"),
+                     
+                      primaryButton: .destructive(Text("Yes"),action: {
+                    vm.logout()
+                    navigator.popToRoot()
+                }), secondaryButton: .cancel(Text("No")))
             }
+            
         }
+       
+
     }
 }
 

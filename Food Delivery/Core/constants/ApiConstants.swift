@@ -12,4 +12,5 @@ struct ApiConstants {
     
     //MARK: - Login
     static let LOGIN_URL = BASE_URL + "/auth/login"
+    static let ME_URL = BASE_URL + "/users/me"
 }

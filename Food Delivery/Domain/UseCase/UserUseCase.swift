@@ -15,13 +15,28 @@ class UserUseCase {
         self.repository = repository
     }
     
+    ///login with email and password
     func login(data: [String: String]) async throws {
         do {
            let tokenData =  try await repository.login(data: data)
-            print("Token got successfully: \(tokenData)")
             try authService.saveTokenData(tokenData: tokenData)
+            print("Token got successfully: \(tokenData)")
+            let user = try await repository.fetchUserData()
+            print("User got successfully: \(user)")
+            
+            try authService.saveUserData(userData: user)
         } catch let error {
            throw error
+        }
+    }
+    
+    ///fetch current user data
+    func fetchUserData() async throws {
+        do {
+            let user = try await repository.fetchUserData()
+            try authService.saveUserData(userData: user)
+        } catch let error {
+            throw error
         }
     }
     
