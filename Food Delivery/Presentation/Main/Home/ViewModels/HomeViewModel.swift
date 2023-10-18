@@ -52,7 +52,7 @@ class HomeViewModel: BaseViewModel {
             
         } catch let error {
             await setBusyForObject(for: keyForCategory, value: false)
-            throw error
+            await setError(error: error)
         }
     }
     

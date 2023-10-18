@@ -209,6 +209,7 @@ struct HomeView: View {
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()
+        .onError($vm.errorWrapper)
         
     }
 }

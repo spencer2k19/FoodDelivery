@@ -384,6 +384,13 @@
 			path = constants;
 			sourceTree = "<group>";
 		};
+		B67E35622AE0918A00743128 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B67EF6AB2ACE99E30072B3D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +447,7 @@
 		B67EF6B02ACE9C6A0072B3D4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B67E35622AE0918A00743128 /* Model */,
 				B67EF6B12ACE9C700072B3D4 /* Repository */,
 			);
 			path = Data;

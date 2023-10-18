@@ -21,7 +21,6 @@ class UserRepositoryImpl: UserRepository {
             return responseUser.data
             
         } catch let error {
-            print("Error come from there: \(error)")
             throw error
         }
     }

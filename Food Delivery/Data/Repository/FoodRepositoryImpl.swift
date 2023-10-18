@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class FoodRepositoryImpl: FoodRepository {
     func fetchOrders() async throws -> [Order] {
@@ -64,15 +65,14 @@ class FoodRepositoryImpl: FoodRepository {
     }
     
     
-    func fetchCategories()async throws -> [Category] {
+    func fetchCategories() async throws -> [Category] {
         do {
-            try await Task.sleep(nanoseconds: 1_000_000_000)
-            return [
-                Category(imageName: "dessert", name: "Deserts"),
-                Category(imageName: "vegetarian", name: "Vegetarian"),
-                Category(imageName: "meat", name: "Meat"),
-                Category(imageName: "fruits", name: "Fruits"),
-            ]
+           var request = GenericRequest()
+            request.method = .get
+            request.path = ApiConstants.CATEGORY_URL
+            request.encoding = JSONEncoding.default
+            let responseCategory: ResponseCategory = try await ApiRequest.request(request)
+            return responseCategory.data
             
         } catch let error {
             throw error

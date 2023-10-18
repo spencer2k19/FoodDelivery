@@ -7,13 +7,21 @@
 
 import Foundation
 
-struct Category: Identifiable {
-    let imageName: String
+struct ResponseCategory: Codable {
+    let data: [Category]
+}
+
+struct Category: Identifiable, Codable {
+    let id: Int
+    let dateCreated: String
     let name: String
+    let image: String
     
-    var id: String {
-        return UUID().uuidString
+    enum CodingKeys: String, CodingKey {
+        case id
+        case dateCreated = "date_created"
+        case name
+        case image
     }
-    
     
 }

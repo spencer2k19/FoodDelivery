@@ -69,7 +69,7 @@ class ApiRequest {
         do {
             let dataTask = AF.request(genericRequest.path,method: genericRequest.method, parameters: genericRequest.parameters,
                                       encoding: genericRequest.encoding,
-                                      interceptor: TokenInterceptor()
+                                      interceptor: TokenInterceptor.instance
             ).validate()
                 .serializingDecodable(T.self)
             
@@ -79,8 +79,8 @@ class ApiRequest {
             switch response.result {
             case .success(let data):
                 return data
-            case .failure(let error):
-                print("Failure is called: \(error.localizedDescription)")
+            case .failure(_):
+               
                 if statusCode == 400 {
                     throw APIError.badRequest(message: ApiRequest.mapDataToGeneralError(data: response.data))
                 }  else if statusCode == 401 {

@@ -21,7 +21,7 @@ struct CategoryView: View {
        
         .overlay(VStack(spacing: 10,content: {
             
-            Image(category.imageName)
+            Image("dessert")
                 .resizable()
                 .frame(width: 100, height: 90)
                 .clipShape(Circle())
@@ -40,7 +40,7 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(category: Category(imageName: "dessert", name: "Deserts"))
+        CategoryView(category: Category(id: 2, dateCreated: "", name: "Dessert", image: "image"))
             .previewLayout(.sizeThatFits)
     }
 }

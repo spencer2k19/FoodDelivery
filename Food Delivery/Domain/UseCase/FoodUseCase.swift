@@ -39,7 +39,6 @@ class FoodUseCase {
         do {
             return try await foodRepository.fetchCategories()
         } catch let error {
-            print(error)
             throw error
         }
     }
