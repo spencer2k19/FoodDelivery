@@ -68,6 +68,8 @@ class TokenInterceptor: RequestInterceptor {
                     try authService.saveTokenData(tokenData: newTokenData)
                     completion(.retry)
                 } catch {
+                    authService.logout()
+                    authService.tokenData = nil
                     completion(.doNotRetry)
                 }
                 

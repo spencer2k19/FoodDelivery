@@ -30,6 +30,14 @@ class UserUseCase {
         }
     }
     
+    func downloadFile(path: String) async throws -> Data {
+        do {
+            return try await repository.downloadFile(path: path)
+        } catch let error {
+            throw error
+        }
+    }
+    
     ///fetch current user data
     func fetchUserData() async throws {
         do {

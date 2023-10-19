@@ -24,8 +24,7 @@ class RestaurantPageViewModel: ObservableObject {
             await MainActor.run(body: {
                 isBusy.toggle()
                 foods = [
-                    Food(imageName: "cheese", name: "Cheese Burger", description: "Cheesy Heaven", price: "5.99"),
-                    Food(imageName: "chicken_sandwich", name: "Chicken Sandwich", description: "Popeyes what", price: "3.59"),
+                   
                 ]
                 isBusy.toggle()
             })

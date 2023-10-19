@@ -37,7 +37,7 @@ struct RestaurantDetailsView: View {
                     VStack(alignment: .leading) {
                         category
                         
-                        Text(restaurant.name)
+                        Text(restaurant.name ?? "")
                             .font(.custom("Satoshi-Bold", size: 17))
                         
                         HStack {
@@ -52,8 +52,8 @@ struct RestaurantDetailsView: View {
                                         .frame(width: 18, height: 18)
                                 )
                             
-                            Text(restaurant.distance)
-                                .font(.custom("Satoshi-Regular", size: 15))
+//                            Text(restaurant.distance)
+//                                .font(.custom("Satoshi-Regular", size: 15))
                             Spacer().frame(width: 20)
                             
                             
@@ -68,7 +68,7 @@ struct RestaurantDetailsView: View {
                                         .frame(width: 18, height: 18)
                                 )
                             
-                            Text("\(restaurant.rating) rating")
+                            Text("\(Int(restaurant.rating ?? 0.0)) rating")
                                 .font(.custom("Satoshi-Regular", size: 15))
                         }
                         
@@ -98,11 +98,11 @@ struct RestaurantDetailsView: View {
                             
                             Spacer()
                             Button("See all") {
-                                navigator.push(Destination.testimonials(restaurantId: restaurant.id))
+//                                navigator.push(Destination.testimonials(restaurantId: restaurant.id ?? 0))
                             }
                         }
                         
-                        TestimonialItemView(testimonial: restaurant.lastTestimonial)
+//                        TestimonialItemView(testimonial: restaurant.lastTestimonial)
                         Spacer(minLength: 400)
                         
                         
@@ -139,7 +139,7 @@ extension RestaurantDetailsView {
     
     var category: some View {
         HStack {
-            Text(restaurant.type)
+            Text("Popular")
                 .font(.custom("Satoshi-Regular", size: 14))
                 .foregroundColor(.white)
                 .padding(.horizontal,10)
@@ -183,7 +183,7 @@ extension RestaurantDetailsView {
                 showFullDescription.toggle()
             }
         } label: {
-            Text(restaurant.description)
+            Text(restaurant.description ?? "")
                 .foregroundColor(.theme.label)
                 .lineLimit(showFullDescription ? nil : 3)
                 .font(.custom("Satoshi-Regular", size: 16))
@@ -197,9 +197,9 @@ extension RestaurantDetailsView {
     var foods: some View {
         ScrollView(.horizontal,showsIndicators: false) {
             HStack(spacing: 30) {
-                ForEach(restaurant.popularProducts) { food in
-                    FoodView(food: food)
-                }
+//                ForEach(restaurant.popularProducts) { food in
+//                    FoodView(food: food)
+//                }
             }.padding(.vertical,10)
             
         }

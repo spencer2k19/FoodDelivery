@@ -7,19 +7,29 @@
 
 import Foundation
 
+struct ResponseRestaurant: Codable {
+    let data: [Restaurant]
+}
+
 struct Restaurant: Identifiable, Codable {
-    let image: String
-    let logo: String
-    let type: String
-    let name: String
-    let duration: String
-    let distance: String
-    let rating: Double
-    let description: String
-    let popularProducts: [Food]
-    let lastTestimonial: Testimonial
+    let id: Int?
+    let status: String?
+    let dateCreated: String?
+    let name: String?
+    let logo: String?
+    var rating: Double? = 0
+    let description: String?
+    let coverImage: String?
     
-    var id: String {
-        return UUID().uuidString
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case status
+        case dateCreated = "date_created"
+        case name
+        case logo
+        case rating
+        case description
+        case coverImage = "cover_image"
     }
 }

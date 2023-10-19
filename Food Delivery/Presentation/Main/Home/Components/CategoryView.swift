@@ -21,8 +21,7 @@ struct CategoryView: View {
        
         .overlay(VStack(spacing: 10,content: {
             
-            Image("dessert")
-                .resizable()
+            FoodImageView(imageName: category.image)
                 .frame(width: 100, height: 90)
                 .clipShape(Circle())
             

@@ -7,13 +7,17 @@
 
 import SwiftUI
 import NavigationBackport
+import Combine
 
 @main
 struct Food_DeliveryApp: App {
-   
+    @State var path = NBNavigationPath()
+     var cancellables = Set<AnyCancellable>()
+
+    let authService = AuthService.instance
     var body: some Scene {
         WindowGroup {
-            NBNavigationStack {
+            NBNavigationStack(path: $path) {
                IntroView()
                     .nbNavigationDestination(for: Destination.self, destination: { destination in
                         switch destination {
@@ -59,6 +63,7 @@ struct Food_DeliveryApp: App {
                         }
                     })
             }
+           
            
            
         }

@@ -9,8 +9,10 @@ import Foundation
 
 class AuthService {
     static let instance = AuthService()
-    var tokenData: TokenData? = nil
-    var userData: User? = nil
+    @Published var tokenData: TokenData? = nil
+    @Published var userData: User? = nil
+    
+
     
     
     var preferences:UserDefaults?

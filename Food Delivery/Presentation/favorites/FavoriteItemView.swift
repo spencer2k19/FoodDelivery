@@ -21,7 +21,7 @@ struct FavoriteItemView: View {
              .overlay(
                  HStack(spacing: 20,content: {
                      
-                     Image(favorite.imageName)
+                     Image("cheese")
                          .resizable()
                          .frame(width: 60,height: 60)
                          .scaledToFill()
@@ -42,11 +42,11 @@ struct FavoriteItemView: View {
 //                         )
                      
                      VStack(alignment: .leading, spacing: 10) {
-                         Text(favorite.name)
+                         Text(favorite.name ?? "")
                              .font(.custom("Satoshi-Bold", size: 16))
                          
                          
-                         Text("$ \(favorite.price)")
+                         Text("$ \(favorite.price ?? 0)")
                              .font(.custom("Satoshi-Bold", size: 12))
                              .foregroundColor(.theme.accent)
                          

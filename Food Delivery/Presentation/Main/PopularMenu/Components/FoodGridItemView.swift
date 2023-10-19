@@ -14,11 +14,11 @@ struct FoodGridItemView: View {
         ZStack {
             VStack {
                 VStack(spacing: 5) {
-                    Text(food.name)
+                    Text(food.name ?? "")
                         .font(.custom("Satoshi-Bold", size: 16))
                     
                     HStack {
-                        Text(food.description)
+                        Text(food.shortDescription ?? "")
                             .font(.custom("Satoshi-Regular", size: 12))
                             .foregroundColor(Color(red: 0.58, green: 0.59, blue: 0.62))
                         
@@ -29,11 +29,11 @@ struct FoodGridItemView: View {
                     
                     
                     HStack(alignment: .bottom, spacing: 2) {
-                        Text("$")
+                        Text("\(food.currency ?? "")")
                             .font(.custom("Satoshi-Bold", size: 12))
                             .padding(.bottom,2)
                         
-                        Text(food.price)
+                        Text("\(food.price ?? 0)")
                             .font(.custom("Satoshi-Bold", size: 16))
                     }
                     
@@ -63,7 +63,7 @@ struct FoodGridItemView: View {
             .shadow(color: .black.opacity(0.12), radius: 18, x: 0, y: 20)
             
             .overlay(
-                Image(food.imageName)
+                Image("cheese")
                     .resizable()
                     .frame(width: 120, height: 120)
                     .overlay(

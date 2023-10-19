@@ -54,17 +54,17 @@ class FoodRepositoryImpl: FoodRepository {
         do {
             try await Task.sleep(nanoseconds: 2_000_000_000)
             return [
-                Food(imageName: "cheese", name: "Cheese Burger", description: "Steak House", price: "5.99"),
-                Food(imageName: "pizza", name: "Pizza", description: "Grill Bar", price: "12.45"),
-                Food(imageName: "chicken_sandwich", name: "Chicken Burger", description: "Irish Pub", price: "3.59"),
-                Food(imageName: "salad", name: "Caesar salad", description: "Zala Resturant", price: "13.29"),
+//                Food(imageName: "cheese", name: "Cheese Burger", description: "Steak House", price: "5.99"),
+//                Food(imageName: "pizza", name: "Pizza", description: "Grill Bar", price: "12.45"),
+//                Food(imageName: "chicken_sandwich", name: "Chicken Burger", description: "Irish Pub", price: "3.59"),
+//                Food(imageName: "salad", name: "Caesar salad", description: "Zala Resturant", price: "13.29"),
             ]
         } catch let error {
             throw error
         }
     }
     
-    
+    ///fetch list of categories
     func fetchCategories() async throws -> [Category] {
         do {
            var request = GenericRequest()
@@ -79,60 +79,30 @@ class FoodRepositoryImpl: FoodRepository {
         }
     }
     
-    
+    ///fetch all foods of app
     func fetchProducts() async throws -> [Food] {
         do {
-            try await Task.sleep(nanoseconds: 1_000_000_000)
-            return  [
-                Food(imageName: "cheese", name: "Cheese Burger", description: "Cheesy Heaven", price: "5.99"),
-                Food(imageName: "chicken_sandwich", name: "Chicken Sandwich", description: "Popeyes what", price: "3.59"),
-            ]
+          var request = GenericRequest()
+            request.method = .get
+            request.path = ApiConstants.FOODS_URL
+            request.encoding = JSONEncoding.default
+            let responseFoods: ResponseFood = try await ApiRequest.request(request)
+            return responseFoods.data
             
         } catch let error {
             throw error
         }
     }
     
-    
+    ///fetch list of all restaurants
     func fetchRestaurants() async throws -> [Restaurant] {
         do {
-            try await Task.sleep(nanoseconds: 1_000_000_000)
-            return [
-                Restaurant(image: "restaurant_page", logo: "mcdonald", type: "Popular", name: "Mcdonald's", duration: "15 mins", distance: "3 km", rating: 4.8, description: """
-A cheeseburger is a burger with a slice of melted cheese on top of the meat patty, added near the end of the cooking time. Cheeseburgers can include variations in structure, ingredients and composition. As with other hamburgers, a cheeseburger may include various condiments and other toppings such as:
-    - Lettuce
-    - Tomato
-    - Onion
-    - Pickles
-    - Bacon
-    - Avocado
-    - Mushrooms
-    - Mayonnaise
-    - Ketchup
-    - Mustard
-""", popularProducts: [Food(imageName: "cheese", name: "Cheese Burger", description: "Cheesy Heaven", price: "5.99"),
-                       Food(imageName: "chicken_sandwich", name: "Chicken Sandwich", description: "Popeyes what", price: "3.59")], lastTestimonial: Testimonial(imageName: "person_testimonial", authorName: "Ricky Martin", date: "20.11.2023", rate: 5, description: "The food is very ddelicious an the service is best! love it! ")),
-                
-                
-                
-                
-                
-                Restaurant(image: "restaurant_page", logo: "wendy", type: "Popular", name: "Wendy's", duration: "15 mins", distance: "3 km", rating: 4.8, description: """
-A cheeseburger is a burger with a slice of melted cheese on top of the meat patty, added near the end of the cooking time. Cheeseburgers can include variations in structure, ingredients and composition. As with other hamburgers, a cheeseburger may include various condiments and other toppings such as:
-    - Lettuce
-    - Tomato
-    - Onion
-    - Pickles
-    - Bacon
-    - Avocado
-    - Mushrooms
-    - Mayonnaise
-    - Ketchup
-    - Mustard
-""", popularProducts: [Food(imageName: "cheese", name: "Cheese Burger", description: "Cheesy Heaven", price: "5.99"),
-                       Food(imageName: "chicken_sandwich", name: "Chicken Sandwich", description: "Popeyes what", price: "3.59")], lastTestimonial: Testimonial(imageName: "person_testimonial", authorName: "Ricky Martin", date: "20.11.2023", rate: 5, description: "The food is very ddelicious an the service is best! love it! "))
-                
-            ]
+           var request = GenericRequest()
+            request.method = .get
+            request.path = ApiConstants.RESTAURANTS_URL
+            request.encoding = JSONEncoding.default
+            let responseRestaurants: ResponseRestaurant = try await ApiRequest.request(request)
+            return responseRestaurants.data
             
         } catch let error {
             throw error

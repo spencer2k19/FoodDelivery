@@ -11,6 +11,15 @@ import Alamofire
 
 
 class UserRepositoryImpl: UserRepository {
+    
+    func downloadFile(path: String) async throws -> Data {
+        do {
+            return try await ApiRequest.download(path: path)
+        } catch let error {
+            throw error
+        }
+    }
+    
     func fetchUserData() async throws -> User {
         do {
             var request = GenericRequest()
@@ -46,11 +55,11 @@ class UserRepositoryImpl: UserRepository {
         do {
             try await Task.sleep(nanoseconds: 3_000_000_000)
             return [
-                Food(imageName: "peperroni", name: "Pizza pepperoni", description: "", price: "25,90"),
-                Food(imageName: "philadelphia", name: "Philadelphia roll", description: "", price: "8.98"),
-                Food(imageName: "noodle", name: "Noodle", description: "", price: "10"),
-                Food(imageName: "shawarma", name: "Shawarma", description: "", price: "14.49"),
-                Food(imageName: "taco", name: "Taco", description: "", price: "5"),
+//                Food(imageName: "peperroni", name: "Pizza pepperoni", description: "", price: "25,90"),
+//                Food(imageName: "philadelphia", name: "Philadelphia roll", description: "", price: "8.98"),
+//                Food(imageName: "noodle", name: "Noodle", description: "", price: "10"),
+//                Food(imageName: "shawarma", name: "Shawarma", description: "", price: "14.49"),
+//                Food(imageName: "taco", name: "Taco", description: "", price: "5"),
             ]
         } catch let error {
             throw error

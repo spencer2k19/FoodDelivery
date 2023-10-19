@@ -60,8 +60,19 @@ class ApiRequest {
         guard let generalError = try? JSONDecoder().decode(GeneralError.self, from: serverData), !generalError.errors.isEmpty else {
             return ""
         }
+        print("General Error: \(generalError)")
         return generalError.errors[0].message
         
+    }
+    
+    
+    static func download(path: URLConvertible) async throws -> Data {
+        do {
+            return try await AF.download(path).serializingData().value
+            
+        } catch let error  {
+            throw error
+        }
     }
     
     
@@ -79,8 +90,8 @@ class ApiRequest {
             switch response.result {
             case .success(let data):
                 return data
-            case .failure(_):
-               
+            case .failure(let error):
+                 print("Failure occured: \(error)")
                 if statusCode == 400 {
                     throw APIError.badRequest(message: ApiRequest.mapDataToGeneralError(data: response.data))
                 }  else if statusCode == 401 {

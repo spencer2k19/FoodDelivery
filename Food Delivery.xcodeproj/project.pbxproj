@@ -59,6 +59,9 @@
 		B67E355C2ADFE14A00743128 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E355B2ADFE14A00743128 /* User.swift */; };
 		B67E355E2ADFE47A00743128 /* TokenInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E355D2ADFE47A00743128 /* TokenInterceptor.swift */; };
 		B67E35612AE0240100743128 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35602AE0240100743128 /* AppConstants.swift */; };
+		B67E35652AE137FA00743128 /* FoodImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35642AE137FA00743128 /* FoodImageViewModel.swift */; };
+		B67E35672AE1380B00743128 /* FoodImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35662AE1380B00743128 /* FoodImageView.swift */; };
+		B67E35692AE13F2900743128 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35682AE13F2900743128 /* Double.swift */; };
 		B67EF6992AC346920072B3D4 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6982AC346920072B3D4 /* TabIcon.swift */; };
 		B67EF69D2AC466E10072B3D4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF69C2AC466E10072B3D4 /* StartView.swift */; };
 		B67EF6A42ACB123F0072B3D4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6A32ACB123F0072B3D4 /* Category.swift */; };
@@ -170,6 +173,9 @@
 		B67E355B2ADFE14A00743128 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B67E355D2ADFE47A00743128 /* TokenInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInterceptor.swift; sourceTree = "<group>"; };
 		B67E35602AE0240100743128 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		B67E35642AE137FA00743128 /* FoodImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageViewModel.swift; sourceTree = "<group>"; };
+		B67E35662AE1380B00743128 /* FoodImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageView.swift; sourceTree = "<group>"; };
+		B67E35682AE13F2900743128 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		B67EF6982AC346920072B3D4 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
 		B67EF69C2AC466E10072B3D4 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		B67EF6A32ACB123F0072B3D4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -389,6 +395,15 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B67E35632AE137E200743128 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				B67E35642AE137FA00743128 /* FoodImageViewModel.swift */,
+				B67E35662AE1380B00743128 /* FoodImageView.swift */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 		B67EF6AB2ACE99E30072B3D4 /* View */ = {
@@ -650,6 +665,7 @@
 				B6E912EA2AB5B546002B4B1C /* UIColor.swift */,
 				B67EF6BF2ACECA560072B3D4 /* PreviewProvider.swift */,
 				B628672B2AD44175000296C1 /* UIApplication.swift */,
+				B67E35682AE13F2900743128 /* Double.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -753,6 +769,7 @@
 		B6E912E72AB5AF80002B4B1C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B67E35632AE137E200743128 /* image */,
 				B65A481C2AD0646C00A1A873 /* Orders */,
 				B67EF6D62AD05B340072B3D4 /* Profile */,
 				B67EF6C12AD00FFB0072B3D4 /* PopularMenu */,
@@ -905,6 +922,7 @@
 				B6E912DE2AB36CBC002B4B1C /* View.swift in Sources */,
 				B628671C2AD2FFEB000296C1 /* Order.swift in Sources */,
 				B67E35272ADDE8DB00743128 /* GeneralError.swift in Sources */,
+				B67E35672AE1380B00743128 /* FoodImageView.swift in Sources */,
 				B67EF6A82ACB12C80072B3D4 /* Restaurant.swift in Sources */,
 				B62867252AD405B4000296C1 /* OtpTextField.swift in Sources */,
 				B67E354D2ADE936C00743128 /* SwiftFormModel.swift in Sources */,
@@ -959,6 +977,7 @@
 				B67EF6AA2ACB1F770072B3D4 /* Testimonial.swift in Sources */,
 				B67E35582ADEE39A00743128 /* IntroView.swift in Sources */,
 				B628672C2AD44175000296C1 /* UIApplication.swift in Sources */,
+				B67E35692AE13F2900743128 /* Double.swift in Sources */,
 				B67E35532ADEDF8800743128 /* AuthService.swift in Sources */,
 				B67E355A2ADEE3B200743128 /* IntroViewModel.swift in Sources */,
 				B67E353C2ADE936000743128 /* MaxLength.swift in Sources */,
@@ -972,6 +991,7 @@
 				B67E35452ADE936000743128 /* IsNumber.swift in Sources */,
 				B65A481E2AD0649500A1A873 /* OrdersView.swift in Sources */,
 				B62867362AD58B94000296C1 /* CongratsForgotPasswordView.swift in Sources */,
+				B67E35652AE137FA00743128 /* FoodImageViewModel.swift in Sources */,
 				B67EF6BC2ACEA1360072B3D4 /* FoodRepositoryImpl.swift in Sources */,
 				B6E912E92AB5AF8F002B4B1C /* MainView.swift in Sources */,
 				B67E354C2ADE936C00743128 /* SwiftFormRule.swift in Sources */,

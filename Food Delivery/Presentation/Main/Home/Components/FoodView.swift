@@ -20,8 +20,8 @@ struct FoodView: View {
                 .overlay(
                     ZStack(content: {
                       
-                        Image(food.imageName)
-                                .resizable()
+                        FoodImageView(imageName: food.image ?? "")
+                           
                                 .frame(width: 170, height: 170)
                                 .overlay(
                                     
@@ -43,11 +43,11 @@ struct FoodView: View {
                         
                         
                         VStack(spacing: 5) {
-                            Text(food.name)
+                            Text(food.name ?? "")
                                 .font(.custom("Satoshi-Bold", size: 16))
                             
                             HStack {
-                                Text(food.description)
+                                Text(food.shortDescription ?? "")
                                     .font(.custom("Satoshi-Regular", size: 12))
                                     .foregroundColor(Color(red: 0.58, green: 0.59, blue: 0.62))
                                 
@@ -58,11 +58,11 @@ struct FoodView: View {
                             
                             
                             HStack(alignment: .bottom, spacing: 2) {
-                                Text("$")
+                                Text(food.currency ?? "")
                                     .font(.custom("Satoshi-Bold", size: 12))
                                     .padding(.bottom,2)
                                 
-                                Text(food.price)
+                                Text(food.price?.asNumberString() ?? "")
                                     .font(.custom("Satoshi-Bold", size: 16))
                             }
                             
@@ -104,6 +104,6 @@ struct FoodView: View {
 
 struct FoodView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodView(food: Food(imageName: "cheese", name: "Cheese Burger", description: "Cheesy Heaven", price: "5,99"))
+        FoodView(food: dev.food)
     }
 }
