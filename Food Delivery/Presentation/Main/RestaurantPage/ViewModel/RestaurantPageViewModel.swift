@@ -6,11 +6,14 @@
 //
 
 import Foundation
-class RestaurantPageViewModel: ObservableObject {
+class RestaurantPageViewModel: BaseViewModel {
     @Published var foods: [Food] = []
-    @Published var isBusy: Bool = false
+    let useCase = FoodUseCase()
+    var restaurantId: Int = 0
     
-    init() {
+    required init(restaurantId: Int) {
+        super.init()
+        self.restaurantId = restaurantId
         Task {
             try? await fetchPopularProducts()
         }
@@ -19,19 +22,17 @@ class RestaurantPageViewModel: ObservableObject {
     
     func fetchPopularProducts() async throws {
         do {
-            
-             try await Task.sleep(nanoseconds: 1_000_000_000)
+           print("Fetching popular products is called")
+           await setBusy(value: true)
+            let data = try await useCase.fetchFoodsPerRestaurant(with: ["filter[restaurant][id][_eq]": restaurantId])
+            await setBusy(value: false)
             await MainActor.run(body: {
-                isBusy.toggle()
-                foods = [
-                   
-                ]
-                isBusy.toggle()
+                foods = Array(data.prefix(8))
             })
-           
+            
         } catch let error {
-            isBusy.toggle()
-            throw error
+            await setBusy(value: false)
+            await setError(error: error)
         }
     }
 }

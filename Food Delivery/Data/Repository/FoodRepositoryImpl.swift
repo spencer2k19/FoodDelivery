@@ -9,6 +9,22 @@ import Foundation
 import Alamofire
 
 class FoodRepositoryImpl: FoodRepository {
+    
+    
+    func fetchProductsPerRestaurant(data: [String : Any]) async throws -> [Food] {
+        do {
+            var request = GenericRequest()
+            request.method = .get
+            request.path = ApiConstants.FOODS_URL
+            request.parameters = data
+            request.encoding = URLEncoding.default
+            let responseFoods: ResponseFood = try await ApiRequest.request(request)
+            return responseFoods.data
+        } catch let error {
+            throw error
+        }
+    }
+    
     func fetchOrders() async throws -> [Order] {
         do {
             try await Task.sleep(nanoseconds: 3_000_000_000)

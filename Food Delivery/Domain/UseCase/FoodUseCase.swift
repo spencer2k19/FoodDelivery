@@ -20,7 +20,16 @@ class FoodUseCase {
             let foods =  try await foodRepository.fetchProducts()
             return foods
         } catch let error {
-            print(error)
+            throw error
+        }
+    }
+    
+    
+    ///fetch all foods by restaurant
+    func fetchFoodsPerRestaurant(with parameters: [String: Any]) async throws -> [Food] {
+        do {
+            return try await foodRepository.fetchProductsPerRestaurant(data: parameters)
+        } catch let error {
             throw error
         }
     }

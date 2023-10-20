@@ -47,6 +47,7 @@ class TokenInterceptor: RequestInterceptor {
     
     
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+        
         guard retryCount > 0 else {
             // No more retries allowed
             completion(.doNotRetry)

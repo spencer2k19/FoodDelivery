@@ -11,10 +11,19 @@ import NavigationBackport
 struct RestaurantDetailsView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var showFullDescription: Bool = false
-    @StateObject private var vm = RestaurantPageViewModel()
+    @StateObject private var vm:RestaurantPageViewModel
     @EnvironmentObject private var navigator: PathNavigator
     
     let restaurant: Restaurant
+    
+    
+    
+    init(restaurant: Restaurant) {
+        self.restaurant = restaurant
+        _vm = StateObject(wrappedValue: RestaurantPageViewModel(restaurantId: restaurant.id ?? 0))
+    }
+    
+    
 
     var circleContentColor: Color {
         return colorScheme == .light ? Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.1)
@@ -197,9 +206,9 @@ extension RestaurantDetailsView {
     var foods: some View {
         ScrollView(.horizontal,showsIndicators: false) {
             HStack(spacing: 30) {
-//                ForEach(restaurant.popularProducts) { food in
-//                    FoodView(food: food)
-//                }
+                ForEach(vm.foods) { food in
+                    FoodView(food: food)
+                }
             }.padding(.vertical,10)
             
         }

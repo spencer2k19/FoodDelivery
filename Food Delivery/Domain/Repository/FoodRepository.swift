@@ -9,6 +9,7 @@ import Foundation
 
 protocol FoodRepository {
     func fetchProducts() async throws -> [Food]
+    func fetchProductsPerRestaurant(data:[String: Any]) async throws -> [Food]
     func fetchAllPopularMenu() async throws -> [Food]
     func fetchCategories() async throws -> [Category]
     func fetchRestaurants() async throws -> [Restaurant]
