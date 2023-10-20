@@ -17,5 +17,6 @@ struct ApiConstants {
     static let CATEGORY_URL = BASE_URL + "/items/categories"
     static let FOODS_URL = BASE_URL + "/items/foods"
     static let RESTAURANTS_URL = BASE_URL + "/items/restaurants"
+    static let TESTIMONIALS_URL = BASE_URL + "/items/testimonials"
     static let ASSETS_URL = BASE_URL + "/assets"
 }

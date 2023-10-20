@@ -107,11 +107,25 @@ struct RestaurantDetailsView: View {
                             
                             Spacer()
                             Button("See all") {
-//                                navigator.push(Destination.testimonials(restaurantId: restaurant.id ?? 0))
+                                navigator.push(Destination.testimonials(restaurantId: restaurant.id ?? 0))
                             }
                         }
                         
-//                        TestimonialItemView(testimonial: restaurant.lastTestimonial)
+                        if vm.isBusyForObject(for: vm.keyForTestimonials) {
+                            ProgressView()
+                                .frame(height: 50)
+                                .frame(maxWidth: geometry.size.width, alignment: .center)
+                        } else {
+                            VStack {
+                                ForEach(vm.testimonials) { testimonial in
+                                    TestimonialItemView(testimonial: testimonial)
+                                }
+                            }
+                        }
+                        
+                        
+                        
+
                         Spacer(minLength: 400)
                         
                         

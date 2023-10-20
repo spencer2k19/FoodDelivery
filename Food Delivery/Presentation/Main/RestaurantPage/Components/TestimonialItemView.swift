@@ -13,14 +13,13 @@ struct TestimonialItemView: View {
     
     var body: some View {
         HStack(alignment: .top,content: {
-            Image(testimonial.imageName)
-                .resizable()
+            FoodImageView(imageName: testimonial.avatar ?? "")
                 .frame(width: 50, height: 50)
                 .clipShape(Circle())
             Spacer().frame(width: 20)
             VStack(alignment: .leading,spacing: 10) {
                 HStack {
-                    Text(testimonial.authorName)
+                    Text(testimonial.authorName ?? "")
                         .font(.custom("Satoshi-Bold", size: 17))
                     .foregroundColor(.theme.label)
                     Spacer()
@@ -30,17 +29,17 @@ struct TestimonialItemView: View {
                         .foregroundColor(.theme.accent)
                         .frame(width: 18, height: 18)
                     
-                    Text("\(testimonial.rate)")
+                    Text("\(Int(testimonial.rating ?? 0))")
                         .font(.custom("Satoshi-Bold", size: 17))
                         .foregroundColor(.theme.accent)
                         
                 }
                 
-                Text(testimonial.date)
+                Text(testimonial.dateCreated ?? "")
                     .font(.custom("Satoshi-Regular", size: 14))
                     .foregroundColor(.theme.label)
                 
-                Text(testimonial.description)
+                Text(testimonial.content ?? "")
                     .font(.custom("Satoshi-Regular", size: 14))
                     .foregroundColor(.theme.label)
             }

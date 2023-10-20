@@ -24,7 +24,7 @@ class DeveloperPreview {
     let favorite =  Food(id: 2, status: "", dateCreated: "", name: "", price: 10, currency: "", shortDescription: "", isLiked: false, image: "", restaurant: 0)
     
     
-    let testimonial = Testimonial(imageName: "person_testimonial", authorName: "Ricky Martin", date: "20.11.2023", rate: 5, description: "The food is very ddelicious an the service is best! love it! ")
+    let testimonial = Testimonial(id: 0, status: "", dateCreated: "", authorName: "", content: "", rating: 9, avatar: "")
     
     let order = Order(restaurantLogo: "mcdonald", restaurantName: "McDonald's", createdAt: "21:30",
                       totalPrice: "45.50", status: "Proccess")

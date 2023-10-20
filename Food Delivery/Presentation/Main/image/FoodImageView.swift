@@ -28,7 +28,6 @@ struct FoodImageView: View {
                 ProgressView()
             } else {
                 Image(systemName: "questionmark")
-                    .resizable()
                     .foregroundColor(.black)
             }
         }

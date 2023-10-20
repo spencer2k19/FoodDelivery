@@ -9,10 +9,10 @@ import Foundation
 class TestimonialViewModel: BaseViewModel {
     @Published var testimonials: [Testimonial] = []
     private var useCase = FoodUseCase()
-    private var restaurantId: String = ""
+    private var restaurantId: Int = 0
     
    
-    required init(restaurant: String) {
+    required init(restaurant: Int) {
         super.init()
         restaurantId = restaurant
         Task { [weak self] in
@@ -25,7 +25,7 @@ class TestimonialViewModel: BaseViewModel {
     func fetchTestimonials() async throws {
         do {
             await setBusy(value: true)
-            let data = try await useCase.fetchAllTestimonials(restaurantId: restaurantId)
+            let data = try await useCase.fetchTestimonials(with: ["filter[restaurant][id][_eq]": restaurantId])
             await setBusy(value: false)
             await MainActor.run(body: {
                 testimonials = data

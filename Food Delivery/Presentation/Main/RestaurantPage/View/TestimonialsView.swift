@@ -14,7 +14,7 @@ struct TestimonialsView: View {
     
     
     
-    init(restaurant: String) {
+    init(restaurant: Int) {
         _vm = StateObject(wrappedValue: TestimonialViewModel(restaurant: restaurant))
     }
     
@@ -45,7 +45,7 @@ struct TestimonialsView: View {
 
 struct TestimonialsView_Previews: PreviewProvider {
     static var previews: some View {
-        TestimonialsView(restaurant: "1")
+        TestimonialsView(restaurant: 1)
     }
 }
 

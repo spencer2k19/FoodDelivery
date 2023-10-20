@@ -8,7 +8,7 @@
 import Foundation
 
 class FoodUseCase {
-    let foodRepository: FoodRepository
+    private let foodRepository: FoodRepository
     
     init(foodRepository: FoodRepository = FoodRepositoryImpl()) {
         self.foodRepository = foodRepository
@@ -72,9 +72,9 @@ class FoodUseCase {
     }
     
     ///fetch all testimonials of restaurant
-    func fetchAllTestimonials(restaurantId: String) async throws -> [Testimonial] {
+    func fetchTestimonials(with data: [String: Any]) async throws -> [Testimonial] {
         do {
-            return try await foodRepository.fetchTestimonials(of: restaurantId)
+            return try await foodRepository.fetchTestimonials(of: data)
         } catch let error {
             throw error
         }

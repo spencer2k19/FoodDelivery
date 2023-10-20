@@ -25,7 +25,7 @@ enum Destination: Codable, Hashable {
     case orderDetails
     case deliverAddress
     case restaurantDetails(restaurant: Restaurant)
-    case testimonials(restaurantId: String)
+    case testimonials(restaurantId: Int)
     case favorites
     case popularMenu
     case forgotPassword

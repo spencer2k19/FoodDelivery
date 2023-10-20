@@ -8,6 +8,12 @@
 import Foundation
 class RestaurantPageViewModel: BaseViewModel {
     @Published var foods: [Food] = []
+    @Published var testimonials: [Testimonial] = []
+    
+    var keyForTestimonials: String {
+        return "testimonials"
+    }
+    
     let useCase = FoodUseCase()
     var restaurantId: Int = 0
     
@@ -17,12 +23,30 @@ class RestaurantPageViewModel: BaseViewModel {
         Task {
             try? await fetchPopularProducts()
         }
+        
+        Task {
+            try? await fetchLastTestimonials()
+        }
+    }
+    
+    
+    func fetchLastTestimonials() async throws {
+        do {
+            await setBusyForObject(for: keyForTestimonials, value: true)
+            let data = try await useCase.fetchTestimonials(with: ["filter[restaurant][id][_eq]": restaurantId])
+            await setBusyForObject(for: keyForTestimonials, value: false)
+            await MainActor.run(body: {
+                testimonials = Array(data.prefix(2))
+            })
+        } catch let error {
+            await setBusyForObject(for: keyForTestimonials, value: false)
+            print(error)
+        }
     }
     
     
     func fetchPopularProducts() async throws {
         do {
-           print("Fetching popular products is called")
            await setBusy(value: true)
             let data = try await useCase.fetchFoodsPerRestaurant(with: ["filter[restaurant][id][_eq]": restaurantId])
             await setBusy(value: false)

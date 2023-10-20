@@ -42,24 +42,15 @@ class FoodRepositoryImpl: FoodRepository {
     }
     
     
-    func fetchTestimonials(of restaurantId: String) async throws -> [Testimonial] {
+    func fetchTestimonials(of data: [String: Any]) async throws -> [Testimonial] {
         do {
-            try await Task.sleep(nanoseconds: 3_000_000_000)
-            return [
-                Testimonial(imageName: "person_testimonial", authorName: "Ricky Martin", date: "20.11.2023",
-                            rate: 5, description: "The food is very ddelicious an the service is best! love it! "),
-                
-                Testimonial(imageName: "testimonial1", authorName: "Keelan Vasquez", date: "28.01.2023",
-                            rate: 4, description: "Had brunch at this restaurant one time and since then this place is my favorite one."),
-                
-                Testimonial(imageName: "testimonial2", authorName: "Adem Bennett", date: "07.08.2023",
-                            rate: 5, description: "Love this place and the food is just awesome."),
-                
-                Testimonial(imageName: "testimonial3", authorName: "Woody Mccoy", date: "10.05.2023",
-                            rate: 5, description: "Everything is simply perfect about this place. Highly suggested.")
-                
-                
-            ]
+          var request = GenericRequest()
+            request.method = .get
+            request.path = ApiConstants.TESTIMONIALS_URL
+            request.parameters = data
+            request.encoding = URLEncoding.default
+            let response: ResponseTestimonial = try await ApiRequest.request(request)
+            return response.data
         } catch let error {
             throw error
         }
