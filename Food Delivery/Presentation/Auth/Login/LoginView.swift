@@ -11,6 +11,9 @@ import NavigationBackport
 struct LoginView: View {
     
     @State private var isChecked: Bool = false
+    var service = AuthService.instance
+    
+
     
     
     @EnvironmentObject var navigator: PathNavigator
@@ -29,6 +32,7 @@ struct LoginView: View {
                 .padding()
                 .font(.headline)
             
+          
             Group {
                 signInBtn
                 
@@ -120,6 +124,7 @@ extension LoginView {
         Task {
             try? await vm.login(onSuccess: {
                 navigator.push(Destination.home)
+                
             })
            
         }
@@ -182,7 +187,7 @@ extension LoginView {
     
     private var facebookBtn: some View {
         Button {
-            
+           
         } label: {
             HStack {
                 Image("facebook_icon")
@@ -224,8 +229,6 @@ extension LoginView {
                 Text("Google")
                     .font(.custom("Satoshi-Medium", size: 17))
                     .fontWeight(.semibold)
-                
-                
             }
             .padding(.horizontal,20)
             .padding()

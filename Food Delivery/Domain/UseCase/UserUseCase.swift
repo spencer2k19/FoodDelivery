@@ -19,11 +19,11 @@ class UserUseCase {
     func login(data: [String: String]) async throws {
         do {
            let tokenData =  try await repository.login(data: data)
+            authService.tokenData = tokenData
             try authService.saveTokenData(tokenData: tokenData)
             print("Token got successfully: \(tokenData)")
             let user = try await repository.fetchUserData()
             print("User got successfully: \(user)")
-            
             try authService.saveUserData(userData: user)
         } catch let error {
            throw error
@@ -49,9 +49,9 @@ class UserUseCase {
     }
     
     ///fetch all user favorites foods
-    func fetchUserFavorites() async throws -> [Food] {
+    func fetchUserFavorites(with data: [String: Any]) async throws -> [Food] {
         do {
-            return try await repository.fetchFavoritesUserFood()
+            return try await repository.fetchFavoritesUserFood(with: data)
         } catch let error {
             print(error)
             throw error

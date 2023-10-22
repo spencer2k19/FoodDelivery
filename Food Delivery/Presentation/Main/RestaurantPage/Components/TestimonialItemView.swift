@@ -35,7 +35,7 @@ struct TestimonialItemView: View {
                         
                 }
                 
-                Text(testimonial.dateCreated ?? "")
+                Text(Date(dateString: testimonial.dateCreated ?? "").asShortDateStyle())
                     .font(.custom("Satoshi-Regular", size: 14))
                     .foregroundColor(.theme.label)
                 

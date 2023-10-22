@@ -6,6 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
+
+
+class AuthModel: ObservableObject {
+    @Published var name: String = ""
+}
+
+
 
 class AuthService {
     static let instance = AuthService()
@@ -22,14 +30,12 @@ class AuthService {
             
     }
     
-    func saveTokenData(tokenData: TokenData) throws {
+    func saveTokenData(tokenData: TokenData) throws  {
         do {
             self.tokenData = tokenData
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try jsonEncoder.encode(tokenData)
+           let jsonData = try TokenData.encodeTokenData(tokenData)
             preferences?.set(jsonData, forKey: AppConstants.PREFS_TOKEN)
             preferences?.synchronize()
-           
         } catch let error {
             throw error
         }
@@ -57,11 +63,12 @@ class AuthService {
     
     func tryAutoLogin() throws  {
         do {
-            guard let dataForToken = preferences?.data(forKey: AppConstants.PREFS_TOKEN) else {return}
+            guard let dataForToken = preferences?.string(forKey: AppConstants.PREFS_TOKEN) else {return}
             guard let dataForUser = preferences?.data(forKey: AppConstants.PREFS_USER) else {return}
             
+            
             let jsonDecoder = JSONDecoder()
-            tokenData = try jsonDecoder.decode(TokenData.self, from: dataForToken)
+            tokenData =  TokenData.decodeTokenData(tokenJSON: dataForToken)
             userData = try jsonDecoder.decode(User.self, from: dataForUser)
         } catch let error {
             throw error

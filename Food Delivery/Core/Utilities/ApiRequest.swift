@@ -13,13 +13,14 @@ enum APIError: Error {
     case badRequest(message: String)
     case decodingError
     case unauthorized(message: String)
+    case tokenExpired(message: String)
     case errorConnection
     
     
     var localizedDescription: String {
         switch self {
         case .badRequest(let message),
-                .unauthorized(let message):
+                .unauthorized(let message), .tokenExpired(let message):
             return message
         case .decodingError:
             return "Decoding error"
@@ -45,7 +46,7 @@ struct GenericRequest {
         encoding = JSONEncoding() as ParameterEncoding
         headers = ["Content-Type": "application/json",
                    "Accept": "application/json"
-                  ]
+        ]
     }
 }
 
@@ -91,15 +92,19 @@ class ApiRequest {
             case .success(let data):
                 return data
             case .failure(let error):
-                 print("Failure occured: \(error)")
+                print("Failure occured: \(error)")
                 if statusCode == 400 {
                     throw APIError.badRequest(message: ApiRequest.mapDataToGeneralError(data: response.data))
+                } else if statusCode == 401 && AuthService.instance.tokenData != nil {
+                    throw APIError.tokenExpired(message: ApiRequest.mapDataToGeneralError(data: response.data))
                 }  else if statusCode == 401 {
                     throw APIError.unauthorized(message: ApiRequest.mapDataToGeneralError(data: response.data))
-                }   else {
+                } else if statusCode == 403 {
+                    throw APIError.badRequest(message: ApiRequest.mapDataToGeneralError(data: response.data))
+                }  else {
                     throw APIError.errorConnection
                 }
-               
+                
             }
             
             

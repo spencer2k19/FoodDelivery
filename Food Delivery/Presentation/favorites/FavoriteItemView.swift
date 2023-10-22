@@ -21,8 +21,7 @@ struct FavoriteItemView: View {
              .overlay(
                  HStack(spacing: 20,content: {
                      
-                     Image("cheese")
-                         .resizable()
+                     FoodImageView(imageName: favorite.image ?? "")
                          .frame(width: 60,height: 60)
                          .scaledToFill()
                      
@@ -46,7 +45,7 @@ struct FavoriteItemView: View {
                              .font(.custom("Satoshi-Bold", size: 16))
                          
                          
-                         Text("$ \(favorite.price ?? 0)")
+                         Text("$ \(favorite.price?.asNumberString() ?? "")")
                              .font(.custom("Satoshi-Bold", size: 12))
                              .foregroundColor(.theme.accent)
                          

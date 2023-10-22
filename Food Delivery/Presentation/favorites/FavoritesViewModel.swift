@@ -22,7 +22,7 @@ class FavoritesViewModel: BaseViewModel {
     private func fetchFavorites() async throws {
         do {
             await setBusy(value: true)
-            let data = try await useCase.fetchUserFavorites()
+            let data = try await useCase.fetchUserFavorites(with: ["filter[is_liked][_eq]":true])
             await setBusy(value: false)
             await MainActor.run(body: {
                 favorites = data

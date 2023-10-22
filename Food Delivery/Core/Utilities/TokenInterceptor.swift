@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+
+
 class TokenInterceptor: RequestInterceptor {
     
     let authService = AuthService.instance
@@ -69,8 +71,6 @@ class TokenInterceptor: RequestInterceptor {
                     try authService.saveTokenData(tokenData: newTokenData)
                     completion(.retry)
                 } catch {
-                    authService.logout()
-                    authService.tokenData = nil
                     completion(.doNotRetry)
                 }
                 
