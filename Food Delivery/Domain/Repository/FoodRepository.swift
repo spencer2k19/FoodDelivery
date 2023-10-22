@@ -13,6 +13,6 @@ protocol FoodRepository {
     func fetchAllPopularMenu() async throws -> [Food]
     func fetchCategories() async throws -> [Category]
     func fetchRestaurants() async throws -> [Restaurant]
-    func fetchOrders() async throws -> [Order]
+    func fetchOrders(with data: [String: Any]) async throws -> [Order]
     func fetchTestimonials(of data: [String: Any]) async throws -> [Testimonial]
 }

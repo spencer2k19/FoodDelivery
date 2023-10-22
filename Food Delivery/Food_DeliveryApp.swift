@@ -56,8 +56,8 @@ struct Food_DeliveryApp: App {
                                     TestimonialsView(restaurant: restaurantId)
                                 case .favorites:
                                     FavoritesView()
-                                case .popularMenu:
-                                    PopularMenuView()
+                                case .popularMenu(let restaurantId):
+                                    PopularMenuView(restaurantId: restaurantId)
                                 case .forgotPassword:
                                     ForgotPasswordView()
                                

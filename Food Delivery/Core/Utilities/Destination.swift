@@ -27,7 +27,7 @@ enum Destination: Codable, Hashable {
     case restaurantDetails(restaurant: Restaurant)
     case testimonials(restaurantId: Int)
     case favorites
-    case popularMenu
+    case popularMenu(restaurantId: Int)
     case forgotPassword
     case resendPassword
     case congratsForgotPassword

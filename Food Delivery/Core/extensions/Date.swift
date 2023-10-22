@@ -17,13 +17,23 @@ extension Date {
     }
     
     private var shortFormatter: DateFormatter {
+        
         let formatter = DateFormatter()
         formatter.dateStyle = .short
+        
         return formatter
+    }
+    
+    func asTimeString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let timeString = dateFormatter.string(from: self)
+        return timeString
     }
     
     
     func asShortDateStyle() -> String {
+        
         return shortFormatter.string(from: self)
     }
 }

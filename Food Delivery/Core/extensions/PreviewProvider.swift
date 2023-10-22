@@ -26,8 +26,7 @@ class DeveloperPreview {
     
     let testimonial = Testimonial(id: 0, status: "", dateCreated: "", authorName: "", content: "", rating: 9, avatar: "")
     
-    let order = Order(restaurantLogo: "mcdonald", restaurantName: "McDonald's", createdAt: "21:30",
-                      totalPrice: "45.50", status: "Proccess")
+    let order = Order(id: 0, status: "", userCreated: "", dateCreated: "", userUpdated: "", dateUpdated: "", orderStatus: "", foods: nil)
     
     
     let restaurant =  Restaurant(id: 0, status: "", dateCreated: "", name: "", logo: "", description: "", coverImage: "")

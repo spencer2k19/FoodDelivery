@@ -11,26 +11,32 @@ class PopularMenuViewModel: BaseViewModel {
     @Published var popularFoods: [Food] = []
     private var useCase = FoodUseCase()
     
-    override init() {
+  
+    
+    var restaurantId: Int = 0
+    
+    required init(restaurantId: Int) {
         super.init()
-        Task { [weak self] in
-            try? await self?.fetchPopularFoods()
+        self.restaurantId = restaurantId
+        Task {
+            try? await fetchPopularProducts()
         }
     }
     
-    
-    func fetchPopularFoods() async throws {
+    func fetchPopularProducts() async throws {
         do {
-            await setBusy(value: true)
-            let data = try await useCase.fetchPopularMenu()
+           await setBusy(value: true)
+            let data = try await useCase.fetchFoodsPerRestaurant(with: ["filter[restaurant][id][_eq]": restaurantId])
             await setBusy(value: false)
             await MainActor.run(body: {
-                popularFoods = data
+               popularFoods = data
             })
+            
         } catch let error {
             await setBusy(value: false)
-            throw error
+            await setError(error: error)
         }
     }
+
     
 }

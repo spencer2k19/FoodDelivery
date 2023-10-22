@@ -65,11 +65,10 @@ struct OrdersView: View {
                 }
             }
             
-            
-           
         }
         .frame(maxHeight: .infinity,alignment: .top)
         .padding()
+        .onError($vm.errorWrapper)
     }
 }
 

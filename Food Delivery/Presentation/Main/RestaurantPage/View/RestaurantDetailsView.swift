@@ -90,7 +90,7 @@ struct RestaurantDetailsView: View {
                             
                             Spacer()
                             Button("See all") {
-                                navigator.push(Destination.popularMenu)
+                                navigator.push(Destination.popularMenu(restaurantId: restaurant.id ?? 0))
                             }
                         }
                         if vm.isBusy {

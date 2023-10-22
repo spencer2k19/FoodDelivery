@@ -62,10 +62,10 @@ class FoodUseCase {
     }
     
     
-    ///fetch all restaurants
-    func fetchOrders() async throws -> [Order] {
+    ///fetch all orders of current User
+    func fetchOrders(with data: [String: Any]) async throws -> [Order] {
         do {
-            return try await foodRepository.fetchOrders()
+            return try await foodRepository.fetchOrders(with: data)
         } catch let error {
             throw error
         }

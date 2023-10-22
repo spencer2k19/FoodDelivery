@@ -21,13 +21,14 @@ class OrdersViewModel: BaseViewModel {
     private func fetchOrders() async throws {
         do {
             await setBusy(value: true)
-            let data = try await useCase.fetchOrders()
+            let data = try await useCase.fetchOrders(with: ["fields":"*,foods.foods_id.restaurant.*,foods.quantity,foods.foods_id.price"])
             await setBusy(value: false)
             await MainActor.run(body: {
                 orders = data
             })
         } catch let error {
-            print(error)
+            await setBusy(value: false)
+            await setError(error: error)
         }
     }
 }

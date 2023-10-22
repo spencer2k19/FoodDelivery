@@ -25,17 +25,15 @@ class FoodRepositoryImpl: FoodRepository {
         }
     }
     
-    func fetchOrders() async throws -> [Order] {
+    func fetchOrders(with data: [String: Any]) async throws -> [Order] {
         do {
-            try await Task.sleep(nanoseconds: 3_000_000_000)
-            return [
-                Order(restaurantLogo: "donald", restaurantName: "Mcdonald's", createdAt: "21:30", totalPrice: "$ 45.50", status: "Proccess"),
-                
-                Order(restaurantLogo: "subway", restaurantName: "Subway", createdAt: "11:00", totalPrice: "$ 8.98", status: "Completed"),
-                
-                Order(restaurantLogo: "starbuck", restaurantName: "Starbucks", createdAt: "23:45", totalPrice: "$ 10", status: "Canceled"),
-                
-            ]
+           var request = GenericRequest()
+            request.method = .get
+            request.path = ApiConstants.ORDERS_URL
+            request.parameters = data
+            request.encoding = URLEncoding.default
+            let response: ResponseOrder = try await ApiRequest.request(request)
+            return response.data
         } catch let error {
             throw error
         }

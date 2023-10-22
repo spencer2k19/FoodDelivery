@@ -155,8 +155,12 @@ extension LoginView {
     
     private var signInBtn: some View {
         Button {
-            //navigator.push(Destination.home)
-            login()
+            //hide keyboard
+           
+                UIApplication.shared.endEditing()
+                login()
+            
+            
         } label: {
             if vm.isBusy {
                 ProgressView()
@@ -181,7 +185,7 @@ extension LoginView {
             }
             
             
-        }
+        }.disabled(vm.isBusy)
        
     }
     

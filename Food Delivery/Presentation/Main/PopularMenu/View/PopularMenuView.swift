@@ -10,13 +10,17 @@ import SwiftUI
 struct PopularMenuView: View {
     @Environment(\.presentationMode) private var presentationMode
     @State private var search: String = ""
-    @StateObject private var vm = PopularMenuViewModel()
+    @StateObject private var vm:PopularMenuViewModel
     
     let columns = [
         GridItem(.flexible(),spacing: 20),
         GridItem(.flexible()),
         
     ]
+    
+    init(restaurantId: Int) {
+        _vm = StateObject(wrappedValue: PopularMenuViewModel(restaurantId: restaurantId))
+    }
     
     
     var body: some View {
@@ -80,7 +84,7 @@ struct PopularMenuView: View {
 
 struct PopularMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        PopularMenuView()
+        PopularMenuView(restaurantId: 1)
     }
 }
 

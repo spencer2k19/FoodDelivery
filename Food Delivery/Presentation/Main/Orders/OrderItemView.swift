@@ -14,33 +14,55 @@ struct OrderItemView: View {
     
     
     var statusColor: Color {
-        if order.status.lowercased() == "proccess" {
+        if order.orderStatus?.lowercased() == "process" {
             return Color.theme.green
-        } else if order.status.lowercased() == "completed" {
+        } else if order.orderStatus?.lowercased() == "completed" {
             return Color.theme.accent
         } else {
             return Color.theme.red
         }
     }
     
+    
+    var priceOrder: Double {
+        var total = 0.0
+        
+        order.foods?.forEach({ foodOrder in
+            let quantity = Double(foodOrder.quantity ?? 0)
+            
+            total += quantity * (foodOrder.foodsID?.price ?? 0)
+        })
+        return total
+    }
+    
+    
+    
     var body: some View {
         HStack(spacing: 15) {
-            Image(order.restaurantLogo)
-                .resizable()
-                .frame(width: 60, height: 60)
-                .scaledToFit()
+            
+            if let logo = order.foods?.first?.foodsID?.restaurant?.logo {
+               FoodImageView(imageName: logo)
+                    .frame(width: 60, height: 60)
+                    .scaledToFit()
+            }
+            
+          
             
             
             Spacer().frame(width: 0)
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(order.restaurantName)
-                    .font(.custom("Satoshi-Bold", size: 16))
+                if let restaurantName = order.foods?.first?.foodsID?.restaurant?.name {
+                    
+                    Text(restaurantName)
+                        .font(.custom("Satoshi-Bold", size: 16))
+                }
                 
-                Text("21:30")
+                
+                Text(Date(dateString: order.dateCreated ?? "").asTimeString())
                     .font(.custom("Satoshi-Regular", size: 14))
                 
-                Text("$ 45.50")
+                Text("$ \(priceOrder.asNumberString())")
                     .font(.custom("Satoshi-Bold", size: 14))
                     .foregroundColor(.theme.accent)
                 
@@ -49,7 +71,7 @@ struct OrderItemView: View {
             
             Spacer()
             
-            Text(order.status)
+            Text(order.orderStatus ?? "")
                 .font(.custom("Satoshi-Regular", size: 12))
                 .foregroundColor(.white)
                 .padding(.vertical,4)

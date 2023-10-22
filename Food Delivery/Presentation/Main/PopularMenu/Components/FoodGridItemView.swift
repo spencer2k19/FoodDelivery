@@ -33,7 +33,7 @@ struct FoodGridItemView: View {
                             .font(.custom("Satoshi-Bold", size: 12))
                             .padding(.bottom,2)
                         
-                        Text("\(food.price ?? 0)")
+                        Text("\(food.price?.asNumberString() ?? "")")
                             .font(.custom("Satoshi-Bold", size: 16))
                     }
                     
@@ -63,8 +63,7 @@ struct FoodGridItemView: View {
             .shadow(color: .black.opacity(0.12), radius: 18, x: 0, y: 20)
             
             .overlay(
-                Image("cheese")
-                    .resizable()
+                FoodImageView(imageName: food.image ?? "")
                     .frame(width: 120, height: 120)
                     .overlay(
                         Circle()
