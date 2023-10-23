@@ -36,11 +36,13 @@ struct Order: Codable,Identifiable {
 }
 
 // MARK: - Food
-struct FoodOrder: Codable {
+struct FoodOrder: Codable, Identifiable {
+    let id: Int?
     let quantity: Int?
     let foodsID: FoodsID?
 
     enum CodingKeys: String, CodingKey {
+        case id
         case quantity
         case foodsID = "foods_id"
     }
@@ -49,6 +51,9 @@ struct FoodOrder: Codable {
 // MARK: - FoodsID
 struct FoodsID: Codable {
     let price: Double?
+    let image: String?
+    let name: String?
+    let currency: String?
     let restaurant: Restaurant?
 }
 

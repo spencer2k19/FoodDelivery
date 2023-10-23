@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct OrderDetailItemView: View {
+    let food: FoodOrder
+    
+    
     var body: some View {
         Rectangle()
              .foregroundColor(.clear)
@@ -27,18 +30,18 @@ struct OrderDetailItemView: View {
                      
                             
                          .overlay(
-                             Image("pizza")
-                                .resizable()
+                            FoodImageView(imageName: food.foodsID?.image ?? "")
+                                
                                 .frame(width: 50, height: 50)
                                 .scaledToFill()
                          )
                      
                      VStack(alignment: .leading, spacing: 10) {
-                         Text("Pizza pepperoni")
+                         Text(food.foodsID?.name ?? "")
                              .font(.custom("Satoshi-Bold", size: 16))
                          
                          
-                         Text("$ 8.98")
+                         Text("\(food.quantity ?? 0) x \(food.foodsID?.currency ?? "") \(food.foodsID?.price?.asNumberString() ?? "")")
                              .font(.custom("Satoshi-Bold", size: 12))
                              .foregroundColor(.theme.accent)
                          
@@ -55,6 +58,6 @@ struct OrderDetailItemView: View {
 
 struct OrderDetailItemView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderDetailItemView()
+       Text("Order Detail")
     }
 }

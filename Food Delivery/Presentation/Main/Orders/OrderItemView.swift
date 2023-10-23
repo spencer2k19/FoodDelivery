@@ -11,6 +11,7 @@ import SwiftUI
 
 struct OrderItemView: View {
     let order: Order
+    var onClick: () -> Void
     
     
     var statusColor: Color {
@@ -88,12 +89,17 @@ struct OrderItemView: View {
         .shadow(color: Color(red: 0.05, green: 0.37, blue: 0.98).opacity(0.2), radius: 10, x: 0, y: 7)
        
         .padding(.vertical,10)
+        .onTapGesture {
+            onClick()
+        }
         
     }
 }
 
 struct OrderItemView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderItemView(order: dev.order)
+        OrderItemView(order: dev.order, onClick: {
+            
+        })
     }
 }

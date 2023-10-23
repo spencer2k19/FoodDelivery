@@ -12,11 +12,38 @@ struct OrderDetailsView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var searchField: String = ""
     @EnvironmentObject private var navigator: PathNavigator
+    let order: Order
+    
+    
     
     var orderColor: Color {
         return colorScheme == .dark ? Color.white.opacity(0.6) : Color(red: 0.09, green: 0.12, blue: 0.13).opacity(0.6)
     }
     
+    var statusColor: Color {
+        if order.orderStatus?.lowercased() == "process" {
+            return Color.theme.green
+        } else if order.orderStatus?.lowercased() == "completed" {
+            return Color.theme.accent
+        } else {
+            return Color.theme.red
+        }
+    }
+    
+    var priceTotalOrder: Double {
+        var total = 0.0
+        
+        order.foods?.forEach({ foodOrder in
+            let quantity = Double(foodOrder.quantity ?? 0)
+            
+            total += quantity * (foodOrder.foodsID?.price ?? 0)
+        })
+        return total
+    }
+    
+    init(with order: Order) {
+        self.order = order
+    }
     
     
     
@@ -49,45 +76,46 @@ struct OrderDetailsView: View {
             
             Spacer().frame(height: 30)
             
-            OrderDetailItemView()
-            OrderDetailItemView()
-            OrderDetailItemView()
+            ForEach(order.foods ?? []) { food in
+               OrderDetailItemView(food: food)
+            }
             
             Spacer().frame(height: 30)
             
             VStack {
                 HStack {
-                    Text("Basket total")
+                    Text("Status")
                         .font(.custom("Satoshi-Medium", size: 15))
                         .foregroundColor(orderColor)
                     Spacer()
-                    Text("+ USD 44.88")
+                    Text("\(order.orderStatus?.uppercased() ?? "")")
                         .font(.custom("Satoshi-Medium", size: 15))
+                        .foregroundColor(statusColor)
                     
                     
                 }
                 
                 Divider()
                 
-                HStack {
-                    Text("Discount")
-                        .font(.custom("Satoshi-Medium", size: 15))
-                        .foregroundColor(orderColor)
-                    Spacer()
-                    Text("- USD 1.20")
-                        .font(.custom("Satoshi-Medium", size: 15))
-                        .foregroundColor(.theme.accent)
-                    
-                    
-                }
-                
-                Divider()
+//                HStack {
+//                    Text("Discount")
+//                        .font(.custom("Satoshi-Medium", size: 15))
+//                        .foregroundColor(orderColor)
+//                    Spacer()
+//                    Text("- USD 1.20")
+//                        .font(.custom("Satoshi-Medium", size: 15))
+//                        .foregroundColor(.theme.accent)
+//
+//
+//                }
+//
+//                Divider()
                 HStack {
                     Text("Total")
                         .font(.custom("Satoshi-Medium", size: 15))
                         .foregroundColor(orderColor)
                     Spacer()
-                    Text("USD 43.68")
+                    Text("USD \(priceTotalOrder.asNumberString())")
                         .font(.custom("Satoshi-Bold", size: 15))
                     
                     
@@ -106,17 +134,17 @@ struct OrderDetailsView: View {
             Group {
                 Spacer().frame(height: 30)
                 
-                Button {
-                    navigator.push(Destination.deliverAddress)
-                } label: {
-                    Text("Place my order")
-                        .font(.custom("Satoshi-Bold", size: 16))
-                        .foregroundColor(.white)
-                        .padding(.horizontal,50)
-                        .padding(.vertical,20)
-                        .background(Color.theme.accent)
-                        .cornerRadius(16)
-                }
+//                Button {
+//
+//                } label: {
+//                    Text("Place my order")
+//                        .font(.custom("Satoshi-Bold", size: 16))
+//                        .foregroundColor(.white)
+//                        .padding(.horizontal,50)
+//                        .padding(.vertical,20)
+//                        .background(Color.theme.accent)
+//                        .cornerRadius(16)
+//                }
                 
                
             }
@@ -129,7 +157,7 @@ struct OrderDetailsView: View {
 
 struct OrderDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderDetailsView()
+        OrderDetailsView(with: dev.order)
     }
 }
 

@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct OrdersView: View {
     @State private var search: String = ""
     @StateObject private var vm = OrdersViewModel()
+    @EnvironmentObject private var navigator: PathNavigator
     
     
     var body: some View {
@@ -58,7 +60,9 @@ struct OrdersView: View {
                 ScrollView(showsIndicators: false) {
                     VStack {
                         ForEach(vm.orders) { order in
-                            OrderItemView(order: order)
+                            OrderItemView(order: order) {
+                                navigator.push(Destination.orderDetails(order: order))
+                            }
                         }
                     }
                     .padding(.horizontal,5)

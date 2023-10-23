@@ -46,8 +46,8 @@ struct Food_DeliveryApp: App {
                                         MainView()
                                 case .notifications:
                                     NotificationsView()
-                                case .orderDetails:
-                                    OrderDetailsView()
+                                case .orderDetails(let order):
+                                    OrderDetailsView(with: order)
                                 case .deliverAddress:
                                     DeliveryView()
                                 case .restaurantDetails(let restaurant):

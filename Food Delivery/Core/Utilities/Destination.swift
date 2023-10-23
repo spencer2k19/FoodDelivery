@@ -22,7 +22,7 @@ enum Destination: Codable, Hashable {
     case location
     case home
     case notifications
-    case orderDetails
+    case orderDetails(order: Order)
     case deliverAddress
     case restaurantDetails(restaurant: Restaurant)
     case testimonials(restaurantId: Int)

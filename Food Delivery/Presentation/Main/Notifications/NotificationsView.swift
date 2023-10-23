@@ -13,7 +13,7 @@ struct NotificationsView: View {
     @EnvironmentObject private var navigator: PathNavigator
     var callableOnClick: () ->Void {
         return {
-            navigator.push(Destination.orderDetails)
+            navigator.push(Destination.deliverAddress)
         }
     }
     
