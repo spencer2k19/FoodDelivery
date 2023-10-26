@@ -45,8 +45,6 @@ struct OrderDetailsView: View {
         self.order = order
     }
     
-    
-    
     var body: some View {
         ScrollView {
             header

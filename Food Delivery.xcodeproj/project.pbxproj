@@ -63,6 +63,11 @@
 		B67E35672AE1380B00743128 /* FoodImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35662AE1380B00743128 /* FoodImageView.swift */; };
 		B67E35692AE13F2900743128 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35682AE13F2900743128 /* Double.swift */; };
 		B67E356B2AE2854700743128 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E356A2AE2854700743128 /* Date.swift */; };
+		B67E35722AEAC49A00743128 /* CartContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B67E35702AEAC49A00743128 /* CartContainer.xcdatamodeld */; };
+		B67E35742AEAC62600743128 /* CartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35732AEAC62600743128 /* CartRepository.swift */; };
+		B67E35762AEAC70500743128 /* CartRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35752AEAC70500743128 /* CartRepositoryImpl.swift */; };
+		B67E35782AEACD9500743128 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35772AEACD9500743128 /* CartService.swift */; };
+		B67E357A2AEACDF100743128 /* CartUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35792AEACDF100743128 /* CartUseCase.swift */; };
 		B67EF6992AC346920072B3D4 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6982AC346920072B3D4 /* TabIcon.swift */; };
 		B67EF69D2AC466E10072B3D4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF69C2AC466E10072B3D4 /* StartView.swift */; };
 		B67EF6A42ACB123F0072B3D4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6A32ACB123F0072B3D4 /* Category.swift */; };
@@ -178,6 +183,11 @@
 		B67E35662AE1380B00743128 /* FoodImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageView.swift; sourceTree = "<group>"; };
 		B67E35682AE13F2900743128 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		B67E356A2AE2854700743128 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B67E35712AEAC49A00743128 /* CartContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CartContainer.xcdatamodel; sourceTree = "<group>"; };
+		B67E35732AEAC62600743128 /* CartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRepository.swift; sourceTree = "<group>"; };
+		B67E35752AEAC70500743128 /* CartRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRepositoryImpl.swift; sourceTree = "<group>"; };
+		B67E35772AEACD9500743128 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		B67E35792AEACDF100743128 /* CartUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUseCase.swift; sourceTree = "<group>"; };
 		B67EF6982AC346920072B3D4 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
 		B67EF69C2AC466E10072B3D4 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		B67EF6A32ACB123F0072B3D4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -370,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				B67E35522ADEDF8800743128 /* AuthService.swift */,
+				B67E35772AEACD9500743128 /* CartService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -395,6 +406,7 @@
 		B67E35622AE0918A00743128 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B67E35702AEAC49A00743128 /* CartContainer.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -432,6 +444,7 @@
 			children = (
 				B67EF6D02AD052FF0072B3D4 /* FoodUseCase.swift */,
 				B67EF6D22AD053110072B3D4 /* UserUseCase.swift */,
+				B67E35792AEACDF100743128 /* CartUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -441,6 +454,7 @@
 			children = (
 				B67EF6B72ACE9EF70072B3D4 /* FoodRepository.swift */,
 				B67EF6C92AD051310072B3D4 /* UserRepository.swift */,
+				B67E35732AEAC62600743128 /* CartRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -475,6 +489,7 @@
 			children = (
 				B67EF6BB2ACEA1360072B3D4 /* FoodRepositoryImpl.swift */,
 				B67EF6D42AD0542B0072B3D4 /* UserRepositoryImpl.swift */,
+				B67E35752AEAC70500743128 /* CartRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -945,6 +960,8 @@
 				B67EF6C52AD010270072B3D4 /* PopularMenuViewModel.swift in Sources */,
 				B67E353F2ADE936000743128 /* IsEqualTo.swift in Sources */,
 				B67E35462ADE936000743128 /* IsDate.swift in Sources */,
+				B67E35762AEAC70500743128 /* CartRepositoryImpl.swift in Sources */,
+				B67E35722AEAC49A00743128 /* CartContainer.xcdatamodeld in Sources */,
 				B6662F7C2AC1CD8D007D4B14 /* TestimonialItemView.swift in Sources */,
 				B67E353D2ADE936000743128 /* MaxValue.swift in Sources */,
 				B67E35412ADE936000743128 /* MinLength.swift in Sources */,
@@ -952,6 +969,7 @@
 				B6E9129C2AAF3228002B4B1C /* LoginView.swift in Sources */,
 				B67E35432ADE936000743128 /* IsEmail.swift in Sources */,
 				B67EF6B62ACE9D650072B3D4 /* RestaurantPageViewModel.swift in Sources */,
+				B67E35782AEACD9500743128 /* CartService.swift in Sources */,
 				B6E912A42AAFBD63002B4B1C /* RegisterView.swift in Sources */,
 				B6E912CA2AB1B0BB002B4B1C /* MethodRowView.swift in Sources */,
 				B67E35442ADE936000743128 /* ExactSize.swift in Sources */,
@@ -978,6 +996,7 @@
 				B6662F7E2AC1D4E3007D4B14 /* TestimonialsView.swift in Sources */,
 				B67EF6C82AD014FD0072B3D4 /* TestimonialsViewModel.swift in Sources */,
 				B67EF6CA2AD051310072B3D4 /* UserRepository.swift in Sources */,
+				B67E357A2AEACDF100743128 /* CartUseCase.swift in Sources */,
 				B67EF6AA2ACB1F770072B3D4 /* Testimonial.swift in Sources */,
 				B67E35582ADEE39A00743128 /* IntroView.swift in Sources */,
 				B628672C2AD44175000296C1 /* UIApplication.swift in Sources */,
@@ -999,6 +1018,7 @@
 				B67EF6BC2ACEA1360072B3D4 /* FoodRepositoryImpl.swift in Sources */,
 				B6E912E92AB5AF8F002B4B1C /* MainView.swift in Sources */,
 				B67E354C2ADE936C00743128 /* SwiftFormRule.swift in Sources */,
+				B67E35742AEAC62600743128 /* CartRepository.swift in Sources */,
 				B67EF6D52AD0542B0072B3D4 /* UserRepositoryImpl.swift in Sources */,
 				B6662F802AC2397C007D4B14 /* UserProfileView.swift in Sources */,
 				B6662F892AC33A9E007D4B14 /* FoodGridItemView.swift in Sources */,
@@ -1261,6 +1281,19 @@
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B67E35702AEAC49A00743128 /* CartContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B67E35712AEAC49A00743128 /* CartContainer.xcdatamodel */,
+			);
+			currentVersion = B67E35712AEAC49A00743128 /* CartContainer.xcdatamodel */;
+			path = CartContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B6E912782AAF266C002B4B1C /* Project object */;
 }

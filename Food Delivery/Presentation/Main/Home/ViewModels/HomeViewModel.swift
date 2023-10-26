@@ -11,7 +11,11 @@ class HomeViewModel: BaseViewModel {
     @Published var categories: [Category] = []
     @Published var foods: [Food] = []
     @Published var restaurants: [Restaurant] = []
+    @Published var savedFoods: [FoodEntity] = []
+    
+    
     private var useCase: FoodUseCase = FoodUseCase()
+    private var cartUseCase: CartUseCase = CartUseCase()
     
     var keyForCategory: String {
         return "categories"
@@ -30,6 +34,10 @@ class HomeViewModel: BaseViewModel {
         super.init()
         
         Task {
+            try? await self.fetchSavedFoods()
+        }
+        
+        Task {
             try? await self.fetchCategories()
         }
         
@@ -39,6 +47,8 @@ class HomeViewModel: BaseViewModel {
         Task {
             try? await self.fetchRestaurants()
         }
+        
+        
     }
     
     func fetchCategories() async throws {
@@ -55,6 +65,21 @@ class HomeViewModel: BaseViewModel {
             await setError(error: error)
         }
     }
+    
+    
+    func fetchSavedFoods() async throws {
+        do {
+            try await MainActor.run(body: {
+                savedFoods =  try cartUseCase.getSavedFoods()
+            })
+          
+        } catch let error {
+           print("Error: \(error)")
+        }
+    }
+    
+    
+    
     
     
     func fetchPopularProducts() async throws {

@@ -57,6 +57,45 @@ struct HomeView: View {
                         
                     )
                 
+                Circle()
+                    .foregroundColor(Color.theme.fieldBackground)
+                    .frame(width: 54, height: 54)
+                    .overlay(
+                        ZStack(content: {
+                            Image(systemName: "cart")
+                                .foregroundColor(.theme.label)
+                                .frame(width: 20, height: 20)
+                                .onTapGesture {
+                                  
+                                }
+                            
+                            
+                            if !vm.savedFoods.isEmpty {
+                                Circle()
+                                    .foregroundColor(Color.theme.red)
+                                    .frame(width: 20, height: 20,alignment: .trailing)
+                                    .overlay(
+                                        Text("\(vm.savedFoods.count)")
+                                            .font(.custom("Satoshi-Bold", size: 16))
+                                            .foregroundColor(.white),
+                                        alignment: .center
+                                    )
+                                
+                                    .frame(maxWidth: .infinity,
+                                           maxHeight: .infinity
+                                           ,alignment: .topTrailing)
+                            }
+                           
+                                
+                            
+                            
+                            
+                        })
+                       
+                        
+                    )
+                
+                
                 
                 
             }

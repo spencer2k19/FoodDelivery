@@ -20,10 +20,7 @@ class AuthService {
     @Published var tokenData: TokenData? = nil
     @Published var userData: User? = nil
     
-
-    
-    
-    var preferences:UserDefaults?
+   var preferences:UserDefaults?
     
     private init() {
         preferences = UserDefaults(suiteName: AppConstants.APP_GROUP_BUNDLE_ID)

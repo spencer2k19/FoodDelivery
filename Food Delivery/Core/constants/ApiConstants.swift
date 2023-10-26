@@ -8,7 +8,7 @@
 import Foundation
 
 struct ApiConstants {
-    static let BASE_URL = "http://192.168.145.127:8055"
+    static let BASE_URL = "http://192.168.199.127:8055"
     
    
     static let LOGIN_URL = BASE_URL + "/auth/login"
