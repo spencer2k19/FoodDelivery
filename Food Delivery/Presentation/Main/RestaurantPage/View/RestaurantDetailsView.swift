@@ -221,7 +221,9 @@ extension RestaurantDetailsView {
         ScrollView(.horizontal,showsIndicators: false) {
             HStack(spacing: 30) {
                 ForEach(vm.foods) { food in
-                    FoodView(food: food)
+                    FoodView(food: food) {
+                        try? vm.addFoodToCart(food: food)
+                    }
                 }
             }.padding(.vertical,10)
             

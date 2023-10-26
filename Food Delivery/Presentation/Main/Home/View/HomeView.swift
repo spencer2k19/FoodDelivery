@@ -85,14 +85,7 @@ struct HomeView: View {
                                            maxHeight: .infinity
                                            ,alignment: .topTrailing)
                             }
-                           
-                                
-                            
-                            
-                            
                         })
-                       
-                        
                     )
                 
                 
@@ -135,7 +128,13 @@ struct HomeView: View {
                         ScrollView(.horizontal,showsIndicators: false) {
                             HStack(spacing: 20) {
                                 ForEach(vm.foods) { food in
-                                    FoodView(food: food)
+                                    FoodView(food: food) {
+                                        Task {
+                                            try? await vm.addFoodToCart(food: food)
+                                        }
+                                        
+                                       
+                                    }
                                 }
                             }
                             .padding(.vertical,10)

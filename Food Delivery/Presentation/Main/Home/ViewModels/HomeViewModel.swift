@@ -51,6 +51,15 @@ class HomeViewModel: BaseViewModel {
         
     }
     
+    func addFoodToCart(food: Food) async throws {
+        do {
+            try cartUseCase.addFoodToCart(food: food)
+            try await fetchSavedFoods()
+        } catch let error {
+            print("Error while adding food to cart: \(error)")
+        }
+    }
+    
     func fetchCategories() async throws {
         do {
             await setBusyForObject(for: keyForCategory, value: true)

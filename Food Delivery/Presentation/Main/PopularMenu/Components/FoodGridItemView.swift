@@ -9,6 +9,9 @@ import SwiftUI
 
 struct FoodGridItemView: View {
     let food: Food
+    var callableOnClick: () -> Void = {}
+    
+    
     var body: some View {
         
         ZStack {
@@ -55,6 +58,9 @@ struct FoodGridItemView: View {
                     .padding(.vertical, 20)
                     .background(Color.theme.accent)
                     .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
+                    .onTapGesture {
+                        callableOnClick()
+                    }
                     
                 }.padding(.top,90)
             }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FoodView: View {
     let food: Food
+    var callableForCart: () -> Void = {}
     
     var body: some View {
         ZStack {
@@ -87,6 +88,9 @@ struct FoodView: View {
                             .padding(.vertical, 20)
                             .background(Color.theme.accent)
                             .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
+                            .onTapGesture {
+                                callableForCart()
+                            }
                             
                         }.padding(.top,150)
                            

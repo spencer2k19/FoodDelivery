@@ -15,6 +15,7 @@ class RestaurantPageViewModel: BaseViewModel {
     }
     
     let useCase = FoodUseCase()
+    let cartOrderUseCase = CartUseCase()
     var restaurantId: Int = 0
     
     required init(restaurantId: Int) {
@@ -26,6 +27,15 @@ class RestaurantPageViewModel: BaseViewModel {
         
         Task {
             try? await fetchLastTestimonials()
+        }
+    }
+    
+    
+    func addFoodToCart(food: Food)  throws {
+        do {
+            try cartOrderUseCase.addFoodToCart(food: food)
+        } catch let error {
+            print("Error while trying to save food: \(error)")
         }
     }
     

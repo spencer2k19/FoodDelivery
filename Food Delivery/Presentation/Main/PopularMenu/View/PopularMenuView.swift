@@ -61,6 +61,37 @@ struct PopularMenuView: View {
                            
                         
                     )
+                
+                Circle()
+                    .foregroundColor(Color.theme.fieldBackground)
+                    .frame(width: 54, height: 54)
+                    .overlay(
+                        ZStack(content: {
+                            Image(systemName: "cart")
+                                .foregroundColor(.theme.label)
+                                .frame(width: 20, height: 20)
+                                .onTapGesture {
+                                  
+                                }
+                            
+                            
+                            if !vm.savedFoods.isEmpty {
+                                Circle()
+                                    .foregroundColor(Color.theme.red)
+                                    .frame(width: 20, height: 20,alignment: .trailing)
+                                    .overlay(
+                                        Text("\(vm.savedFoods.count)")
+                                            .font(.custom("Satoshi-Bold", size: 16))
+                                            .foregroundColor(.white),
+                                        alignment: .center
+                                    )
+                                
+                                    .frame(maxWidth: .infinity,
+                                           maxHeight: .infinity
+                                           ,alignment: .topTrailing)
+                            }
+                        })
+                    )
             }.padding(.horizontal)
            
             Spacer().frame(height: 20)
@@ -71,7 +102,11 @@ struct PopularMenuView: View {
                 ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: columns,spacing: 10) {
                         ForEach(vm.popularFoods) { popularFood in
-                            FoodGridItemView(food: popularFood)
+                            FoodGridItemView(food: popularFood) {
+                                Task {
+                                    try? await vm.addFood(food: popularFood)
+                                }
+                            }
                         }
                     }.padding(.horizontal,10)
                 }
