@@ -13,12 +13,10 @@ class OrdersViewModel: BaseViewModel {
     
     override init() {
         super.init()
-        Task { [weak self] in
-            try? await self?.fetchOrders()
-        }
+       
     }
     
-    private func fetchOrders() async throws {
+     func fetchOrders() async throws {
         do {
             await setBusy(value: true)
             let data = try await useCase.fetchOrders(with: ["fields":"*,foods.foods_id.restaurant.*,foods.quantity,foods.foods_id.price,foods.foods_id.image,foods.foods_id.name,foods.foods_id.currency,foods.id"])

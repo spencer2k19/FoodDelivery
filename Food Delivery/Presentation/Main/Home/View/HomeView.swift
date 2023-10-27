@@ -66,7 +66,10 @@ struct HomeView: View {
                                 .foregroundColor(.theme.label)
                                 .frame(width: 20, height: 20)
                                 .onTapGesture {
-                                    navigator.push(Destination.cart)
+                                    if !vm.savedFoods.isEmpty {
+                                        navigator.push(Destination.cart)
+                                    }
+                                   
                                 }
                             
                             
@@ -248,6 +251,11 @@ struct HomeView: View {
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()
         .onError($vm.errorWrapper)
+        .onAppear {
+            Task {
+                try? await vm.fetchSavedFoods()
+            }
+        }
         
     }
 }

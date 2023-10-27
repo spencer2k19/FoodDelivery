@@ -31,8 +31,29 @@ class CartUseCase {
         }
     }
     
-    func removeFoodFromCart(food: FoodEntity) {
-        repository.removeFoodFromCart(food: food)
+    func addOrder(with data: [String: Any]) async throws {
+        do {
+            try await repository.addOrder(with: data)
+        } catch {
+            throw error
+        }
+        
+    }
+    
+    func increaseFoodQuantity(for foodId: Int64) throws {
+        do {
+            try repository.increaseFoodQuantity(foodId: foodId)
+        } catch {
+            throw error
+        }
+    }
+    
+    func removeFoodFromCart(foodId: Int64) throws {
+        do {
+            try repository.removeFoodFromCart(foodId: foodId)
+        } catch {
+            throw error
+        }
     }
     
     

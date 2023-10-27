@@ -8,10 +8,16 @@
 import SwiftUI
 import NavigationBackport
 
+enum ActiveAlert {
+    case orderConfirmAlert, successOrder
+}
+
 struct CartView: View {
     @StateObject private var vm = CartViewModel()
     @EnvironmentObject private var navigator:PathNavigator
     @State private var comments = ""
+    @State private var showAlert: Bool = false
+    @State private var activeAlert: ActiveAlert = .orderConfirmAlert
     
     
     var body: some View {
@@ -21,44 +27,63 @@ struct CartView: View {
             ScrollView(.vertical,showsIndicators: false) {
                 VStack(spacing: 15) {
                     ForEach(vm.savedFoods) { savedFood in
-                        FoodCartItemView(entity: savedFood)
+                        FoodCartItemView(food: savedFood,
+                                         provider: vm.providers[savedFood.restaurantId] ?? "..."
+                        ) {
+                            try? vm.addQuantity(for: savedFood.id)
+                        } reduceQuantityCallable: {
+                            try? vm.reduceQuantity(for: savedFood.id)
+                        }
+                        
                     }
                 }.padding(.horizontal)
                 
                 Spacer().frame(height: 20)
                 
                 VStack(alignment: .leading) {
-                    Text("Laissez un commentaire")
+                    Text("Leave a comment")
                         .font(.custom("Satoshi-Medium", size: 17))
                     
-                    TextField("Commentaires", text: $comments)
+                    TextField("Comments", text: $comments)
                         .frame(height: 80)
                         .padding()
                         .background(Color.theme.fieldBackground)
                         .cornerRadius(12)
-                    
-                    
                     
                 }.frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal)
                 
                 Spacer().frame(height: 20)
                 
-                Text("Total: 500 $")
+                Text("Total: \(vm.total.asNumberString()) $")
                     .font(.custom("Satoshi-Bold", size: 17))
                 
                 Spacer().frame(height: 30)
                 Button {
-                    
+                    activeAlert = .orderConfirmAlert
+                    showAlert.toggle()
                 } label: {
-                    Text("Place my order")
-                        .font(.custom("Satoshi-Bold", size: 16))
-                        .foregroundColor(.white)
-                        .padding(.horizontal,50)
-                        .padding(.vertical,20)
-                        .background(Color.theme.accent)
-                        .cornerRadius(16)
+                    
+                    if vm.isBusy {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .theme.fieldBackground))
+                            .frame(width: 200)
+                            .padding(.vertical,20)
+                            .background(Color.theme.accent)
+                            .cornerRadius(16)
+                        
+                    } else {
+                        Text("Place my order")
+                            .font(.custom("Satoshi-Bold", size: 16))
+                            .foregroundColor(.white)
+                            .padding(.horizontal,50)
+                            .padding(.vertical,20)
+                            .background(Color.theme.accent)
+                            .cornerRadius(16)
+                    }
+                    
                 }
+                .disabled(vm.isBusy)
                 
                 Spacer().frame(height: 30)
                 
@@ -67,6 +92,40 @@ struct CartView: View {
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .top)
             .navigationBarBackButtonHidden()
+            .onError($vm.errorWrapper)
+            .alert(isPresented: $showAlert) {
+                switch activeAlert {
+                case .orderConfirmAlert:
+                    return Alert(title: Text("Order"),
+                                 message: Text("Confirm this order ?"),
+                                 
+                                 primaryButton: .default(Text("Yes"),action: {
+                               showAlert = false
+                               Task {
+                                   do {
+                                       try await vm.addOrder(comments:comments)
+                                       activeAlert = .successOrder
+                                       showAlert = true
+                                   } catch let error {
+                                       print("Error occured: \(error)")
+                                   }
+                                   
+                                   
+                               }
+                               
+                           }), secondaryButton: .cancel(Text("No")))
+                case .successOrder:
+                    return Alert(
+                        title: Text("Success"),
+                        message: Text("Your action was successful."),
+                        dismissButton: .default(Text("OK"),action: {
+                            navigator.popTo(Destination.home)
+                        })
+                    )
+                }
+                
+            }
+           
     }
 }
 

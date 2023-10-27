@@ -33,9 +33,7 @@ class HomeViewModel: BaseViewModel {
     override init() {
         super.init()
         
-        Task {
-            try? await self.fetchSavedFoods()
-        }
+        
         
         Task {
             try? await self.fetchCategories()

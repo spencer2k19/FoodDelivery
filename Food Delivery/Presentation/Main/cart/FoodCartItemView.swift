@@ -7,20 +7,18 @@
 
 import SwiftUI
 
-
-
-
-
-
 struct FoodCartItemView: View {
     let food: FoodEntity
-    var currentQuantity: Int = 0
+    let provider: String
     
-    init(entity: FoodEntity) {
-        food = entity
-        currentQuantity = Int(entity.quantity)
+    var addQuantityCallable: () -> Void = {
+        
     }
-   
+    
+    var reduceQuantityCallable: () -> Void = {
+        
+    }
+    
     
     var body: some View {
         HStack {
@@ -38,7 +36,7 @@ struct FoodCartItemView: View {
                       .font(Font.custom("Satoshi-Regular", size: 15))
                       .foregroundColor(Color(red: 0.63, green: 0.63, blue: 0.63))
                     
-                    Text("King Food")
+                    Text(provider)
                         .font(.custom("Satoshi-Regular", size: 15))
                         .foregroundColor(.theme.red)
                 }
@@ -49,12 +47,12 @@ struct FoodCartItemView: View {
                     Spacer()
                     Image(systemName: "minus.circle")
                         .onTapGesture {
-                            
+                            reduceQuantityCallable()
                         }
-                    Text("\(currentQuantity)")
+                    Text("\(food.quantity)")
                     Image(systemName: "plus.circle")
                         .onTapGesture {
-                            
+                            addQuantityCallable()
                         }
                     
                 }
