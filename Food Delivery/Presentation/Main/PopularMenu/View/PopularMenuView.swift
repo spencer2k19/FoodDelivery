@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import NavigationBackport
 
 struct PopularMenuView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @State private var search: String = ""
     @StateObject private var vm:PopularMenuViewModel
+    @EnvironmentObject private var navigator: PathNavigator
     
     let columns = [
         GridItem(.flexible(),spacing: 20),
@@ -71,7 +72,7 @@ struct PopularMenuView: View {
                                 .foregroundColor(.theme.label)
                                 .frame(width: 20, height: 20)
                                 .onTapGesture {
-                                  
+                                    navigator.push(Destination.cart)
                                 }
                             
                             
@@ -139,7 +140,7 @@ extension PopularMenuView {
                     
                 )
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    navigator.pop()
                 }
             Spacer().frame(width: 40)
             

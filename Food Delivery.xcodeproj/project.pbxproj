@@ -68,6 +68,9 @@
 		B67E35762AEAC70500743128 /* CartRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35752AEAC70500743128 /* CartRepositoryImpl.swift */; };
 		B67E35782AEACD9500743128 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35772AEACD9500743128 /* CartService.swift */; };
 		B67E357A2AEACDF100743128 /* CartUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35792AEACDF100743128 /* CartUseCase.swift */; };
+		B67E35802AEBB31E00743128 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E357F2AEBB31E00743128 /* CartView.swift */; };
+		B67E35822AEBB33500743128 /* FoodCartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35812AEBB33500743128 /* FoodCartItemView.swift */; };
+		B67E35842AEBB34100743128 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E35832AEBB34100743128 /* CartViewModel.swift */; };
 		B67EF6992AC346920072B3D4 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6982AC346920072B3D4 /* TabIcon.swift */; };
 		B67EF69D2AC466E10072B3D4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF69C2AC466E10072B3D4 /* StartView.swift */; };
 		B67EF6A42ACB123F0072B3D4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EF6A32ACB123F0072B3D4 /* Category.swift */; };
@@ -188,6 +191,9 @@
 		B67E35752AEAC70500743128 /* CartRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRepositoryImpl.swift; sourceTree = "<group>"; };
 		B67E35772AEACD9500743128 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		B67E35792AEACDF100743128 /* CartUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUseCase.swift; sourceTree = "<group>"; };
+		B67E357F2AEBB31E00743128 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		B67E35812AEBB33500743128 /* FoodCartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartItemView.swift; sourceTree = "<group>"; };
+		B67E35832AEBB34100743128 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		B67EF6982AC346920072B3D4 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
 		B67EF69C2AC466E10072B3D4 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		B67EF6A32ACB123F0072B3D4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -418,6 +424,16 @@
 				B67E35662AE1380B00743128 /* FoodImageView.swift */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		B67E357B2AEBB2EE00743128 /* cart */ = {
+			isa = PBXGroup;
+			children = (
+				B67E357F2AEBB31E00743128 /* CartView.swift */,
+				B67E35812AEBB33500743128 /* FoodCartItemView.swift */,
+				B67E35832AEBB34100743128 /* CartViewModel.swift */,
+			);
+			path = cart;
 			sourceTree = "<group>";
 		};
 		B67EF6AB2ACE99E30072B3D4 /* View */ = {
@@ -787,6 +803,7 @@
 		B6E912E72AB5AF80002B4B1C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B67E357B2AEBB2EE00743128 /* cart */,
 				B67E35632AE137E200743128 /* image */,
 				B65A481C2AD0646C00A1A873 /* Orders */,
 				B67EF6D62AD05B340072B3D4 /* Profile */,
@@ -948,6 +965,7 @@
 				B67E35422ADE936000743128 /* MinValue.swift in Sources */,
 				B6E912EB2AB5B546002B4B1C /* UIColor.swift in Sources */,
 				B67EF6D32AD053110072B3D4 /* UserUseCase.swift in Sources */,
+				B67E35802AEBB31E00743128 /* CartView.swift in Sources */,
 				B67EF6DD2AD05C9E0072B3D4 /* FavoritesViewModel.swift in Sources */,
 				B6E912F72AB649A7002B4B1C /* OrderDetailItemView.swift in Sources */,
 				B67E35502ADE970900743128 /* SFHelpers.swift in Sources */,
@@ -958,7 +976,9 @@
 				B65A48222AD064C800A1A873 /* OrderItemView.swift in Sources */,
 				B67E355E2ADFE47A00743128 /* TokenInterceptor.swift in Sources */,
 				B67EF6C52AD010270072B3D4 /* PopularMenuViewModel.swift in Sources */,
+				B67E35842AEBB34100743128 /* CartViewModel.swift in Sources */,
 				B67E353F2ADE936000743128 /* IsEqualTo.swift in Sources */,
+				B67E35822AEBB33500743128 /* FoodCartItemView.swift in Sources */,
 				B67E35462ADE936000743128 /* IsDate.swift in Sources */,
 				B67E35762AEAC70500743128 /* CartRepositoryImpl.swift in Sources */,
 				B67E35722AEAC49A00743128 /* CartContainer.xcdatamodeld in Sources */,

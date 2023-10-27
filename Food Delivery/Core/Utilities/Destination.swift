@@ -32,14 +32,13 @@ enum Destination: Codable, Hashable {
     case resendPassword
     case congratsForgotPassword
     case start
+    case cart
     
     
     // Implement the hash(into:) function
        func hash(into hasher: inout Hasher) {
            // Hash each case individually
            switch self {
-               
-               
            case .login:
                hasher.combine(0)
            case .register:
@@ -81,6 +80,9 @@ enum Destination: Codable, Hashable {
                
            case .start:
                hasher.combine(18)
+               
+           case .cart:
+               hasher.combine(19)
                
            }
        }

@@ -66,7 +66,7 @@ struct HomeView: View {
                                 .foregroundColor(.theme.label)
                                 .frame(width: 20, height: 20)
                                 .onTapGesture {
-                                  
+                                    navigator.push(Destination.cart)
                                 }
                             
                             
