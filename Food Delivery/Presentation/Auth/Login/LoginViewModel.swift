@@ -36,7 +36,10 @@ class LoginViewModel: BaseViewModel {
             try await useCase.login(data: ["email": email, "password":password])
             await setBusy(value: false)
             print("All is good there")
-            onSuccess()
+             await MainActor.run(body: {
+                onSuccess()
+            })
+           
         }  catch let error as APIError {
             await setBusy(value: false)
             await setError(error: error)
