@@ -27,8 +27,7 @@ struct FoodView: View {
                                 .overlay(
                                     
                                     Circle()
-                                       
-                                        .foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))
+                                       .foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))
                                         .frame(width: 32, height: 32)
                                         .overlay(
                                             Image("heart")

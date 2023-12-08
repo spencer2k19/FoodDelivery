@@ -19,9 +19,9 @@ Food-Delivery is an open-source meal delivery application built in SwiftUI, desi
 
 ## Requirements
 
-- Install and setup backend project at [https://github.com/spencer2k19/Food-Delivery-backend](https://github.com/spencer2k19/Food-Delivery-backend)
+- Install and setup backend project at https://github.com/spencer2k19/Food-Delivery-backend
 - iOS 13 or later
-- Compatible with only iPhone
+- Compatible with only iPhone. You can also check Android version at https://github.com/spencer2k19/Food-Delivery-Android
 
 ## License
 

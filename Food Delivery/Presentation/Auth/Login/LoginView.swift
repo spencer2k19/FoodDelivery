@@ -49,7 +49,7 @@ struct LoginView: View {
                     Rectangle()
                         .foregroundColor(.clear)
                         .frame(width: 100,height: 2)
-                        .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                        .background(Color(red: 0.929, green: 0.93, blue: 0.93))
                     
                     
                     Text(" or continue with ")
